@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://2nbq7eb4c36y"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_4e1l2"]
+[ext_resource type="PackedScene" uid="uid://wp7dw50ovdcm" path="res://tile_map.tscn" id="1_kvpk1"]
+[ext_resource type="PackedScene" uid="uid://cx5n27yel6umx" path="res://riot_arena.tscn" id="2_26x0f"]
+[ext_resource type="PackedScene" uid="uid://c8byjbhaacnip" path="res://player.tscn" id="4_nunlq"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_4e1l2")
+
+[node name="TileMap" parent="." instance=ExtResource("1_kvpk1")]
+
+[node name="riotArena" parent="." instance=ExtResource("2_26x0f")]
+position = Vector2(5, 352)
+
+[node name="fps" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.052
+anchor_top = 0.015
+anchor_right = 0.052
+anchor_bottom = 0.015
+offset_left = -6.56
+offset_top = 264.2
+offset_right = 76.44
+offset_bottom = 287.2
+
+[node name="player" parent="." instance=ExtResource("4_nunlq")]
