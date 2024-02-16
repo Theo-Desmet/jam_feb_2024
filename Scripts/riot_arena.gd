@@ -1,17 +1,17 @@
 extends Node2D
 
+@export var npc_scene: PackedScene
+
 #var xMin = $Area.
 #var xMax
 #var yMin
 #var yMax
 
 func _ready():
-	var scene = load("res://npc.tscn")
-	var npc
-	for i in range(1000):
-		npc = scene.instantiate()
-		npc.position.x = randi() % 950
-		npc.position.y = randi() % 340
+	for i in range(15):
+		var npc = npc_scene.instantiate()
+		npc.position.x = i
+		npc.position.y = i
 		add_child(npc)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

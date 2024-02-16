@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://2nbq7eb4c36y"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_ak5b0"]
+[ext_resource type="PackedScene" uid="uid://crgheffexcbua" path="res://Scenes/other/test.tscn" id="2_cy7u8"]
+[ext_resource type="PackedScene" uid="uid://deqb2kx4xg0r3" path="res://Scenes/riot/pocile_area.tscn" id="3_3pajp"]
+[ext_resource type="PackedScene" uid="uid://cx5n27yel6umx" path="res://Scenes/riot/riot_arena.tscn" id="4_hee5y"]
+[ext_resource type="PackedScene" uid="uid://c8byjbhaacnip" path="res://Scenes/other/player.tscn" id="5_ebnx5"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_ak5b0")
+
+[node name="Test" parent="." instance=ExtResource("2_cy7u8")]
+
+[node name="riotArena" parent="." instance=ExtResource("4_hee5y")]
+position = Vector2(5, 251)
+
+[node name="player" parent="." instance=ExtResource("5_ebnx5")]
+position = Vector2(150, 336)
+
+[node name="pocileArea" parent="." instance=ExtResource("3_3pajp")]
+position = Vector2(980, 229)
+scale = Vector2(0.995297, 0.964918)

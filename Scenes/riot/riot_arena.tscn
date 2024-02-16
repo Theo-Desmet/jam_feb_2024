@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx5n27yel6umx"]
+
+[ext_resource type="PackedScene" uid="uid://cyykfap00q6n8" path="res://Scenes/riot/npc.tscn" id="2_pp0a6"]
+
+[sub_resource type="GDScript" id="GDScript_7f7kn"]
+script/source = "extends Node2D
+
+@export var npc_scene: PackedScene
+
+#var xMin = $Area.
+#var xMax
+#var yMin
+#var yMax
+
+func _ready():
+	for i in range(1500):
+		var npc = npc_scene.instantiate()
+		npc.position.x = randi() % 960
+		npc.position.y = randi() % 240
+		add_child(npc)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1hqe"]
+size = Vector2(930.875, 285)
+
+[node name="riotArena" type="Node2D"]
+script = SubResource("GDScript_7f7kn")
+npc_scene = ExtResource("2_pp0a6")
+metadata/_edit_group_ = true
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(460.563, 141.5)
+shape = SubResource("RectangleShape2D_c1hqe")

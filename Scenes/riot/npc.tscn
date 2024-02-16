@@ -1,6 +1,6 @@
 [gd_scene load_steps=64 format=3 uid="uid://cyykfap00q6n8"]
 
-[ext_resource type="Script" path="res://npc.gd" id="1_o38ki"]
+[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_o38ki"]
 [ext_resource type="Texture2D" uid="uid://d18yubmuj0f0f" path="res://asset/sprite/tile_0429.png" id="2_dmj2q"]
 [ext_resource type="Texture2D" uid="uid://c1s0yriqobs3d" path="res://asset/sprite/tile_0024.png" id="2_m7pnd"]
 [ext_resource type="Texture2D" uid="uid://ddxbl5hs6rilf" path="res://asset/sprite/tile_0051.png" id="3_pk8ng"]

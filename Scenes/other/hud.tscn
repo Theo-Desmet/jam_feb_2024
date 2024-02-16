@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cref27vskno5f"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_h2g4e"]
+
+[node name="hud" type="Camera2D"]
+zoom = Vector2(6, 6)
+limit_left = 0
+limit_top = 0
+limit_right = 1100
+limit_bottom = 510
+limit_smoothed = true
+script = ExtResource("1_h2g4e")
+
+[node name="fps" type="Label" parent="."]
+offset_left = -30.0
+offset_top = -45.0
+offset_right = -29.0
+offset_bottom = -22.0
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true

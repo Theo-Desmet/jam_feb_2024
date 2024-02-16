@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://deqb2kx4xg0r3"]
 
-[ext_resource type="PackedScene" uid="uid://b32rsslsbouh7" path="res://npc_police.tscn" id="1_b76dm"]
-[ext_resource type="Script" path="res://pocile_area.gd" id="1_hjvlh"]
+[ext_resource type="PackedScene" uid="uid://b32rsslsbouh7" path="res://Scenes/riot/npc_police.tscn" id="1_b76dm"]
+[ext_resource type="Script" path="res://Scripts/pocile_area.gd" id="1_hjvlh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4rm2"]
 size = Vector2(1337, 360)
@@ -11,6 +11,7 @@ size = Vector2(1335, 368)
 
 [node name="pocileArea" type="Node2D"]
 script = ExtResource("1_hjvlh")
+police_scene = ExtResource("1_b76dm")
 
 [node name="Area" type="Area2D" parent="."]
 collision_layer = 7
@@ -28,9 +29,3 @@ collision_mask = 255
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(673, 184)
 shape = SubResource("RectangleShape2D_gests")
-
-[node name="npcPolice" parent="." instance=ExtResource("1_b76dm")]
-visible = false
-
-[connection signal="area_entered" from="Area" to="." method="_on_area_area_entered"]
-[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

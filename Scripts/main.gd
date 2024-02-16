@@ -2,10 +2,10 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	get_window().size = Vector2i(1920, 1080)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var aled = "FPS " + str(Engine.get_frames_per_second())
-	$fps.text = aled
+	if Input.is_action_pressed("exit"):
+		get_tree().quit()

@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8byjbhaacnip"]
+[gd_scene load_steps=17 format=3 uid="uid://c8byjbhaacnip"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_f74ov"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_f74ov"]
 [ext_resource type="Texture2D" uid="uid://dvby8bj87w23x" path="res://asset/sprite/tile_0267.png" id="2_ttdm8"]
 [ext_resource type="Texture2D" uid="uid://id3tjlnsvqrv" path="res://asset/sprite/tile_0294.png" id="3_5r4ke"]
 [ext_resource type="Texture2D" uid="uid://dq7dg3jsvutb1" path="res://asset/sprite/tile_0321.png" id="4_itg8a"]
@@ -13,9 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://dxaxa78ldokej" path="res://asset/sprite/tile_0268.png" id="11_6gsd0"]
 [ext_resource type="Texture2D" uid="uid://bv71xbjmdga18" path="res://asset/sprite/tile_0295.png" id="12_m47wr"]
 [ext_resource type="Texture2D" uid="uid://b4mnmvx8c6b5x" path="res://asset/sprite/tile_0322.png" id="13_8sjcb"]
+[ext_resource type="PackedScene" uid="uid://cref27vskno5f" path="res://Scenes/other/hud.tscn" id="14_onvej"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7nj0x"]
-radius = 5.0
+radius = 2.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yi1ul"]
 animations = [{
@@ -123,11 +124,6 @@ shape = SubResource("CircleShape2D_7nj0x")
 [node name="sprite" type="AnimatedSprite2D" parent="body"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_yi1ul")
-animation = &"down"
+animation = &"up"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-limit_left = 0
-limit_top = 0
-limit_right = 1280
-limit_bottom = 720
+[node name="hud" parent="." instance=ExtResource("14_onvej")]

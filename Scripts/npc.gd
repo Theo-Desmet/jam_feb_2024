@@ -1,7 +1,7 @@
 extends Node2D
 
 var velocity = Vector2.ZERO
-var maxPos = Vector2(950, 340) #$Area/CollisionShape2D.position.x * 2
+var maxPos = Vector2(950, 250) #$Area/CollisionShape2D.position.x * 2
 var npcType = 0
 var animTime = 0
 
@@ -21,18 +21,26 @@ func	moveNpc(delta):
 
 	if animTime < 100:
 		animTime += 1
+	elif position.x > maxPos.x:
+		$Sprite.animation = move[1] + str(npcType)
+		velocity.x = -1
+		animTime = 85 + randi() % 10 
+	elif position.y < 0:
+		$Sprite.animation = move[3] + str(npcType)
+		velocity.y = 1
+		animTime = 85 + randi() % 10 
 	elif direction == 0 or position.x < 5:
 		$Sprite.animation = move[0] + str(npcType)
 		velocity.x = 1
-		animTime = randi() % 90 + 10
-	elif direction == 1 or position.x > maxPos.x:
+		animTime = randi() % 60 + 40
+	elif direction == 1:
 		$Sprite.animation = move[1] + str(npcType)
 		velocity.x = -1
-		animTime = randi() % 80 + 20
+		animTime = randi() % 60 + 40
 	elif direction == 2 or position.y > maxPos.y:
 		$Sprite.animation = move[2] + str(npcType)
 		velocity.y = -1
-		animTime = randi() % 80 + 20
+		animTime = randi() % 60 + 40
 	elif direction == 3 or position.y < 0:
 		$Sprite.animation = move[3] + str(npcType)
 		velocity.y = 1
