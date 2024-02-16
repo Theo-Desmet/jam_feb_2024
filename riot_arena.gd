@@ -8,7 +8,7 @@ extends Node2D
 func _ready():
 	var scene = load("res://npc.tscn")
 	var npc
-	for i in range(1):
+	for i in range(1000):
 		npc = scene.instantiate()
 		npc.position.x = randi() % 950
 		npc.position.y = randi() % 340

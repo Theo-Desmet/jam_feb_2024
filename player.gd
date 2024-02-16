@@ -52,10 +52,3 @@ func _process(delta):
 			$body/sprite.animation = "down"
 		elif velocity.y < 0:
 			$body/sprite.animation = "up"	
-
-		
-
-
-
-func _on_body_body_entered(body):
-	print("oskour")

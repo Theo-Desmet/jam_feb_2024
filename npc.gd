@@ -21,19 +21,19 @@ func	moveNpc(delta):
 
 	if animTime < 100:
 		animTime += 1
-	elif direction == 0:
+	elif direction == 0 or position.x < 5:
 		$Sprite.animation = move[0] + str(npcType)
 		velocity.x = 1
 		animTime = randi() % 90 + 10
-	elif direction == 1:
+	elif direction == 1 or position.x > maxPos.x:
 		$Sprite.animation = move[1] + str(npcType)
 		velocity.x = -1
 		animTime = randi() % 80 + 20
-	elif direction == 2:
+	elif direction == 2 or position.y > maxPos.y:
 		$Sprite.animation = move[2] + str(npcType)
 		velocity.y = -1
 		animTime = randi() % 80 + 20
-	elif direction == 3:
+	elif direction == 3 or position.y < 0:
 		$Sprite.animation = move[3] + str(npcType)
 		velocity.y = 1
 		animTime = randi() % 80 + 20
@@ -42,13 +42,9 @@ func	moveNpc(delta):
 		$Sprite.animation = move[0] + str(npcType)
 	
 	position += velocity * speed * delta
-	position = position.clamp(Vector2.ZERO, maxPos)
+	#position = position.clamp(Vector2.ZERO, maxPos)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(position)
-	if position.x > maxPos.x:
-		position.x = maxPos.x
-	if position.y > maxPos.y:
-		position.y = maxPos.y
+
 	moveNpc(delta)
