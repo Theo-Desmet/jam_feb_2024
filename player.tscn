@@ -123,7 +123,7 @@ shape = SubResource("CircleShape2D_7nj0x")
 [node name="sprite" type="AnimatedSprite2D" parent="body"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_yi1ul")
-animation = &"up_stop"
+animation = &"down"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

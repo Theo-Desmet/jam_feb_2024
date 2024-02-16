@@ -25,7 +25,7 @@ func _process(delta):
 		last_input = "down_stop"
 	if !Input.is_action_pressed("down") and !Input.is_action_pressed("up") and !Input.is_action_pressed("left") and !Input.is_action_pressed("right"):
 		$body/sprite.animation = last_input
-		velocity.x -= 0.2
+		velocity.x -= 0.1
 		position += velocity * delta * speed
 		position = position.clamp(Vector2.ZERO,screen_size)
 	else:

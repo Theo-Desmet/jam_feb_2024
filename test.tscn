@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://crgheffexcbua"]
+
+[ext_resource type="PackedScene" uid="uid://bgn5p702bvqdu" path="res://Scenes/BlockSpawner.tscn" id="1_a7vdv"]
+
+[node name="Test" type="Node2D"]
+
+[node name="BlockSpawner" parent="." instance=ExtResource("1_a7vdv")]
