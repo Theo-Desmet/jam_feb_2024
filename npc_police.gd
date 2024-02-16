@@ -1,17 +1,20 @@
 extends Node2D
 
 var velocity = Vector2.ZERO
-var maxPos = Vector2(950, 340) #$Area/CollisionShape2D.position.x * 2
+var maxPos = Vector2(700, 340) #$Area/CollisionShape2D.position.x * 2
 var npcType = 0
 var animTime = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	velocity = Vector2.ZERO
-	npcType = randi() % 5
-	$Sprite.animation = "right" + str(npcType)
-	$Sprite.play()
+	#velocity = Vector2.ZERO
+	#npcType = randi() % 5
+	$body/sprite.animation = "left" #+ str(npcType)
+	$body/sprite.play()
 
+func _integrate_forces(state):
+	var vel = state.get_linear_velocity ()
+	state.set_linear_velocity (Vector2 (0, 0))
 
 func	moveNpc(delta):
 	var velocity = Vector2.ZERO
@@ -22,33 +25,28 @@ func	moveNpc(delta):
 	if animTime < 100:
 		animTime += 1
 	elif direction == 0:
-		$Sprite.animation = move[0] + str(npcType)
+		$body/Sprite.animation = move[0] + str(npcType)
 		velocity.x = 1
 		animTime = randi() % 90 + 10
 	elif direction == 1:
-		$Sprite.animation = move[1] + str(npcType)
+		$body/Sprite.animation = move[1] + str(npcType)
 		velocity.x = -1
 		animTime = randi() % 80 + 20
 	elif direction == 2:
-		$Sprite.animation = move[2] + str(npcType)
+		$body/Sprite.animation = move[2] + str(npcType)
 		velocity.y = -1
 		animTime = randi() % 80 + 20
 	elif direction == 3:
-		$Sprite.animation = move[3] + str(npcType)
+		$body/Sprite.animation = move[3] + str(npcType)
 		velocity.y = 1
 		animTime = randi() % 80 + 20
 	else:
 		animTime = randi() % 80 + 20
-		$Sprite.animation = move[0] + str(npcType)
+		$body/Sprite.animation = move[0] + str(npcType)
 	
 	position += velocity * speed * delta
 	position = position.clamp(Vector2.ZERO, maxPos)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(position)
-	if position.x > maxPos.x:
-		position.x = maxPos.x
-	if position.y > maxPos.y:
-		position.y = maxPos.y
-	moveNpc(delta)
+	pass

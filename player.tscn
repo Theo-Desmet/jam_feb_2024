@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://bv71xbjmdga18" path="res://asset/sprite/tile_0295.png" id="12_m47wr"]
 [ext_resource type="Texture2D" uid="uid://b4mnmvx8c6b5x" path="res://asset/sprite/tile_0322.png" id="13_8sjcb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kmij"]
-size = Vector2(12, 14)
+[sub_resource type="CircleShape2D" id="CircleShape2D_7nj0x"]
+radius = 5.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yi1ul"]
 animations = [{
@@ -35,6 +35,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_ttdm8")
+}],
+"loop": true,
+"name": &"down_stop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_yf5co")
 }, {
 "duration": 1.0,
@@ -45,6 +53,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yf5co")
+}],
+"loop": true,
+"name": &"left_stop",
 "speed": 5.0
 }, {
 "frames": [{
@@ -63,6 +79,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("8_c8toq")
+}],
+"loop": true,
+"name": &"right_stop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("11_6gsd0")
 }, {
 "duration": 1.0,
@@ -74,21 +98,36 @@ animations = [{
 "loop": true,
 "name": &"up",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_6gsd0")
+}],
+"loop": true,
+"name": &"up_stop",
+"speed": 5.0
 }]
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_f74ov")
 
 [node name="body" type="CharacterBody2D" parent="."]
+collision_mask = 6
 
 [node name="Collision" type="CollisionShape2D" parent="body"]
+light_mask = 7
+visibility_layer = 7
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_6kmij")
+shape = SubResource("CircleShape2D_7nj0x")
 
 [node name="sprite" type="AnimatedSprite2D" parent="body"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_yi1ul")
-animation = &"up"
+animation = &"up_stop"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 720

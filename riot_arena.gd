@@ -8,13 +8,11 @@ extends Node2D
 func _ready():
 	var scene = load("res://npc.tscn")
 	var npc
-	for i in range(1000):
+	for i in range(1):
 		npc = scene.instantiate()
-		npc.position.x = randi() % int($Area/CollisionShape2D.position.x * 2)
-		npc.position.y = randi() % int($Area/CollisionShape2D.position.y * 2)
+		npc.position.x = randi() % 950
+		npc.position.y = randi() % 340
 		add_child(npc)
-		print($Area/CollisionShape2D.position.x * 2, $Area/CollisionShape2D.position.y * 2)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
