@@ -1,20 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://cref27vskno5f"]
+[gd_scene load_steps=2 format=3 uid="uid://2w4jil4fl2u6"]
 
-[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_h2g4e"]
+[ext_resource type="Texture2D" uid="uid://cgnfg1greil0h" path="res://asset/gui/Capture_d_écran_2024-02-17_16191.png" id="1_y4gyl"]
 
-[node name="hud" type="Camera2D"]
-zoom = Vector2(6, 6)
-limit_left = 0
-limit_top = 0
-limit_right = 1100
-limit_bottom = 510
-limit_smoothed = true
-script = ExtResource("1_h2g4e")
+[node name="hud" type="CanvasLayer"]
 
-[node name="fps" type="Label" parent="."]
-offset_left = -30.0
-offset_top = -45.0
-offset_right = -29.0
-offset_bottom = -22.0
-size_flags_horizontal = 4
-metadata/_edit_use_anchors_ = true
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "00:00"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = -157.0
+offset_right = 428.0
+offset_bottom = -37.0
+grow_vertical = 0
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_y4gyl")
+
+[node name="TextureRect2" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_y4gyl")
+
+[node name="TextureRect3" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_y4gyl")

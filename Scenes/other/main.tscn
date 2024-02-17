@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://2nbq7eb4c36y"]
+[gd_scene load_steps=7 format=3 uid="uid://2nbq7eb4c36y"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_ak5b0"]
 [ext_resource type="PackedScene" uid="uid://deqb2kx4xg0r3" path="res://Scenes/riot/pocile_area.tscn" id="3_3pajp"]
 [ext_resource type="PackedScene" uid="uid://cx5n27yel6umx" path="res://Scenes/riot/riot_arena.tscn" id="4_hee5y"]
 [ext_resource type="PackedScene" uid="uid://c8byjbhaacnip" path="res://Scenes/other/player.tscn" id="5_ebnx5"]
 [ext_resource type="PackedScene" uid="uid://bgn5p702bvqdu" path="res://Scenes/BlockSpawner.tscn" id="5_sskxr"]
+[ext_resource type="PackedScene" uid="uid://2w4jil4fl2u6" path="res://Scenes/other/hud.tscn" id="6_7jo25"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_ak5b0")
@@ -20,3 +21,5 @@ scale = Vector2(0.995297, 0.964918)
 
 [node name="player" parent="." instance=ExtResource("5_ebnx5")]
 position = Vector2(873, 423)
+
+[node name="hud" parent="." instance=ExtResource("6_7jo25")]
