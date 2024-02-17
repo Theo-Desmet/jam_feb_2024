@@ -1,16 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://2w4jil4fl2u6"]
+[gd_scene load_steps=7 format=3 uid="uid://2w4jil4fl2u6"]
 
-[ext_resource type="Texture2D" uid="uid://cgnfg1greil0h" path="res://asset/gui/Capture_d_écran_2024-02-17_16191.png" id="1_y4gyl"]
+[ext_resource type="Texture2D" uid="uid://bbkk8yqi56fq5" path="res://asset/gui/score_panel.png" id="1_0yva1"]
+[ext_resource type="Texture2D" uid="uid://cgnfg1greil0h" path="res://asset/gui/powerUp_tile.png" id="1_y4gyl"]
+[ext_resource type="Texture2D" uid="uid://dv52ehrfxug3t" path="res://asset/gui/riot_bar.png" id="2_exlrg"]
+[ext_resource type="Texture2D" uid="uid://n5gypklb45g6" path="res://asset/gui/police_bar.png" id="3_8k5ee"]
+[ext_resource type="Texture2D" uid="uid://4s1pa6i6vwln" path="res://asset/gui/riot_cell.png" id="3_kneys"]
+[ext_resource type="Texture2D" uid="uid://b0s2oivmia08o" path="res://asset/gui/police_cell.png" id="5_gvc3j"]
 
 [node name="hud" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 27.0
+offset_top = 23.0
+offset_right = 489.0
+offset_bottom = 123.0
+texture = ExtResource("1_0yva1")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 35.0
+offset_top = -36.0
+offset_right = 431.0
+offset_bottom = 36.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Score : 99999999"
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -83.0
+offset_right = 83.0
+offset_bottom = 88.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 64
 text = "00:00"
@@ -31,9 +56,137 @@ layout_mode = 2
 texture = ExtResource("1_y4gyl")
 
 [node name="TextureRect2" type="TextureRect" parent="GridContainer"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("1_y4gyl")
 
 [node name="TextureRect3" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
 texture = ExtResource("1_y4gyl")
+
+[node name="GridContainer2" type="GridContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -454.0
+offset_top = 3.0
+offset_right = 359.0
+offset_bottom = 497.0
+grow_horizontal = 0
+
+[node name="riot_bar" type="TextureRect" parent="GridContainer2"]
+layout_mode = 2
+texture = ExtResource("2_exlrg")
+
+[node name="riot_cell1" type="TextureRect" parent="GridContainer2/riot_bar"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 51.0
+offset_right = 159.0
+offset_bottom = 71.0
+texture = ExtResource("3_kneys")
+
+[node name="riot_cell2" type="TextureRect" parent="GridContainer2/riot_bar"]
+offset_left = 165.0
+offset_top = 51.0
+offset_right = 198.0
+offset_bottom = 71.0
+texture = ExtResource("3_kneys")
+
+[node name="riot_cell3" type="TextureRect" parent="GridContainer2/riot_bar"]
+offset_left = 202.0
+offset_top = 51.0
+offset_right = 235.0
+offset_bottom = 71.0
+texture = ExtResource("3_kneys")
+
+[node name="riot_cell4" type="TextureRect" parent="GridContainer2/riot_bar"]
+offset_left = 240.0
+offset_top = 51.0
+offset_right = 273.0
+offset_bottom = 71.0
+texture = ExtResource("3_kneys")
+
+[node name="riot_cell5" type="TextureRect" parent="GridContainer2/riot_bar"]
+offset_left = 278.0
+offset_top = 51.0
+offset_right = 311.0
+offset_bottom = 71.0
+texture = ExtResource("3_kneys")
+
+[node name="riot_cell6" type="TextureRect" parent="GridContainer2/riot_bar"]
+offset_left = 317.0
+offset_top = 51.0
+offset_right = 350.0
+offset_bottom = 71.0
+texture = ExtResource("3_kneys")
+
+[node name="riot_cell7" type="TextureRect" parent="GridContainer2/riot_bar"]
+offset_left = 355.0
+offset_top = 51.0
+offset_right = 388.0
+offset_bottom = 71.0
+texture = ExtResource("3_kneys")
+
+[node name="Label" type="Label" parent="GridContainer2/riot_bar"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 35.0
+offset_right = 81.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 24
+text = "x1.0"
+
+[node name="police_bar" type="TextureRect" parent="GridContainer2"]
+layout_mode = 2
+texture = ExtResource("3_8k5ee")
+
+[node name="police_cell" type="TextureRect" parent="GridContainer2/police_bar"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 56.0
+offset_bottom = 39.0
+texture = ExtResource("5_gvc3j")
+
+[node name="police_cell2" type="TextureRect" parent="GridContainer2/police_bar"]
+offset_left = 75.0
+offset_top = 19.0
+offset_right = 111.0
+offset_bottom = 39.0
+texture = ExtResource("5_gvc3j")
+
+[node name="police_cell3" type="TextureRect" parent="GridContainer2/police_bar"]
+offset_left = 131.0
+offset_top = 19.0
+offset_right = 167.0
+offset_bottom = 39.0
+texture = ExtResource("5_gvc3j")
+
+[node name="police_cell4" type="TextureRect" parent="GridContainer2/police_bar"]
+offset_left = 186.0
+offset_top = 19.0
+offset_right = 222.0
+offset_bottom = 39.0
+texture = ExtResource("5_gvc3j")
+
+[node name="police_cell5" type="TextureRect" parent="GridContainer2/police_bar"]
+offset_left = 241.0
+offset_top = 19.0
+offset_right = 277.0
+offset_bottom = 39.0
+texture = ExtResource("5_gvc3j")
+
+[node name="police_cell6" type="TextureRect" parent="GridContainer2/police_bar"]
+offset_left = 296.0
+offset_top = 19.0
+offset_right = 332.0
+offset_bottom = 39.0
+texture = ExtResource("5_gvc3j")
+
+[node name="police_cell7" type="TextureRect" parent="GridContainer2/police_bar"]
+offset_left = 351.0
+offset_top = 19.0
+offset_right = 387.0
+offset_bottom = 39.0
+texture = ExtResource("5_gvc3j")

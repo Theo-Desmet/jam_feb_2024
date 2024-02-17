@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgnfg1greil0h"
-path="res://.godot/imported/Capture_d_écran_2024-02-17_16191.png-f033a481faf82aa9eda02539b37e098c.ctex"
+uid="uid://4s1pa6i6vwln"
+path="res://.godot/imported/riot_cell.png-32b43e375cffac6332e63e065723e2a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/gui/Capture_d_écran_2024-02-17_16191.png"
-dest_files=["res://.godot/imported/Capture_d_écran_2024-02-17_16191.png-f033a481faf82aa9eda02539b37e098c.ctex"]
+source_file="res://asset/gui/riot_cell.png"
+dest_files=["res://.godot/imported/riot_cell.png-32b43e375cffac6332e63e065723e2a2.ctex"]
 
 [params]
 
