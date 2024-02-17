@@ -36,7 +36,7 @@ func _process(delta):
 			if position.y < 252 and velocity.y > 0:
 				velocity.y = 0
 		
-		$body/sprite.animation = last_input		
+		$body/sprite.animation = last_input
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed
 			$body/sprite.play()	

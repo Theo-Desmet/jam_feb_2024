@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://c8byjbhaacnip"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_f74ov"]
+[ext_resource type="Script" path="res://Scenes/other/Player2.gd" id="1_kehy6"]
 [ext_resource type="Texture2D" uid="uid://dvby8bj87w23x" path="res://asset/sprite/tile_0267.png" id="2_ttdm8"]
 [ext_resource type="Texture2D" uid="uid://id3tjlnsvqrv" path="res://asset/sprite/tile_0294.png" id="3_5r4ke"]
 [ext_resource type="Texture2D" uid="uid://dq7dg3jsvutb1" path="res://asset/sprite/tile_0321.png" id="4_itg8a"]
@@ -14,9 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://bv71xbjmdga18" path="res://asset/sprite/tile_0295.png" id="12_m47wr"]
 [ext_resource type="Texture2D" uid="uid://b4mnmvx8c6b5x" path="res://asset/sprite/tile_0322.png" id="13_8sjcb"]
 [ext_resource type="PackedScene" uid="uid://cref27vskno5f" path="res://Scenes/other/hud.tscn" id="14_onvej"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_7nj0x"]
-radius = 2.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yi1ul"]
 animations = [{
@@ -109,21 +106,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="Node2D"]
-script = ExtResource("1_f74ov")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hlhlt"]
+radius = 6.0
+height = 16.0
 
-[node name="body" type="CharacterBody2D" parent="."]
-collision_mask = 6
+[node name="player" type="CharacterBody2D"]
+collision_mask = 4
+script = ExtResource("1_kehy6")
 
-[node name="Collision" type="CollisionShape2D" parent="body"]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_yi1ul")
+animation = &"down"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_7nj0x")
+shape = SubResource("CapsuleShape2D_hlhlt")
 
-[node name="sprite" type="AnimatedSprite2D" parent="body"]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_yi1ul")
-animation = &"up"
-
-[node name="hud" parent="." instance=ExtResource("14_onvej")]
+[node name="Camera" parent="." instance=ExtResource("14_onvej")]
+zoom = Vector2(4.5, 4.5)

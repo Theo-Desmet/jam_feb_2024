@@ -359,6 +359,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_index = 2
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_5juyy")
 animation = &"up0"
