@@ -9,16 +9,16 @@ script = ExtResource("1_yu8n8")
 metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 vertical_alignment = 1
+text_direction = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/Label"]
 show_behind_parent = true

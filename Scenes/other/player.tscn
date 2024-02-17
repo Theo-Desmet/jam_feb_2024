@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dxaxa78ldokej" path="res://asset/sprite/tile_0268.png" id="11_6gsd0"]
 [ext_resource type="Texture2D" uid="uid://bv71xbjmdga18" path="res://asset/sprite/tile_0295.png" id="12_m47wr"]
 [ext_resource type="Texture2D" uid="uid://b4mnmvx8c6b5x" path="res://asset/sprite/tile_0322.png" id="13_8sjcb"]
-[ext_resource type="PackedScene" uid="uid://cem8u76nkv67n" path="res://Scenes/other/camera.tscn" id="14_e6i5q"]
+[ext_resource type="PackedScene" uid="uid://xdwwsikn1r31" path="res://Scenes/other/camera.tscn" id="14_e6i5q"]
 [ext_resource type="Texture2D" uid="uid://houojgujerxx" path="res://asset/gui/E.png" id="15_m5amq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yi1ul"]
@@ -164,6 +164,7 @@ position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_hlhlt")
 
 [node name="camera" parent="." instance=ExtResource("14_e6i5q")]
+visible = true
 
 [node name="ActionKey" type="Sprite2D" parent="."]
 visible = false

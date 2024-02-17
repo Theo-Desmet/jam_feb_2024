@@ -1,15 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cem8u76nkv67n"]
-
-[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_h2g4e"]
+[gd_scene format=3 uid="uid://xdwwsikn1r31"]
 
 [node name="camera" type="Camera2D"]
+visible = false
 zoom = Vector2(6, 6)
 limit_left = 0
 limit_top = 0
 limit_right = 1100
 limit_bottom = 510
 limit_smoothed = true
-script = ExtResource("1_h2g4e")
 
 [node name="fps" type="Label" parent="."]
 offset_left = -30.0

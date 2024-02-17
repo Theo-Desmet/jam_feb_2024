@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2w4jil4fl2u6"]
+[gd_scene load_steps=9 format=3 uid="uid://2w4jil4fl2u6"]
 
 [ext_resource type="Texture2D" uid="uid://bbkk8yqi56fq5" path="res://asset/gui/score_panel.png" id="1_0yva1"]
 [ext_resource type="Script" path="res://Scenes/other/hud.gd" id="1_knp7r"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://n5gypklb45g6" path="res://asset/gui/police_bar.png" id="3_8k5ee"]
 [ext_resource type="Texture2D" uid="uid://4s1pa6i6vwln" path="res://asset/gui/riot_cell.png" id="3_kneys"]
 [ext_resource type="Texture2D" uid="uid://b0s2oivmia08o" path="res://asset/gui/police_cell.png" id="5_gvc3j"]
+[ext_resource type="Script" path="res://Scripts/fps.gd" id="8_31ni3"]
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_knp7r")
@@ -204,3 +205,8 @@ offset_top = 19.0
 offset_right = 387.0
 offset_bottom = 39.0
 texture = ExtResource("5_gvc3j")
+
+[node name="Fps" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("8_31ni3")
