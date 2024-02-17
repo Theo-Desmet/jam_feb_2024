@@ -29,7 +29,7 @@ func spawnBlockSignal():
 	var pos = 0;
 	for i in range(len(renderedPos)):
 		pos += renderedPos[i].x * 16;
-	pos = pos - (pos % 16)
+	pos = pos - (pos % 16);
 	spawnBlock(Vector2i(pos, 0));
 
 func spawnBlock(pos):

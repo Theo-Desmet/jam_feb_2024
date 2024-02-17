@@ -1,11 +1,13 @@
-extends Node
+extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_window().size = Vector2i(1920, 1080)
-	pass
+	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("exit"):
-		get_tree().quit()
+	pass
+
+func _on_timer_timeout():
+	GlobalSignal.SetPlayerMove.emit(true);
+	queue_free();

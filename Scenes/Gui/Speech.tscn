@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dantc7rm50kr4"]
+
+[ext_resource type="Texture2D" uid="uid://bpjn2ntakxvvb" path="res://asset/gui/SpeachBubbleBoarder.png" id="1_qcd1y"]
+[ext_resource type="Script" path="res://Scripts/Speech.gd" id="1_yu8n8"]
+
+[node name="Speech" type="Node2D"]
+z_index = 3
+script = ExtResource("1_yu8n8")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -5.0
+offset_right = 10.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qcd1y")

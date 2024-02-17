@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr3k8gjgyoqxy"]
+
+[ext_resource type="Script" path="res://Scripts/Actions/AActions.gd" id="1_ntd60"]
+[ext_resource type="Material" uid="uid://bmpqsykegx2it" path="res://Materials/AActions.tres" id="1_yvj6o"]
+[ext_resource type="Texture2D" uid="uid://ph13bd8qf431" path="res://asset/gui/interact.png" id="3_47c6t"]
+
+[sub_resource type="Animation" id="Animation_3c7j7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Exclam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2yn7a"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Exclam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -14), Vector2(0, -22)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jt3ee"]
+_data = {
+"RESET": SubResource("Animation_3c7j7"),
+"default": SubResource("Animation_2yn7a")
+}
+
+[node name="AActions" type="Node2D"]
+script = ExtResource("1_ntd60")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = ExtResource("1_yvj6o")
+
+[node name="Exclam" type="Sprite2D" parent="."]
+z_index = 2
+texture = ExtResource("3_47c6t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jt3ee")
+}
+autoplay = "default"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

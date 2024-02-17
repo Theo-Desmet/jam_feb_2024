@@ -1,6 +1,10 @@
 extends Node
 
 signal BlockDestroyed;
+signal ActionNearby;
+signal ActionAway;
+signal SetPlayerMove;
+signal OpenMiniGameContainer;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

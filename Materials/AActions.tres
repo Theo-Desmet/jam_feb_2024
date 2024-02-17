@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bmpqsykegx2it"]
+
+[ext_resource type="Shader" path="res://Shaders/AActions.gdshader" id="1_jf8gu"]
+
+[resource]
+shader = ExtResource("1_jf8gu")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.6

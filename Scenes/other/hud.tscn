@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://2w4jil4fl2u6"]
+[gd_scene load_steps=8 format=3 uid="uid://2w4jil4fl2u6"]
 
 [ext_resource type="Texture2D" uid="uid://bbkk8yqi56fq5" path="res://asset/gui/score_panel.png" id="1_0yva1"]
+[ext_resource type="Script" path="res://Scenes/other/hud.gd" id="1_knp7r"]
 [ext_resource type="Texture2D" uid="uid://cgnfg1greil0h" path="res://asset/gui/powerUp_tile.png" id="1_y4gyl"]
 [ext_resource type="Texture2D" uid="uid://dv52ehrfxug3t" path="res://asset/gui/riot_bar.png" id="2_exlrg"]
 [ext_resource type="Texture2D" uid="uid://n5gypklb45g6" path="res://asset/gui/police_bar.png" id="3_8k5ee"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b0s2oivmia08o" path="res://asset/gui/police_cell.png" id="5_gvc3j"]
 
 [node name="hud" type="CanvasLayer"]
+script = ExtResource("1_knp7r")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 27.0
@@ -87,6 +89,7 @@ offset_bottom = 71.0
 texture = ExtResource("3_kneys")
 
 [node name="riot_cell2" type="TextureRect" parent="GridContainer2/riot_bar"]
+layout_mode = 0
 offset_left = 165.0
 offset_top = 51.0
 offset_right = 198.0
@@ -94,6 +97,7 @@ offset_bottom = 71.0
 texture = ExtResource("3_kneys")
 
 [node name="riot_cell3" type="TextureRect" parent="GridContainer2/riot_bar"]
+layout_mode = 0
 offset_left = 202.0
 offset_top = 51.0
 offset_right = 235.0
@@ -101,6 +105,7 @@ offset_bottom = 71.0
 texture = ExtResource("3_kneys")
 
 [node name="riot_cell4" type="TextureRect" parent="GridContainer2/riot_bar"]
+layout_mode = 0
 offset_left = 240.0
 offset_top = 51.0
 offset_right = 273.0
@@ -108,6 +113,7 @@ offset_bottom = 71.0
 texture = ExtResource("3_kneys")
 
 [node name="riot_cell5" type="TextureRect" parent="GridContainer2/riot_bar"]
+layout_mode = 0
 offset_left = 278.0
 offset_top = 51.0
 offset_right = 311.0
@@ -115,6 +121,7 @@ offset_bottom = 71.0
 texture = ExtResource("3_kneys")
 
 [node name="riot_cell6" type="TextureRect" parent="GridContainer2/riot_bar"]
+layout_mode = 0
 offset_left = 317.0
 offset_top = 51.0
 offset_right = 350.0
@@ -122,6 +129,7 @@ offset_bottom = 71.0
 texture = ExtResource("3_kneys")
 
 [node name="riot_cell7" type="TextureRect" parent="GridContainer2/riot_bar"]
+layout_mode = 0
 offset_left = 355.0
 offset_top = 51.0
 offset_right = 388.0
@@ -150,6 +158,7 @@ offset_bottom = 39.0
 texture = ExtResource("5_gvc3j")
 
 [node name="police_cell2" type="TextureRect" parent="GridContainer2/police_bar"]
+layout_mode = 0
 offset_left = 75.0
 offset_top = 19.0
 offset_right = 111.0
@@ -157,6 +166,7 @@ offset_bottom = 39.0
 texture = ExtResource("5_gvc3j")
 
 [node name="police_cell3" type="TextureRect" parent="GridContainer2/police_bar"]
+layout_mode = 0
 offset_left = 131.0
 offset_top = 19.0
 offset_right = 167.0
@@ -164,6 +174,7 @@ offset_bottom = 39.0
 texture = ExtResource("5_gvc3j")
 
 [node name="police_cell4" type="TextureRect" parent="GridContainer2/police_bar"]
+layout_mode = 0
 offset_left = 186.0
 offset_top = 19.0
 offset_right = 222.0
@@ -171,6 +182,7 @@ offset_bottom = 39.0
 texture = ExtResource("5_gvc3j")
 
 [node name="police_cell5" type="TextureRect" parent="GridContainer2/police_bar"]
+layout_mode = 0
 offset_left = 241.0
 offset_top = 19.0
 offset_right = 277.0
@@ -178,6 +190,7 @@ offset_bottom = 39.0
 texture = ExtResource("5_gvc3j")
 
 [node name="police_cell6" type="TextureRect" parent="GridContainer2/police_bar"]
+layout_mode = 0
 offset_left = 296.0
 offset_top = 19.0
 offset_right = 332.0
@@ -185,6 +198,7 @@ offset_bottom = 39.0
 texture = ExtResource("5_gvc3j")
 
 [node name="police_cell7" type="TextureRect" parent="GridContainer2/police_bar"]
+layout_mode = 0
 offset_left = 351.0
 offset_top = 19.0
 offset_right = 387.0

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://7ai3v6kh1hr0"]
+
+[ext_resource type="Texture2D" uid="uid://cgnfg1greil0h" path="res://asset/gui/powerUp_tile.png" id="1_duf3n"]
+[ext_resource type="Script" path="res://Scripts/MiniGameContainer.gd" id="1_m6v2m"]
+
+[node name="MiniGameContainer" type="Node2D"]
+script = ExtResource("1_m6v2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_duf3n")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

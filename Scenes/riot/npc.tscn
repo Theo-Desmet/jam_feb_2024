@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://cyykfap00q6n8"]
+[gd_scene load_steps=65 format=3 uid="uid://cyykfap00q6n8"]
 
 [ext_resource type="Script" path="res://Scripts/npc.gd" id="1_o38ki"]
 [ext_resource type="Texture2D" uid="uid://d18yubmuj0f0f" path="res://asset/sprite/tile_0429.png" id="2_dmj2q"]
@@ -61,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://ccxbevfivgqjh" path="res://asset/sprite/tile_0376.png" id="48_onj8s"]
 [ext_resource type="Texture2D" uid="uid://b25rg1da0h34u" path="res://asset/sprite/tile_0403.png" id="49_80r1y"]
 [ext_resource type="Texture2D" uid="uid://cupjocgnwia0h" path="res://asset/sprite/tile_0484.png" id="49_x6r8l"]
+[ext_resource type="PackedScene" uid="uid://dantc7rm50kr4" path="res://Scenes/Gui/Speech.tscn" id="62_dspbc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5juyy"]
 animations = [{
@@ -367,3 +368,14 @@ animation = &"up0"
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_p3kkv")
+
+[node name="Speech" parent="." instance=ExtResource("62_dspbc")]
+visible = false
+position = Vector2(6, -9)
+scale = Vector2(0.2, 0.2)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
