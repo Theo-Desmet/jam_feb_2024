@@ -1,5 +1,9 @@
 extends Node2D
 
+class_name AActions;
+
+var infos = {};
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -9,9 +13,13 @@ func _process(delta):
 	pass
 	
 func disable():
+	#pass
 	$Sprite.set_material(null);
 	$Area2D.monitoring = false;
 	$Exclam.visible = false;
+
+func getInfos():
+	return infos;
 
 func _on_area_2d_body_entered(body):
 	GlobalSignal.ActionNearby.emit(self);

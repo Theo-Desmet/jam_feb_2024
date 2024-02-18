@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cckpkphc3ol8"
-path="res://.godot/imported/BACKTO1982.TTF-070c35616b07f94d7566fc00967b6d42.fontdata"
+path="res://.godot/imported/BACKTO1982.TTF-d4e11b8a10c3e21548f6f77a76fa5513.fontdata"
 
 [deps]
 
-source_file="res://Scenes/other/BACKTO1982.TTF"
-dest_files=["res://.godot/imported/BACKTO1982.TTF-070c35616b07f94d7566fc00967b6d42.fontdata"]
+source_file="res://asset/Fonts/BACKTO1982.TTF"
+dest_files=["res://.godot/imported/BACKTO1982.TTF-d4e11b8a10c3e21548f6f77a76fa5513.fontdata"]
 
 [params]
 

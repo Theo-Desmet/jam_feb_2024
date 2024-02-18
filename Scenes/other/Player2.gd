@@ -57,7 +57,7 @@ func _process(delta):
 		position = position.clamp(Vector2(8, 8),Vector2(1095, 502));
 
 	if (Input.is_action_pressed("interact") and canInteract):
-		GlobalSignal.OpenMiniGameContainer.emit();
+		GlobalSignal.OpenMiniGameContainer.emit(currentActionInstance);
 		actionAway();
 		canMove = false;
 		currentActionInstance.disable();

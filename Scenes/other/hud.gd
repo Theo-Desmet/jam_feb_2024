@@ -15,10 +15,11 @@ func _ready():
 	timeSec = 0	
 	GlobalSignal.OpenMiniGameContainer.connect(miniGameContainer);
 
-func miniGameContainer():
+func miniGameContainer(instance):
 	var c = container.instantiate();
-	c.global_position.x = 1920 / 2;
-	c.global_position.y = 1080 / 2;
+	c.miniGameInfos = instance.getInfos();
+	c.global_position.x = get_viewport().size.x / 2;
+	c.global_position.y = get_viewport().size.y / 2;
 	add_child(c);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
