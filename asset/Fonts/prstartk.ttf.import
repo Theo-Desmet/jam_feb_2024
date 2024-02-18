@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b74v6aoa03bwf"
-path="res://.godot/imported/yoster.ttf-f6a84f961add8e32f60a9f1981c183d9.fontdata"
+uid="uid://db24qmau0svhh"
+path="res://.godot/imported/prstartk.ttf-531a2438f9c37b6f8d9b39bec9203349.fontdata"
 
 [deps]
 
-source_file="res://asset/gui/yoster.ttf"
-dest_files=["res://.godot/imported/yoster.ttf-f6a84f961add8e32f60a9f1981c183d9.fontdata"]
+source_file="res://asset/Fonts/prstartk.ttf"
+dest_files=["res://.godot/imported/prstartk.ttf-531a2438f9c37b6f8d9b39bec9203349.fontdata"]
 
 [params]
 
