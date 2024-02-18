@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfrsadj7phgv8"]
+[gd_scene load_steps=2 format=3 uid="uid://bfrsadj7phgv8"]
 
 [ext_resource type="Script" path="res://Scripts/Minigames/ClickablePosters.gd" id="1_13cpi"]
-[ext_resource type="Texture2D" uid="uid://dgcnnd42p3lph" path="res://asset/sprite/tile_0028.png" id="1_e1fhj"]
 
 [node name="ClickablePosters" type="Node2D"]
 script = ExtResource("1_13cpi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(30, 30)
-texture = ExtResource("1_e1fhj")

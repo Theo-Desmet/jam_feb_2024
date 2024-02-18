@@ -51,7 +51,7 @@ func _process(delta):
 	if animation != "_stop":
 		$sprite.animation = animation;
 		$sprite.play();
-	velocity.x -= 0.12 * SPEED;
+	#velocity.x -= 0.12 * SPEED;
 	if (canMove):
 		move_and_collide(velocity * delta);
 		position = position.clamp(Vector2(8, 8),Vector2(1095, 502));

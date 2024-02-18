@@ -9,6 +9,7 @@ func _ready():
 	GlobalSignal.GameWin.connect(_on_timer_timeout);
 	var minigame = scenes[miniGameInfos["type"]].instantiate();
 	minigame.variation = miniGameInfos["variation"];
+	minigame.texture = miniGameInfos["texture"];
 	add_child(minigame);
 	pass # Replace with function body.
 

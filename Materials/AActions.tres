@@ -5,4 +5,4 @@
 [resource]
 shader = ExtResource("1_jf8gu")
 shader_parameter/line_color = Vector4(1, 1, 1, 1)
-shader_parameter/line_thickness = 0.6
+shader_parameter/line_thickness = 0.972

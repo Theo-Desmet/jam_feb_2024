@@ -1,24 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh2yua8rya2jn"]
+[gd_scene load_steps=5 format=3 uid="uid://bh2yua8rya2jn"]
 
 [ext_resource type="PackedScene" uid="uid://cr3k8gjgyoqxy" path="res://Scenes/Actions/AActions.tscn" id="1_ccgvo"]
-[ext_resource type="Script" path="res://Scripts/Actions/BurningCanister.gd" id="2_th3xk"]
-[ext_resource type="Texture2D" uid="uid://ci6a5y0c3kcdk" path="res://asset/sprite/tile_0251.png" id="2_yncpo"]
+[ext_resource type="Script" path="res://Scripts/Actions/WallPosters.gd" id="2_th3xk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4sllu"]
-size = Vector2(8, 12)
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xsd2"]
 size = Vector2(32.8594, 34.3438)
 
 [node name="AActions" instance=ExtResource("1_ccgvo")]
 script = ExtResource("2_th3xk")
+texture = null
 
 [node name="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_4sllu")
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource("RectangleShape2D_2xsd2")
-
-[node name="Sprite" parent="." index="2"]
-texture = ExtResource("2_yncpo")
