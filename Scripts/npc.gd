@@ -66,5 +66,7 @@ func _process(delta):
 func _on_timer_timeout():
 	var speech = randi_range(0, 43);
 	if speech == 42 and !$Speech.visible:
+		var r = randi_range(0, 6);
+		await get_tree().create_timer(r).timeout;
 		var t = randi_range(0, len(texts) - 1);
 		$Speech.drawText(texts[t]);

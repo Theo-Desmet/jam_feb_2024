@@ -5,6 +5,8 @@ var maxPos = Vector2(700, 340) #$Area/CollisionShape2D.position.x * 2
 var npcType = 0
 var animTime = 0
 
+const texts = ["Picole nationale, vos bouteille svp", "FBI OPEN DOORS", "c'est pas ma guerre mon colonel", "atchoum", "keep calm", "stay back", "go back", "don't push", "niger"]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#velocity = Vector2.ZERO
@@ -50,3 +52,12 @@ func	moveNpc(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_timer_timeout():
+	var speech = randi_range(0, 100);
+	if speech == 42 and !$Speech.visible:
+		var r = randi_range(0, 6);
+		await get_tree().create_timer(r).timeout;
+		var t = randi_range(0, len(texts) - 1);
+		$Speech.drawText(texts[t]);

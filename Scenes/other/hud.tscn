@@ -1,15 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://2w4jil4fl2u6"]
+[gd_scene load_steps=15 format=3 uid="uid://2w4jil4fl2u6"]
 
 [ext_resource type="Texture2D" uid="uid://bbkk8yqi56fq5" path="res://asset/gui/score_panel.png" id="1_0yva1"]
 [ext_resource type="Script" path="res://Scenes/other/hud.gd" id="1_knp7r"]
-[ext_resource type="Texture2D" uid="uid://cgnfg1greil0h" path="res://asset/gui/powerUp_tile.png" id="1_y4gyl"]
+[ext_resource type="Texture2D" uid="uid://buqmr5lb7t0yh" path="res://asset/gui/powerUp_tile.png" id="1_y4gyl"]
 [ext_resource type="Texture2D" uid="uid://dv52ehrfxug3t" path="res://asset/gui/riot_bar.png" id="2_exlrg"]
 [ext_resource type="Texture2D" uid="uid://n5gypklb45g6" path="res://asset/gui/police_bar.png" id="3_8k5ee"]
 [ext_resource type="FontFile" uid="uid://db24qmau0svhh" path="res://asset/Fonts/prstartk.ttf" id="3_jctah"]
 [ext_resource type="Texture2D" uid="uid://b0s2oivmia08o" path="res://asset/gui/police_cell.png" id="5_gvc3j"]
+[ext_resource type="Texture2D" uid="uid://yjt6py3n804y" path="res://asset/gui/megaphone.png" id="5_ixp7d"]
 [ext_resource type="Texture2D" uid="uid://cebmmcjq0dxqu" path="res://asset/gui/riot_cell(1).png" id="6_cribw"]
+[ext_resource type="Texture2D" uid="uid://coljhb342qovi" path="res://asset/gui/powerUp_tile(1).png" id="6_pjfta"]
 [ext_resource type="FontFile" uid="uid://b74v6aoa03bwf" path="res://asset/Fonts/yoster.ttf" id="7_2x488"]
+[ext_resource type="Texture2D" uid="uid://bq8hd3rvkxo8p" path="res://asset/gui/powerUp_tile(2).png" id="7_mj078"]
 [ext_resource type="Script" path="res://Scripts/fps.gd" id="8_31ni3"]
+[ext_resource type="Texture2D" uid="uid://bhteqtc3flk70" path="res://asset/gui/incognito.png" id="9_7ipxr"]
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_knp7r")
@@ -19,6 +23,7 @@ offset_left = 27.0
 offset_top = 23.0
 offset_right = 519.0
 offset_bottom = 123.0
+scale = Vector2(0.849695, 0.850648)
 texture = ExtResource("1_0yva1")
 
 [node name="score" type="Label" parent="scorePanel"]
@@ -39,49 +44,113 @@ text = "Score:000000"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -159.0
-offset_top = 43.0
-offset_right = 161.0
-offset_bottom = 131.0
+offset_left = -132.0
+offset_top = 27.0
+offset_right = 138.0
+offset_bottom = 115.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_jctah")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 54
 text = "05:00"
 
 [node name="powersUp" type="GridContainer" parent="."]
-visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 53.0
-offset_top = -157.0
-offset_right = 428.0
-offset_bottom = -37.0
+offset_left = 33.0
+offset_top = -178.0
+offset_right = 332.0
+offset_bottom = -30.0
 grow_vertical = 0
 columns = 3
 
-[node name="TextureRect" type="TextureRect" parent="powersUp"]
-layout_mode = 2
+[node name="megaphone" type="CanvasGroup" parent="powersUp"]
+
+[node name="under" type="TextureRect" parent="powersUp/megaphone"]
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource("1_y4gyl")
 
-[node name="TextureRect2" type="TextureRect" parent="powersUp"]
-texture_filter = 1
-layout_mode = 2
+[node name="megaphone" type="TextureRect" parent="powersUp/megaphone"]
+offset_left = 13.0
+offset_top = 4.0
+offset_right = 138.0
+offset_bottom = 129.0
+texture = ExtResource("5_ixp7d")
+
+[node name="overOutArea" type="TextureRect" parent="powersUp/megaphone"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_pjfta")
+
+[node name="overBar" type="TextureProgressBar" parent="powersUp/megaphone"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_progress = ExtResource("6_pjfta")
+
+[node name="useOverBar" type="TextureProgressBar" parent="powersUp/megaphone"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_progress = ExtResource("7_mj078")
+
+[node name="Label" type="Label" parent="powersUp/megaphone"]
+offset_left = 63.0
+offset_top = -32.0
+offset_right = 84.0
+offset_bottom = 1.0
+theme_override_fonts/font = ExtResource("7_2x488")
+theme_override_font_sizes/font_size = 32
+text = "1"
+
+[node name="incognito" type="CanvasGroup" parent="powersUp"]
+position = Vector2(151, 0)
+
+[node name="under" type="TextureRect" parent="powersUp/incognito"]
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource("1_y4gyl")
 
-[node name="TextureRect3" type="TextureRect" parent="powersUp"]
-layout_mode = 2
-texture = ExtResource("1_y4gyl")
+[node name="incognito" type="TextureRect" parent="powersUp/incognito"]
+offset_left = 1.0
+offset_right = 261.0
+offset_bottom = 280.0
+scale = Vector2(0.557148, 0.51118)
+texture = ExtResource("9_7ipxr")
+
+[node name="overOutArea" type="TextureRect" parent="powersUp/incognito"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_pjfta")
+
+[node name="overBar" type="TextureProgressBar" parent="powersUp/incognito"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_progress = ExtResource("6_pjfta")
+
+[node name="useOverBar" type="TextureProgressBar" parent="powersUp/incognito"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_progress = ExtResource("7_mj078")
+
+[node name="Label" type="Label" parent="powersUp/incognito"]
+offset_left = 63.0
+offset_top = -32.0
+offset_right = 84.0
+offset_bottom = 1.0
+theme_override_fonts/font = ExtResource("7_2x488")
+theme_override_font_sizes/font_size = 32
+text = "1"
 
 [node name="LevelsBar" type="GridContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -454.0
-offset_top = 3.0
-offset_right = 359.0
-offset_bottom = 497.0
+offset_left = -392.0
+offset_top = 9.0
+offset_right = 24.0
+offset_bottom = 192.0
 grow_horizontal = 0
+scale = Vector2(0.845861, 0.846312)
 
 [node name="riot_bar" type="TextureRect" parent="LevelsBar"]
 layout_mode = 2

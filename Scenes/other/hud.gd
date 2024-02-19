@@ -1,8 +1,24 @@
 extends CanvasLayer
 
+signal playerSpeech
+signal playerIncognitoStart
+signal playerIncognitoEnd
+
 var score = 0
 var riotLevel = 1
 var policeLevel = 0
+
+var isInRiotArea
+
+var megaphoneUse
+var megaphoneValue
+var megaphoneSpeed = 20
+var megaphoneUseSpeed = 5
+
+var incognitoUse
+var incognitoValue
+var incognitoSpeed = 20
+var incognitoUseSpeed = 6
 
 var timeSec
 var timeMin
@@ -12,6 +28,11 @@ var container = preload("res://Scenes/Gui/MiniGameContainer.tscn");
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	isInRiotArea = 0
+	megaphoneUse = 0
+	incognitoUse = 0
+	megaphoneValue = 100
+	incognitoValue = 100
 	timeMin = 5
 	timeSec = 0	
 	GlobalSignal.OpenMiniGameContainer.connect(miniGameContainer);
@@ -25,7 +46,6 @@ func miniGameContainer(instance):
 
 func	updateScore(newPoint):
 	var strScore = "Score:"
-	var i = 1
 	if riotLevel < 1.7:
 		score += newPoint * int(riotLevel * 10) * 0.1
 	else:
@@ -41,46 +61,46 @@ func	updateScore(newPoint):
 	
 func updateRiotLevel(newLevel):
 	riotLevel += newLevel
+	var riotCellValue = int(((riotLevel - 1) * 1000))
 	if riotLevel >= 1.8:
 		riotLevel = 1.79
 	if riotLevel <= 1.1:
-		$LevelsBar/riot_bar/riot_cell1.value = int(((riotLevel - 1) * 1000)) % 100
+		$LevelsBar/riot_bar/riot_cell1.value = riotCellValue 
 		$LevelsBar/riot_bar/riot_cell2.value = 0
 	if riotLevel > 1.1 and riotLevel <= 1.2:
 		$LevelsBar/riot_bar/riot_cell1.value = 100
-		$LevelsBar/riot_bar/riot_cell2.value = int(((riotLevel - 1) * 1000)) % 100
+		$LevelsBar/riot_bar/riot_cell2.value = riotCellValue - 100
 		$LevelsBar/riot_bar/riot_cell3.value = 0
 		$LevelsBar/riot_bar/riotScore.text = "x1.1"
 	if riotLevel > 1.2 and riotLevel <= 1.3:
 		$LevelsBar/riot_bar/riot_cell2.value = 100
-		$LevelsBar/riot_bar/riot_cell3.value = int(((riotLevel - 1) * 1000)) % 100
+		$LevelsBar/riot_bar/riot_cell3.value = riotCellValue - 200
 		$LevelsBar/riot_bar/riot_cell4.value = 0
 		$LevelsBar/riot_bar/riotScore.text = "x1.2"
 	if riotLevel > 1.3 and riotLevel <= 1.4:
 		$LevelsBar/riot_bar/riot_cell3.value = 100
-		$LevelsBar/riot_bar/riot_cell4.value = int(((riotLevel - 1) * 1000)) % 100
+		$LevelsBar/riot_bar/riot_cell4.value = riotCellValue - 300
 		$LevelsBar/riot_bar/riot_cell5.value = 0
 		$LevelsBar/riot_bar/riotScore.text = "x1.3"
 	if riotLevel > 1.4 and riotLevel <= 1.5:
 		$LevelsBar/riot_bar/riot_cell4.value = 100
-		$LevelsBar/riot_bar/riot_cell5.value = int(((riotLevel - 1) * 1000)) % 100
+		$LevelsBar/riot_bar/riot_cell5.value = riotCellValue - 400
 		$LevelsBar/riot_bar/riot_cell6.value = 0
 		$LevelsBar/riot_bar/riotScore.text = "x1.4"
 	if riotLevel > 1.5 and riotLevel <= 1.6:
 		$LevelsBar/riot_bar/riot_cell5.value = 100
-		$LevelsBar/riot_bar/riot_cell6.value = int(((riotLevel - 1) * 1000)) % 100
+		$LevelsBar/riot_bar/riot_cell6.value = riotCellValue - 500
 		$LevelsBar/riot_bar/riot_cell7.value = 0
 		$LevelsBar/riot_bar/riotScore.text = "x1.5"
 	if riotLevel > 1.6 and riotLevel <= 1.7:
 		$LevelsBar/riot_bar/riot_cell6.value = 100
-		$LevelsBar/riot_bar/riot_cell7.value = int(((riotLevel - 1) * 1000)) % 100
+		$LevelsBar/riot_bar/riot_cell7.value = riotCellValue - 600
 		$LevelsBar/riot_bar/riotScore.text = "x1.6"
 	if riotLevel > 1.7 and riotLevel <= 1.8:
 		$LevelsBar/riot_bar/riot_cell7.value = 100
 		$LevelsBar/riot_bar/riotScore.text = "x2.0"
 
 func updatePoliceLevel(newLevel):
-	print(policeLevel)
 	policeLevel += newLevel
 	if policeLevel < 0:
 		policeLevel = 0
@@ -109,7 +129,7 @@ func updatePoliceLevel(newLevel):
 	if policeLevel > 6:
 		$LevelsBar/police_bar/police_cell7.show()
 		
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_released("score++"):
 		updateScore(500)
 	if Input.is_action_just_released("riot++"):
@@ -118,7 +138,11 @@ func _process(delta):
 		updatePoliceLevel(1)
 	if Input.is_action_just_released("police--"):
 		updatePoliceLevel(-1)
-		
+	if Input.is_action_just_pressed("megaphone"):
+		useMegaphone()
+	if Input.is_action_just_pressed("incognito"):
+		useIncognito()
+	
 func _on_timer_timeout():
 	timeSec -= 1
 	if timeSec < 0:
@@ -136,4 +160,108 @@ func _on_timer_timeout():
 	$timerLabel.text = time
 	if riotLevel > 1:
 		updateRiotLevel(-0.01 )
+	UpdateMegaphone()
+	UpdateIncognito()
+		
+func UpdateMegaphone():
+	if megaphoneValue > 0 and megaphoneUse == 0:
+		@warning_ignore("integer_division")
+		megaphoneValue -= 100 / megaphoneSpeed
+		$powersUp/megaphone/overBar.value = megaphoneValue
+	elif megaphoneValue > 0 and megaphoneUse == 1:
+		@warning_ignore("integer_division")
+		megaphoneValue -= 100 / megaphoneUseSpeed
+		$powersUp/megaphone/useOverBar.value = megaphoneValue
+		if isInRiotArea == 1:
+			megaphoneEffect()
+	elif megaphoneValue <= 0 and megaphoneUse == 1:
+		megaphoneValue = 100
+		megaphoneUse = 0
+		$powersUp/megaphone/overBar.value = 100
+		
+	if isInRiotArea == 0 or incognitoUse == 1:
+		$powersUp/megaphone/overOutArea.show()
+	else:
+		$powersUp/megaphone/overOutArea.hide()
 	
+		
+func useMegaphone():
+	if incognitoUse == 0 and megaphoneUse == 0 and megaphoneValue <= 0 and isInRiotArea == 1:
+		megaphoneUse = 1
+		megaphoneValue = 100
+		$powersUp/megaphone/useOverBar.value = 100
+		playerSpeech.emit()
+		megaphoneEffect()
+		
+func megaphoneEffect():
+	updateRiotLevel(0.05)
+	
+func UpdateIncognito():
+	if incognitoValue > 0 and incognitoUse == 0:
+		@warning_ignore("integer_division")
+		incognitoValue -= 100 / incognitoSpeed
+		$powersUp/incognito/overBar.value = incognitoValue
+	elif incognitoUse == 1 and (isInRiotArea == 0 or incognitoValue <= 0):
+		incognitoValue = 100
+		incognitoUse = 0
+		$powersUp/incognito/useOverBar.value = 0
+		$powersUp/incognito/overBar.value = 100
+		playerIncognitoEnd.emit()
+	elif incognitoValue > 0 and incognitoUse == 1:
+		@warning_ignore("integer_division")
+		incognitoValue -= 100 / incognitoUseSpeed
+		$powersUp/incognito/useOverBar.value = incognitoValue
+		incognitoEffect()
+	
+		
+	if isInRiotArea == 0 or megaphoneUse == 1:
+		$powersUp/incognito/overOutArea.show()
+	else:
+		$powersUp/incognito/overOutArea.hide()
+	
+func useIncognito():
+	if megaphoneUse == 0 and incognitoUse == 0 and incognitoValue <= 0 and isInRiotArea == 1:
+		incognitoUse = 1
+		incognitoValue = 100
+		$powersUp/incognito/useOverBar.value = 100
+		playerIncognitoStart.emit()
+		incognitoEffect()
+		
+func incognitoEffect():
+	updatePoliceLevel(-0.5)
+
+func _on_riot_arena_player_enter_riot_area():
+	isInRiotArea = 1
+	UpdateMegaphone()
+	UpdateIncognito()
+
+func _on_riot_arena_player_exit_riot_area():
+	isInRiotArea = 0
+	UpdateMegaphone()
+	UpdateIncognito()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+

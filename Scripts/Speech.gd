@@ -4,8 +4,6 @@ func _ready():
 	pass;
 
 func drawText(text):
-	var r = randi_range(0, 6);
-	await get_tree().create_timer(r).timeout;
 	visible = true;
 	for l in text:
 		$VBoxContainer/Label.text += l;

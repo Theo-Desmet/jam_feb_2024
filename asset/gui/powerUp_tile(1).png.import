@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buqmr5lb7t0yh"
-path="res://.godot/imported/powerUp_tile.png-27f6474b52f12fb4c32ad68fd61ae912.ctex"
+uid="uid://coljhb342qovi"
+path="res://.godot/imported/powerUp_tile(1).png-b427d6437042b636e83d5b727e8b144c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/gui/powerUp_tile.png"
-dest_files=["res://.godot/imported/powerUp_tile.png-27f6474b52f12fb4c32ad68fd61ae912.ctex"]
+source_file="res://asset/gui/powerUp_tile(1).png"
+dest_files=["res://.godot/imported/powerUp_tile(1).png-b427d6437042b636e83d5b727e8b144c.ctex"]
 
 [params]
 

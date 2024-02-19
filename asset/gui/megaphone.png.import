@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buqmr5lb7t0yh"
-path="res://.godot/imported/powerUp_tile.png-27f6474b52f12fb4c32ad68fd61ae912.ctex"
+uid="uid://yjt6py3n804y"
+path="res://.godot/imported/megaphone.png-cc2bd3c08b2f09bc240f2fb6c87eb839.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/gui/powerUp_tile.png"
-dest_files=["res://.godot/imported/powerUp_tile.png-27f6474b52f12fb4c32ad68fd61ae912.ctex"]
+source_file="res://asset/gui/megaphone.png"
+dest_files=["res://.godot/imported/megaphone.png-cc2bd3c08b2f09bc240f2fb6c87eb839.ctex"]
 
 [params]
 

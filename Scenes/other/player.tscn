@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8byjbhaacnip"]
+[gd_scene load_steps=22 format=3 uid="uid://c8byjbhaacnip"]
 
 [ext_resource type="Script" path="res://Scenes/other/Player2.gd" id="1_kehy6"]
 [ext_resource type="Texture2D" uid="uid://dvby8bj87w23x" path="res://asset/sprite/tile_0267.png" id="2_ttdm8"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b4mnmvx8c6b5x" path="res://asset/sprite/tile_0322.png" id="13_8sjcb"]
 [ext_resource type="PackedScene" uid="uid://xdwwsikn1r31" path="res://Scenes/other/camera.tscn" id="14_e6i5q"]
 [ext_resource type="Texture2D" uid="uid://houojgujerxx" path="res://asset/gui/E.png" id="15_m5amq"]
+[ext_resource type="PackedScene" uid="uid://dantc7rm50kr4" path="res://Scenes/Gui/Speech.tscn" id="16_btnn6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yi1ul"]
 animations = [{
@@ -179,3 +180,8 @@ libraries = {
 }
 autoplay = "key"
 speed_scale = 3.0
+
+[node name="Speech" parent="." instance=ExtResource("16_btnn6")]
+visible = false
+position = Vector2(0, -17)
+scale = Vector2(0.482128, 0.411649)

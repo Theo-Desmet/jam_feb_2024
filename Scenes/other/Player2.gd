@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
+var speed = 100.0
 var lastDir = "";
 var canMove = true;
 var canInteract = false;
 var currentActionInstance = null;
+
+const texts = ["bebou c'est fix"]
 
 func _ready():
 	GlobalSignal.ActionNearby.connect(actionNearby);
@@ -26,24 +28,24 @@ func actionAway():
 func _process(delta):
 	var direction = Input.get_axis("left", "right");
 	if direction:
-		velocity.x = direction * SPEED;
+		velocity.x = direction * speed;
 		if (direction == -1):
 			lastDir = "left";
 		else:
 			lastDir = "right";
 
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED);
+		velocity.x = move_toward(velocity.x, 0, speed);
 		
 	var direction2 = Input.get_axis("up", "down");
 	if direction2:
-		velocity.y = direction2 * SPEED;
+		velocity.y = direction2 * speed;
 		if (direction2 == 1):
 			lastDir = "down";
 		else:
 			lastDir = "up";
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED);
+		velocity.y = move_toward(velocity.y, 0, speed);
 	
 	var animation = lastDir;
 	if (!direction and !direction2):
@@ -51,7 +53,7 @@ func _process(delta):
 	if animation != "_stop":
 		$sprite.animation = animation;
 		$sprite.play();
-	#velocity.x -= 0.12 * SPEED;
+	#velocity.x -= 0.12 * speed;
 	if (canMove):
 		move_and_collide(velocity * delta);
 		position = position.clamp(Vector2(8, 8),Vector2(1095, 502));
@@ -63,3 +65,14 @@ func _process(delta):
 		currentActionInstance.disable();
 		currentActionInstance = null;
 	
+func _on_hud_player_speech():
+	var t = randi_range(0, len(texts) - 1);
+	$Speech.drawText(texts[t]);
+
+
+func _on_hud_player_incognito_start():
+	speed = 5
+
+
+func _on_hud_player_incognito_end():
+	speed = 100

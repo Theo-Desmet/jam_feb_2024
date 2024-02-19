@@ -7,6 +7,9 @@ script/source = "extends Node2D
 
 @export var npc_scene: PackedScene
 
+signal playerEnterRiotArea
+signal playerExitRiotArea
+
 #var xMin = $Area.
 #var xMax
 #var yMin
@@ -22,10 +25,20 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+
+
+
+func _on_area_body_entered(body):
+	playerEnterRiotArea.emit()
+
+
+func _on_area_body_exited(body):
+	playerExitRiotArea.emit()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1hqe"]
-size = Vector2(930.875, 285)
+size = Vector2(1044.87, 285)
 
 [node name="riotArena" type="Node2D"]
 script = SubResource("GDScript_7f7kn")
@@ -33,7 +46,11 @@ npc_scene = ExtResource("2_pp0a6")
 metadata/_edit_group_ = true
 
 [node name="Area" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
-position = Vector2(460.563, 141.5)
+position = Vector2(517.563, 141.5)
 shape = SubResource("RectangleShape2D_c1hqe")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

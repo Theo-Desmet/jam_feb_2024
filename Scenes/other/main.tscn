@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://2nbq7eb4c36y"]
+[gd_scene load_steps=8 format=3 uid="uid://2nbq7eb4c36y"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_ak5b0"]
 [ext_resource type="PackedScene" uid="uid://deqb2kx4xg0r3" path="res://Scenes/riot/pocile_area.tscn" id="3_3pajp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c8byjbhaacnip" path="res://Scenes/other/player.tscn" id="5_ebnx5"]
 [ext_resource type="PackedScene" uid="uid://bgn5p702bvqdu" path="res://BlockSpawner.tscn" id="5_sskxr"]
 [ext_resource type="PackedScene" uid="uid://2w4jil4fl2u6" path="res://Scenes/other/hud.tscn" id="6_7jo25"]
+[ext_resource type="PackedScene" uid="uid://d26c6523up6tl" path="res://Scenes/other/audioRiot.tscn" id="7_n01a2"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_ak5b0")
@@ -23,3 +24,11 @@ scale = Vector2(0.995297, 0.964918)
 position = Vector2(873, 423)
 
 [node name="hud" parent="." instance=ExtResource("6_7jo25")]
+
+[node name="Node" parent="." instance=ExtResource("7_n01a2")]
+
+[connection signal="playerEnterRiotArea" from="riotArena" to="hud" method="_on_riot_arena_player_enter_riot_area"]
+[connection signal="playerExitRiotArea" from="riotArena" to="hud" method="_on_riot_arena_player_exit_riot_area"]
+[connection signal="playerIncognitoEnd" from="hud" to="player" method="_on_hud_player_incognito_end"]
+[connection signal="playerIncognitoStart" from="hud" to="player" method="_on_hud_player_incognito_start"]
+[connection signal="playerSpeech" from="hud" to="player" method="_on_hud_player_speech"]
