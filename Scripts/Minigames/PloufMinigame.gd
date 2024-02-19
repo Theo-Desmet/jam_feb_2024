@@ -11,8 +11,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (Input.is_physical_key_pressed(KEY_SPACE)):
-		value += 0.75;
+	if (Input.is_action_just_pressed("space")):
+		value += 6;
 	value -= 0.1;
 	$ProgressBar.value = value;
 	if (value >= 100):
