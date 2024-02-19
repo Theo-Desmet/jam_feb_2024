@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dswf30rsh7oac"]
+
+[ext_resource type="PackedScene" uid="uid://cr3k8gjgyoqxy" path="res://Scenes/Actions/AActions.tscn" id="1_4luy8"]
+[ext_resource type="Script" path="res://Scripts/Actions/Plouf.gd" id="2_4fpi5"]
+[ext_resource type="Texture2D" uid="uid://c7128f87xrc7c" path="res://asset/sprite/tile_0023.png" id="2_xsd72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8sq3"]
+size = Vector2(11, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ali1"]
+size = Vector2(18, 15)
+
+[node name="Plouf" instance=ExtResource("1_4luy8")]
+script = ExtResource("2_4fpi5")
+texture = null
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_o8sq3")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(3, 0.5)
+shape = SubResource("RectangleShape2D_8ali1")
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource("2_xsd72")

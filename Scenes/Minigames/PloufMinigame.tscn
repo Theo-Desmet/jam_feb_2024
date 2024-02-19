@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://ci0x0aq0kaflt"]
+
+[ext_resource type="Script" path="res://Scripts/Minigames/PloufMinigame.gd" id="1_1rkhv"]
+[ext_resource type="Texture2D" uid="uid://bfvtloutonedd" path="res://asset/sprite/Police/0.png" id="2_xljuf"]
+[ext_resource type="Texture2D" uid="uid://bjdxplvmpgst4" path="res://asset/gui/tile_0508.png" id="3_3cpw4"]
+[ext_resource type="Texture2D" uid="uid://bkqd2my8yuk7a" path="res://asset/gui/tile_0509.png" id="4_a6jxx"]
+[ext_resource type="Texture2D" uid="uid://dfi876x02y2uo" path="res://asset/gui/tile_0507.png" id="5_fvkm2"]
+
+[sub_resource type="Animation" id="Animation_5g2h4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_43ouy"]
+resource_name = "shake"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.5, 2.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rd2qg"]
+_data = {
+"RESET": SubResource("Animation_5g2h4"),
+"shake": SubResource("Animation_43ouy")
+}
+
+[node name="PloufMinigame" type="Node2D"]
+script = ExtResource("1_1rkhv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(15, 15)
+texture = ExtResource("2_xljuf")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0.0627451, 0.564706, 0.862745, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = 146.0
+offset_right = 204.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+show_percentage = false
+
+[node name="Spacebar" type="CanvasGroup" parent="."]
+position = Vector2(0, 194)
+scale = Vector2(2, 2)
+metadata/_edit_group_ = true
+
+[node name="Mid" type="Sprite2D" parent="Spacebar"]
+texture = ExtResource("3_3cpw4")
+
+[node name="Right" type="Sprite2D" parent="Spacebar"]
+position = Vector2(16, 0)
+texture = ExtResource("4_a6jxx")
+
+[node name="Left" type="Sprite2D" parent="Spacebar"]
+position = Vector2(-16, 0)
+texture = ExtResource("5_fvkm2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Spacebar")
+libraries = {
+"": SubResource("AnimationLibrary_rd2qg")
+}
+autoplay = "shake"
+speed_scale = 5.0

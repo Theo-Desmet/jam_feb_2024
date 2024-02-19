@@ -33,5 +33,5 @@ func _ready():
 func _process(delta):
 	if (counter == NUM_POSTERS):
 		await get_tree().create_timer(0.2).timeout;
-		GlobalSignal.GameWin.emit();
+		GlobalSignal.GameWin.emit("posters");
 	

@@ -3,7 +3,7 @@ extends Node2D
 class_name AActions;
 
 var infos = {};
-
+var winsHandling = {"obstacle": queue_free, "plouf": ploufAction};
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -12,14 +12,22 @@ func _ready():
 func _process(delta):
 	pass
 	
-func disable():
+func disable(hide = false):
 	#pass
 	$Sprite.set_material(null);
 	$Area2D.monitoring = false;
 	$Exclam.visible = false;
 
+func ploufAction():
+	pass;
+
 func getInfos():
 	return infos;
+	
+func gameWin(type):
+	if (!winsHandling.has(type)):
+		return;
+	winsHandling[type].call();
 
 func _on_area_2d_body_entered(body):
 	GlobalSignal.ActionNearby.emit(self);

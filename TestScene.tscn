@@ -1,0 +1,34 @@
+[gd_scene load_steps=11 format=3 uid="uid://cnv1v03d1lh6f"]
+
+[ext_resource type="PackedScene" uid="uid://ccupgpvkf20we" path="res://Scenes/Blocks/Block4.tscn" id="1_pey5x"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_yxs1e"]
+[ext_resource type="PackedScene" uid="uid://c8byjbhaacnip" path="res://Scenes/other/player.tscn" id="2_cvcyw"]
+[ext_resource type="PackedScene" uid="uid://2w4jil4fl2u6" path="res://Scenes/other/hud.tscn" id="4_dw81q"]
+[ext_resource type="PackedScene" uid="uid://clmkycvvypfyi" path="res://Scenes/Actions/ObstaclesAction.tscn" id="5_rsjbx"]
+[ext_resource type="Texture2D" uid="uid://11xlq6k4nxc7" path="res://asset/sprite/tile_0297.png" id="6_s6hyp"]
+[ext_resource type="PackedScene" uid="uid://bh2yua8rya2jn" path="res://Scenes/Actions/WallPosters.tscn" id="7_hafkj"]
+[ext_resource type="Texture2D" uid="uid://4hry6ien512f" path="res://asset/sprite/tile_0016.png" id="7_s783t"]
+[ext_resource type="PackedScene" uid="uid://dswf30rsh7oac" path="res://Scenes/Actions/PloufAction.tscn" id="9_s4iv5"]
+[ext_resource type="Texture2D" uid="uid://bfvtloutonedd" path="res://asset/sprite/Police/0.png" id="10_tbv30"]
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_yxs1e")
+
+[node name="ABlock" parent="." instance=ExtResource("1_pey5x")]
+
+[node name="hud" parent="." instance=ExtResource("4_dw81q")]
+
+[node name="Obstacle" parent="." instance=ExtResource("5_rsjbx")]
+position = Vector2(258, 339)
+texture = ExtResource("6_s6hyp")
+
+[node name="WallPosters" parent="." instance=ExtResource("7_hafkj")]
+position = Vector2(200, 321)
+texture = ExtResource("7_s783t")
+
+[node name="player" parent="." instance=ExtResource("2_cvcyw")]
+position = Vector2(169, 363)
+
+[node name="Plouf" parent="." instance=ExtResource("9_s4iv5")]
+position = Vector2(142, 340)
+texture = ExtResource("10_tbv30")

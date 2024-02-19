@@ -9,7 +9,7 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xsd2"]
 size = Vector2(32.8594, 34.3438)
 
-[node name="AActions" instance=ExtResource("1_ccgvo")]
+[node name="WallPosters" instance=ExtResource("1_ccgvo")]
 script = ExtResource("2_th3xk")
 texture = null
 
