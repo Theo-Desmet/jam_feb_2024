@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfq1pwgfatpy2"]
+
+[ext_resource type="Texture2D" uid="uid://dueiiqmoonej6" path="res://asset/gui/Menu.png" id="1_5k1tp"]
+[ext_resource type="Script" path="res://Scripts/end_game_menu.gd" id="1_bxd3y"]
+[ext_resource type="FontFile" uid="uid://db24qmau0svhh" path="res://asset/Fonts/prstartk.ttf" id="2_xg7or"]
+[ext_resource type="Texture2D" uid="uid://cove25wr46dqe" path="res://asset/gui/Button.png" id="3_jbtxt"]
+
+[node name="endGameMenu" type="CanvasLayer"]
+script = ExtResource("1_bxd3y")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -453.5
+offset_right = 450.0
+offset_bottom = 453.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5k1tp")
+
+[node name="restart" type="Button" parent="."]
+offset_left = 459.0
+offset_top = 421.0
+offset_right = 3434.0
+offset_bottom = 1266.0
+scale = Vector2(0.242703, 0.169995)
+icon = ExtResource("3_jbtxt")
+flat = true
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -931.5
+offset_top = -275.5
+offset_right = 898.5
+offset_bottom = 324.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_xg7or")
+theme_override_font_sizes/font_size = 120
+text = "RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exit" type="Button" parent="."]
+offset_left = 459.0
+offset_top = 575.0
+offset_right = 3434.0
+offset_bottom = 1420.0
+scale = Vector2(0.242703, 0.169995)
+icon = ExtResource("3_jbtxt")
+flat = true
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -923.5
+offset_top = -275.5
+offset_right = 894.5
+offset_bottom = 348.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_xg7or")
+theme_override_font_sizes/font_size = 120
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -355.0
+offset_top = 196.0
+offset_right = 370.0
+offset_bottom = 260.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_xg7or")
+theme_override_font_sizes/font_size = 64
+text = "Score:"
+horizontal_alignment = 1
+
+[node name="score" type="Label" parent="."]
+offset_left = 458.0
+offset_top = 299.0
+offset_right = 1183.0
+offset_bottom = 363.0
+theme_override_fonts/font = ExtResource("2_xg7or")
+theme_override_font_sizes/font_size = 64
+text = "999999"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

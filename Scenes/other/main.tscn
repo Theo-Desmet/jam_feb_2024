@@ -25,7 +25,7 @@ position = Vector2(144, 323)
 
 [node name="hud" parent="." instance=ExtResource("6_7jo25")]
 
-[node name="Node" parent="." instance=ExtResource("7_n01a2")]
+[node name="audioRiot" parent="." instance=ExtResource("7_n01a2")]
 
 [connection signal="playerEnterRiotArea" from="riotArena" to="hud" method="_on_riot_arena_player_enter_riot_area"]
 [connection signal="playerExitRiotArea" from="riotArena" to="hud" method="_on_riot_arena_player_exit_riot_area"]

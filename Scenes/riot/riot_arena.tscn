@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx5n27yel6umx"]
+[gd_scene load_steps=6 format=3 uid="uid://cx5n27yel6umx"]
 
 [ext_resource type="PackedScene" uid="uid://cyykfap00q6n8" path="res://Scenes/riot/npc.tscn" id="2_pp0a6"]
 
@@ -10,17 +10,28 @@ script/source = "extends Node2D
 signal playerEnterRiotArea
 signal playerExitRiotArea
 
+var npc: Array
+
 #var xMin = $Area.
 #var xMax
 #var yMin
 #var yMax
 
 func _ready():
+	GlobalSignal.restartGame.connect(restartGame)
+	initNpc()
+
+func initNpc():
 	for i in range(1500):
-		var npc = npc_scene.instantiate()
-		npc.position.x = randi() % 960
-		npc.position.y = randi() % 240
-		add_child(npc)
+		npc.append(npc_scene.instantiate())
+		npc[i].position.x = randi() % 950
+		npc[i].position.y = randi() % 240
+		add_child(npc[i])
+
+func restartGame():
+	for i in range(1500):
+		remove_child(npc[i])
+	initNpc()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -38,19 +49,56 @@ func _on_area_body_exited(body):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1hqe"]
-size = Vector2(1044.87, 285)
+size = Vector2(1044.87, 275)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1usm"]
+size = Vector2(1017.5, 198)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cuss"]
+size = Vector2(287, 306)
 
 [node name="riotArena" type="Node2D"]
+position = Vector2(4, -31)
 script = SubResource("GDScript_7f7kn")
 npc_scene = ExtResource("2_pp0a6")
-metadata/_edit_group_ = true
 
 [node name="Area" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
-position = Vector2(517.563, 141.5)
+position = Vector2(517.563, 136.5)
 shape = SubResource("RectangleShape2D_c1hqe")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(3, -249)
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(500.25, 149)
+shape = SubResource("RectangleShape2D_o1usm")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-28, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1147.5, 152)
+shape = SubResource("RectangleShape2D_5cuss")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-17, 56)
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(520, 303)
+shape = SubResource("RectangleShape2D_o1usm")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-1065, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(922, 154)
+shape = SubResource("RectangleShape2D_5cuss")
 
 [connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

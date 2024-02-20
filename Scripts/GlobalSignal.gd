@@ -7,6 +7,8 @@ signal SetPlayerMove;
 signal OpenMiniGameContainer;
 signal GameWin;
 signal GameLoose;
+signal startGame
+signal restartGame
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

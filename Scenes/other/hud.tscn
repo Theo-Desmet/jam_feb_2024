@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://2w4jil4fl2u6"]
+[gd_scene load_steps=17 format=3 uid="uid://2w4jil4fl2u6"]
 
 [ext_resource type="Texture2D" uid="uid://bbkk8yqi56fq5" path="res://asset/gui/score_panel.png" id="1_0yva1"]
 [ext_resource type="Script" path="res://Scenes/other/hud.gd" id="1_knp7r"]
@@ -14,8 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://bq8hd3rvkxo8p" path="res://asset/gui/powerUp_tile(2).png" id="7_mj078"]
 [ext_resource type="Script" path="res://Scripts/fps.gd" id="8_31ni3"]
 [ext_resource type="Texture2D" uid="uid://bhteqtc3flk70" path="res://asset/gui/incognito.png" id="9_7ipxr"]
+[ext_resource type="PackedScene" uid="uid://dfq1pwgfatpy2" path="res://Scenes/Gui/end_game_menu.tscn" id="15_sg1wj"]
+[ext_resource type="PackedScene" uid="uid://ctvyh3bfmru2p" path="res://Scenes/Gui/start_menu.tscn" id="16_ahh11"]
 
 [node name="hud" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_knp7r")
 
 [node name="scorePanel" type="TextureRect" parent="."]
@@ -295,6 +298,11 @@ offset_bottom = 23.0
 script = ExtResource("8_31ni3")
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
+[node name="endGameMenu" parent="." instance=ExtResource("15_sg1wj")]
+visible = false
+
+[node name="startMenu" parent="." instance=ExtResource("16_ahh11")]
+
+[connection signal="endGame" from="." to="endGameMenu" method="_on_hud_end_game"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

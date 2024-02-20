@@ -2,16 +2,27 @@ extends CharacterBody2D
 
 var speed = 100.0
 var lastDir = "";
-var canMove = true;
+#var canMove = true;
+var canMove = false
 var canInteract = false;
 var currentActionInstance = null;
+var initPos = Vector2(900, 350)
 
 const texts = ["bebou c'est fix"]
 
 func _ready():
+	position = initPos
 	GlobalSignal.ActionNearby.connect(actionNearby);
 	GlobalSignal.ActionAway.connect(actionAway);
 	GlobalSignal.SetPlayerMove.connect(setPlayerMove);
+	GlobalSignal.restartGame.connect(restartPlayer)
+	GlobalSignal.startGame.connect(startGame)
+	
+func startGame():
+	canMove = true
+	
+func restartPlayer():
+	position = initPos
 
 func setPlayerMove(status: bool):
 	canMove = status;
@@ -72,7 +83,7 @@ func _on_hud_player_speech():
 
 
 func _on_hud_player_incognito_start():
-	speed = 5
+	speed = 20
 
 
 func _on_hud_player_incognito_end():

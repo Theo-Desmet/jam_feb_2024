@@ -3,8 +3,9 @@ extends CanvasLayer
 signal playerSpeech
 signal playerIncognitoStart
 signal playerIncognitoEnd
+signal endGame
 
-var score = 0
+var score
 var riotLevel = 1
 var policeLevel = 0
 
@@ -33,9 +34,12 @@ func _ready():
 	incognitoUse = 0
 	megaphoneValue = 100
 	incognitoValue = 100
+	score = 0
 	timeMin = 5
-	timeSec = 0	
+	timeSec = 0
 	GlobalSignal.OpenMiniGameContainer.connect(miniGameContainer);
+	GlobalSignal.restartGame.connect(restartHUD)
+	GlobalSignal.startGame.connect(startGame)
 
 func miniGameContainer(instance):
 	var c = container.instantiate();
@@ -43,6 +47,51 @@ func miniGameContainer(instance):
 	c.global_position.x = get_viewport().size.x / 2;
 	c.global_position.y = get_viewport().size.y / 2;
 	add_child(c);
+
+func startGame():
+	$Timer.start()
+	self.show()
+
+func restartHUD():
+	score = 0
+	isInRiotArea = 0
+	megaphoneUse = 0
+	incognitoUse = 0
+	megaphoneValue = 100
+	incognitoValue = 100
+	timeMin = 5
+	timeSec = 0
+	riotLevel = 1
+	policeLevel = 0
+	restartScore()
+	restartRiotLevel()
+	restartPoliceLevel()
+	UpdateMegaphone()
+	UpdateIncognito()
+	$Timer.start()
+	$endGameMenu.hide()
+
+func restartScore():
+	$scorePanel/score.text = "Score:000000"
+
+func restartRiotLevel():
+	$LevelsBar/riot_bar/riotScore.text = "x1.0"
+	$LevelsBar/riot_bar/riot_cell1.value = 0
+	$LevelsBar/riot_bar/riot_cell2.value = 0
+	$LevelsBar/riot_bar/riot_cell3.value = 0
+	$LevelsBar/riot_bar/riot_cell4.value = 0
+	$LevelsBar/riot_bar/riot_cell5.value = 0
+	$LevelsBar/riot_bar/riot_cell6.value = 0
+	$LevelsBar/riot_bar/riot_cell7.value = 0
+
+func restartPoliceLevel():
+	$LevelsBar/police_bar/police_cell1.hide()
+	$LevelsBar/police_bar/police_cell2.hide()
+	$LevelsBar/police_bar/police_cell3.hide()
+	$LevelsBar/police_bar/police_cell4.hide()
+	$LevelsBar/police_bar/police_cell5.hide()
+	$LevelsBar/police_bar/police_cell6.hide()
+	$LevelsBar/police_bar/police_cell7.hide()
 
 func	updateScore(newPoint):
 	var strScore = "Score:"
@@ -107,7 +156,7 @@ func updatePoliceLevel(newLevel):
 	if policeLevel > 7:
 		policeLevel = 7
 	if policeLevel == 0:
-		$LevelsBar/police_bar/police_cell1.hide()		
+		$LevelsBar/police_bar/police_cell1.hide()
 	if policeLevel > 0:
 		$LevelsBar/police_bar/police_cell1.show()
 		$LevelsBar/police_bar/police_cell2.hide()
@@ -145,6 +194,8 @@ func _process(_delta):
 	
 func _on_timer_timeout():
 	timeSec -= 1
+	if timeMin == 0 and timeSec == 0:
+		ft_endGame()
 	if timeSec < 0:
 		timeSec = 59
 		timeMin -= 1
@@ -230,6 +281,11 @@ func useIncognito():
 func incognitoEffect():
 	updatePoliceLevel(-0.5)
 
+func ft_endGame():
+	$Timer.stop()
+	$endGameMenu.show()
+	endGame.emit(score)
+
 func _on_riot_arena_player_enter_riot_area():
 	isInRiotArea = 1
 	UpdateMegaphone()
@@ -239,29 +295,6 @@ func _on_riot_arena_player_exit_riot_area():
 	isInRiotArea = 0
 	UpdateMegaphone()
 	UpdateIncognito()
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-
-
+func _on_end_game_menu_restart_game():
+	pass # Replace with function body.
