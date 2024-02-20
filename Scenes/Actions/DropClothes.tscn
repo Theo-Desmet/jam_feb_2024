@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://cx6mln32hndc6"]
+
+[ext_resource type="PackedScene" uid="uid://cr3k8gjgyoqxy" path="res://Scenes/Actions/AActions.tscn" id="1_m5mp5"]
+[ext_resource type="Script" path="res://Scripts/Actions/DropClothes.gd" id="2_1lumu"]
+[ext_resource type="Texture2D" uid="uid://6oh1487wg162" path="res://asset/sprite/tile_0244.png" id="2_2270k"]
+[ext_resource type="Shader" path="res://Shaders/AActions.gdshader" id="2_n10xg"]
+[ext_resource type="Texture2D" uid="uid://cgsjufnnpu06n" path="res://asset/sprite/tile_0246.png" id="3_26pbf"]
+[ext_resource type="Texture2D" uid="uid://nbsso84rqjte" path="res://asset/sprite/tile_0245.png" id="4_8utkb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8hs4"]
+size = Vector2(100, 68)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7pfm3"]
+shader = ExtResource("2_n10xg")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.972
+
+[node name="DropClothes" instance=ExtResource("1_m5mp5")]
+script = ExtResource("2_1lumu")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_v8hs4")
+
+[node name="Sprite" parent="." index="2"]
+visible = false
+
+[node name="LeftSprite" type="Sprite2D" parent="." index="5"]
+material = SubResource("ShaderMaterial_7pfm3")
+position = Vector2(-16, 0)
+texture = ExtResource("2_2270k")
+
+[node name="RightSprite" type="Sprite2D" parent="." index="6"]
+material = SubResource("ShaderMaterial_7pfm3")
+position = Vector2(16, 0)
+texture = ExtResource("3_26pbf")
+
+[node name="MidSprite" type="Sprite2D" parent="." index="7"]
+material = SubResource("ShaderMaterial_7pfm3")
+texture = ExtResource("4_8utkb")

@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://21qymt22x2g3"]
+
+[ext_resource type="PackedScene" uid="uid://c433j64bwsb1w" path="res://Scenes/Minigames/Utils/Clothes.tscn" id="1_1mnut"]
+[ext_resource type="Script" path="res://Scripts/Minigames/DropClothesMinigame.gd" id="1_nluti"]
+[ext_resource type="Texture2D" uid="uid://6oh1487wg162" path="res://asset/sprite/tile_0244.png" id="2_y8lpk"]
+[ext_resource type="Texture2D" uid="uid://4txr8bbvwmu" path="res://asset/sprite/tile_0217.png" id="3_gy2qe"]
+[ext_resource type="Texture2D" uid="uid://nbsso84rqjte" path="res://asset/sprite/tile_0245.png" id="4_xs83l"]
+[ext_resource type="Texture2D" uid="uid://bi0ht8dd2dteq" path="res://asset/sprite/tile_0218.png" id="5_0t510"]
+[ext_resource type="Texture2D" uid="uid://cgsjufnnpu06n" path="res://asset/sprite/tile_0246.png" id="6_sbflb"]
+[ext_resource type="Texture2D" uid="uid://djd0a8ou6iix2" path="res://asset/sprite/tile_0219.png" id="7_hldv3"]
+
+[node name="DropClothesMinigame" type="Node2D"]
+script = ExtResource("1_nluti")
+
+[node name="Line1" type="Node2D" parent="."]
+position = Vector2(0, -150)
+metadata/_edit_group_ = true
+
+[node name="Clothes" parent="Line1" instance=ExtResource("1_1mnut")]
+position = Vector2(-160, 0)
+scale = Vector2(10, 10)
+texture = ExtResource("2_y8lpk")
+Aftertexture = ExtResource("3_gy2qe")
+
+[node name="Clothes2" parent="Line1" instance=ExtResource("1_1mnut")]
+scale = Vector2(10, 10)
+texture = ExtResource("4_xs83l")
+Aftertexture = ExtResource("5_0t510")
+
+[node name="Clothes3" parent="Line1" instance=ExtResource("1_1mnut")]
+position = Vector2(160, 1.19209e-07)
+scale = Vector2(10, 10)
+texture = ExtResource("6_sbflb")
+Aftertexture = ExtResource("7_hldv3")
+
+[node name="Line3" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Clothes" parent="Line3" instance=ExtResource("1_1mnut")]
+position = Vector2(-160, 0)
+scale = Vector2(10, 10)
+texture = ExtResource("2_y8lpk")
+Aftertexture = ExtResource("3_gy2qe")
+
+[node name="Clothes2" parent="Line3" instance=ExtResource("1_1mnut")]
+scale = Vector2(10, 10)
+texture = ExtResource("4_xs83l")
+Aftertexture = ExtResource("5_0t510")
+
+[node name="Clothes3" parent="Line3" instance=ExtResource("1_1mnut")]
+position = Vector2(160, 1.19209e-07)
+scale = Vector2(10, 10)
+texture = ExtResource("6_sbflb")
+Aftertexture = ExtResource("7_hldv3")
+
+[node name="Line2" type="Node2D" parent="."]
+position = Vector2(3, 150)
+metadata/_edit_group_ = true
+
+[node name="Clothes" parent="Line2" instance=ExtResource("1_1mnut")]
+position = Vector2(-160, 0)
+scale = Vector2(10, 10)
+texture = ExtResource("2_y8lpk")
+Aftertexture = ExtResource("3_gy2qe")
+
+[node name="Clothes2" parent="Line2" instance=ExtResource("1_1mnut")]
+scale = Vector2(10, 10)
+texture = ExtResource("4_xs83l")
+Aftertexture = ExtResource("5_0t510")
+
+[node name="Clothes3" parent="Line2" instance=ExtResource("1_1mnut")]
+position = Vector2(160, 1.19209e-07)
+scale = Vector2(10, 10)
+texture = ExtResource("6_sbflb")
+Aftertexture = ExtResource("7_hldv3")

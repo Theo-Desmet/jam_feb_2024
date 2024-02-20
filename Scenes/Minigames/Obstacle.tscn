@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://mworlt8pwiws"]
+[gd_scene load_steps=12 format=3 uid="uid://mworlt8pwiws"]
 
 [ext_resource type="Script" path="res://Scripts/Minigames/Obstacle.gd" id="1_k23me"]
 [ext_resource type="Texture2D" uid="uid://11xlq6k4nxc7" path="res://asset/sprite/tile_0297.png" id="2_1xfbi"]
 [ext_resource type="Shader" path="res://Shaders/AActions.gdshader" id="2_5ebt2"]
+[ext_resource type="Texture2D" uid="uid://dkut130ad3m1e" path="res://asset/gui/tile_0076.png" id="4_cqrcq"]
+[ext_resource type="Texture2D" uid="uid://26tddxb4g11o" path="res://asset/gui/tile_0077.png" id="5_gmg5v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hjlpq"]
 shader = ExtResource("2_5ebt2")
@@ -12,42 +14,56 @@ shader_parameter/line_thickness = 0.21
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ds25i"]
 size = Vector2(241, 165)
 
-[sub_resource type="Animation" id="Animation_8lnlk"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_e25bx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cqrcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gmg5v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_j6e2e"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(15, 15)]
 }
 
-[sub_resource type="Animation" id="Animation_gfesu"]
+[sub_resource type="Animation" id="Animation_y02ob"]
 resource_name = "hit"
 length = 0.1
-step = 0.01
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1)]
+"values": [Vector2(15, 15), Vector2(17, 17), Vector2(15, 15)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8tfx"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sb7pc"]
 _data = {
-"RESET": SubResource("Animation_8lnlk"),
-"hit": SubResource("Animation_gfesu")
+"RESET": SubResource("Animation_j6e2e"),
+"hit": SubResource("Animation_y02ob")
 }
 
 [node name="Obstacle" type="Node2D"]
@@ -64,9 +80,14 @@ texture = ExtResource("2_1xfbi")
 position = Vector2(0, 22.5)
 shape = SubResource("RectangleShape2D_ds25i")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 203)
+scale = Vector2(4.375, 4.375)
+sprite_frames = SubResource("SpriteFrames_e25bx")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_h8tfx")
+"": SubResource("AnimationLibrary_sb7pc")
 }
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

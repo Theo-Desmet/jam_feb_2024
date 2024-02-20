@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi2uyfun7fpux"]
+
+[ext_resource type="Script" path="res://Scripts/Minigames/DraggablePosters.gd" id="1_cglnp"]
+[ext_resource type="Shader" path="res://Shaders/AActions.gdshader" id="2_agayu"]
+[ext_resource type="Texture2D" uid="uid://d170etmdgqv7h" path="res://asset/sprite/tile_0305.png" id="2_ihne6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bh5o5"]
+shader = ExtResource("2_agayu")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.328
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vuiq"]
+size = Vector2(202, 259)
+
+[node name="DraggablePosters" type="Node2D"]
+script = ExtResource("1_cglnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_bh5o5")
+position = Vector2(0, -160)
+scale = Vector2(20, 20)
+texture = ExtResource("2_ihne6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -150.5)
+shape = SubResource("RectangleShape2D_3vuiq")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

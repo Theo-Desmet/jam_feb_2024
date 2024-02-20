@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnv1v03d1lh6f"]
+[gd_scene load_steps=17 format=3 uid="uid://cnv1v03d1lh6f"]
 
 [ext_resource type="PackedScene" uid="uid://ccupgpvkf20we" path="res://Scenes/Blocks/Block4.tscn" id="1_pey5x"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_yxs1e"]
@@ -10,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://4hry6ien512f" path="res://asset/sprite/tile_0016.png" id="7_s783t"]
 [ext_resource type="PackedScene" uid="uid://dswf30rsh7oac" path="res://Scenes/Actions/PloufAction.tscn" id="9_s4iv5"]
 [ext_resource type="Texture2D" uid="uid://bfvtloutonedd" path="res://asset/sprite/Police/0.png" id="10_tbv30"]
+[ext_resource type="PackedScene" uid="uid://cr8c4b5f1if2t" path="res://Scenes/Actions/DragPosters.tscn" id="11_thu4b"]
+[ext_resource type="PackedScene" uid="uid://djnfh2mplcuhu" path="res://Scenes/Actions/TrafficLights.tscn" id="12_57asa"]
+[ext_resource type="Texture2D" uid="uid://d170etmdgqv7h" path="res://asset/sprite/tile_0305.png" id="12_hiho8"]
+[ext_resource type="PackedScene" uid="uid://dqp5jc1nf3la5" path="res://Scenes/Actions/TextWall.tscn" id="14_5rlaj"]
+[ext_resource type="Texture2D" uid="uid://dguivyap3aia5" path="res://asset/sprite/tile_0205.png" id="15_3dfjt"]
+[ext_resource type="PackedScene" uid="uid://cx6mln32hndc6" path="res://Scenes/Actions/DropClothes.tscn" id="16_pjeg8"]
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_yxs1e")
@@ -17,6 +23,11 @@ script = ExtResource("1_yxs1e")
 [node name="ABlock" parent="." instance=ExtResource("1_pey5x")]
 
 [node name="hud" parent="." instance=ExtResource("4_dw81q")]
+visible = true
+
+[node name="DragPosters" parent="." instance=ExtResource("11_thu4b")]
+position = Vector2(224, 381)
+texture = ExtResource("12_hiho8")
 
 [node name="Obstacle" parent="." instance=ExtResource("5_rsjbx")]
 position = Vector2(258, 339)
@@ -26,9 +37,19 @@ texture = ExtResource("6_s6hyp")
 position = Vector2(200, 321)
 texture = ExtResource("7_s783t")
 
-[node name="player" parent="." instance=ExtResource("2_cvcyw")]
-position = Vector2(169, 363)
-
 [node name="Plouf" parent="." instance=ExtResource("9_s4iv5")]
 position = Vector2(142, 340)
 texture = ExtResource("10_tbv30")
+
+[node name="TrafficLights" parent="." instance=ExtResource("12_57asa")]
+position = Vector2(140, 370)
+
+[node name="player" parent="." instance=ExtResource("2_cvcyw")]
+position = Vector2(169, 363)
+
+[node name="TextWall" parent="." instance=ExtResource("14_5rlaj")]
+position = Vector2(269, 385)
+texture = ExtResource("15_3dfjt")
+
+[node name="DropClothes" parent="." instance=ExtResource("16_pjeg8")]
+position = Vector2(263, 424)

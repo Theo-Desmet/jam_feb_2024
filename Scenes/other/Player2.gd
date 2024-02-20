@@ -73,7 +73,6 @@ func _process(delta):
 		GlobalSignal.OpenMiniGameContainer.emit(currentActionInstance);
 		actionAway();
 		canMove = false;
-		var hide = currentActionInstance.infos["type"] == "obstacle";
 		currentActionInstance.disable();
 		currentActionInstance = null;
 	

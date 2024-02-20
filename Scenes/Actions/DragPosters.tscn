@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cr8c4b5f1if2t"]
+
+[ext_resource type="PackedScene" uid="uid://cr3k8gjgyoqxy" path="res://Scenes/Actions/AActions.tscn" id="1_am3h2"]
+[ext_resource type="Script" path="res://Scripts/Actions/DragPosters.gd" id="2_3web7"]
+[ext_resource type="Texture2D" uid="uid://d170etmdgqv7h" path="res://asset/sprite/tile_0305.png" id="2_e2xu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkyao"]
+size = Vector2(10, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ui53"]
+size = Vector2(24, 24)
+
+[node name="DragPosters" instance=ExtResource("1_am3h2")]
+script = ExtResource("2_3web7")
+texture = null
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_dkyao")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_8ui53")
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource("2_e2xu2")

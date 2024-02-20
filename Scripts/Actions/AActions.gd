@@ -3,10 +3,14 @@ extends Node2D
 class_name AActions;
 
 var infos = {};
-var winsHandling = {"obstacle": queue_free, "plouf": ploufAction};
+var winsHandling = {"obstacle": queue_free, "plouf": ploufAction, "falling": falling};
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
+
+func falling():
+	print(infos);
+	print($LeftSprite);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -17,6 +21,7 @@ func disable(hide = false):
 	$Sprite.set_material(null);
 	$Area2D.monitoring = false;
 	$Exclam.visible = false;
+	
 
 func ploufAction():
 	pass;
@@ -25,6 +30,7 @@ func getInfos():
 	return infos;
 	
 func gameWin(type):
+	print(type);
 	if (!winsHandling.has(type)):
 		return;
 	winsHandling[type].call();

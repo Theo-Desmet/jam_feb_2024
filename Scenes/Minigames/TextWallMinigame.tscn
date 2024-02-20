@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://m1s3cogpg1ao"]
+
+[ext_resource type="Script" path="res://Scripts/Minigames/TextWallMinigame.gd" id="1_o7ykq"]
+[ext_resource type="Texture2D" uid="uid://dguivyap3aia5" path="res://asset/sprite/tile_0205.png" id="2_uhqt4"]
+[ext_resource type="PackedScene" uid="uid://bfghklytfu2rd" path="res://Scenes/Minigames/Utils/TextInputBox.tscn" id="3_08alc"]
+
+[node name="TextWallMinigame" type="Node2D"]
+script = ExtResource("1_o7ykq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(37, 37)
+texture = ExtResource("2_uhqt4")
+
+[node name="TextInputBox" parent="." instance=ExtResource("3_08alc")]
+position = Vector2(0, -135)
+
+[node name="TextInputBox2" parent="." instance=ExtResource("3_08alc")]
+
+[node name="TextInputBox3" parent="." instance=ExtResource("3_08alc")]
+position = Vector2(0, 135)

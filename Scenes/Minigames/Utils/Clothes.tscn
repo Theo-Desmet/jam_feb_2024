@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c433j64bwsb1w"]
+
+[ext_resource type="Script" path="res://Scripts/Clothes.gd" id="1_gme2o"]
+[ext_resource type="Texture2D" uid="uid://nbsso84rqjte" path="res://asset/sprite/tile_0245.png" id="2_343hw"]
+[ext_resource type="Shader" path="res://Shaders/AActions.gdshader" id="3_fkuis"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnkst"]
+size = Vector2(16, 11)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ahy4d"]
+shader = ExtResource("3_fkuis")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[node name="Clothes" type="Node2D"]
+script = ExtResource("1_gme2o")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_lnkst")
+
+[node name="AfterSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_343hw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ahy4d")
+texture = ExtResource("2_343hw")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

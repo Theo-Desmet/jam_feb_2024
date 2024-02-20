@@ -1,18 +1,20 @@
 extends Node2D
 
+signal wordCompleted;
+
 var texture;
-var value = 0;
+var counter = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite2D.texture = texture;
+	wordCompleted.connect(wordComplete);
 	pass # Replace with function body.
+
+func wordComplete():
+	counter += 1;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (Input.is_action_just_pressed("space")):
-		value += 10;
-	value -= 0.1;
-	$ProgressBar.value = value;
-	if (value >= 100):
-		GlobalSignal.GameWin.emit("plouf");
+	if counter == 3:
+		GlobalSignal.GameWin.emit("textWall");

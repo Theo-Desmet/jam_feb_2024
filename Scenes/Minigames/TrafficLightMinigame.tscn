@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://bavnvwq6oae0e"]
+
+[ext_resource type="Script" path="res://Scripts/Minigames/TrafficLightMinigame.gd" id="1_hb131"]
+[ext_resource type="Texture2D" uid="uid://d1lsgty5vwt37" path="res://asset/sprite/tile_0409.png" id="2_glvir"]
+[ext_resource type="Texture2D" uid="uid://houojgujerxx" path="res://asset/gui/E.png" id="3_emf4h"]
+[ext_resource type="Texture2D" uid="uid://dag7mh28llhf1" path="res://asset/gui/Q.png" id="4_f4rs6"]
+
+[sub_resource type="Animation" id="Animation_nchjs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Action2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Action1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_0hdtc"]
+resource_name = "e"
+length = 0.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Action1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(6.5, 6.5), Vector2(6, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_jacr3"]
+resource_name = "q"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Action2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(6.5, 6.5), Vector2(6, 6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gbu8n"]
+_data = {
+"RESET": SubResource("Animation_nchjs"),
+"e": SubResource("Animation_0hdtc"),
+"q": SubResource("Animation_jacr3")
+}
+
+[node name="TrafficLightMinigame" type="Node2D"]
+position = Vector2(0, -110)
+script = ExtResource("1_hb131")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(20, 20)
+texture = ExtResource("2_glvir")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -196.0
+offset_top = 309.0
+offset_right = 200.0
+offset_bottom = 344.0
+show_percentage = false
+
+[node name="Action1" type="Sprite2D" parent="."]
+position = Vector2(90, 240)
+scale = Vector2(6, 6)
+texture = ExtResource("3_emf4h")
+
+[node name="Action2" type="Sprite2D" parent="."]
+position = Vector2(-90, 240)
+scale = Vector2(6, 6)
+texture = ExtResource("4_f4rs6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gbu8n")
+}
