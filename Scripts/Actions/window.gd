@@ -1,10 +1,10 @@
 extends AActions;
 
-var afterTexture = preload("res://asset/Minigames/TrafficOff.png")
+var afterTexture = preload("res://asset/sprite/tile_0391.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	randomize();
-	infos = {"type": "trafficLight", "texture": $Sprite.texture};
+	infos = {"type": "window"};
 
 func changeSprite():
 	$Sprite.texture = afterTexture;

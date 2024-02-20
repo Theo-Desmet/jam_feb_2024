@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://er17be4da5p3"]
+
+[ext_resource type="PackedScene" uid="uid://cr3k8gjgyoqxy" path="res://Scenes/Actions/AActions.tscn" id="1_0r5lf"]
+[ext_resource type="Texture2D" uid="uid://wd4kfxy63klw" path="res://asset/Minigames/Windows/edge.png" id="2_h3xre"]
+[ext_resource type="Script" path="res://Scripts/Actions/window.gd" id="2_y57v4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgxxo"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5t8tn"]
+size = Vector2(30, 28)
+
+[node name="Window" instance=ExtResource("1_0r5lf")]
+script = ExtResource("2_y57v4")
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_lgxxo")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_5t8tn")
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource("2_h3xre")

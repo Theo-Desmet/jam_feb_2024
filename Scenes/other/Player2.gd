@@ -2,16 +2,17 @@ extends CharacterBody2D
 
 var speed = 100.0
 var lastDir = "";
-#var canMove = true;
-var canMove = false
+var canMove = true;
+#var canMove = false
 var canInteract = false;
 var currentActionInstance = null;
 var initPos = Vector2(900, 350)
 var isMovingX = false
 var isMovingY = false
 
-
 var footSound: Array
+var winsHandling = {"obstacle": deleteInstance, "window": changeSprite,
+	"trafficLight": changeSprite};
 const texts = ["bebou c'est fix"]
 
 func _ready():
@@ -43,6 +44,25 @@ func _ready():
 	GlobalSignal.SetPlayerMove.connect(setPlayerMove);
 	GlobalSignal.restartGame.connect(restartPlayer)
 	GlobalSignal.startGame.connect(startGame)
+	GlobalSignal.ActionFinished.connect(actionFinished);
+
+func deleteInstance():
+	currentActionInstance.queue_free();
+	
+func changeSprite():
+	print("OUAIS");
+	currentActionInstance.changeSprite();
+
+func actionFinished(winBool):
+	print(currentActionInstance.infos);
+	if !winBool:
+		currentActionInstance = null;
+		return;
+		
+	if (!winsHandling.has(currentActionInstance.infos["type"])):
+		return;
+	winsHandling[currentActionInstance.infos["type"]].call();
+	currentActionInstance = null;
 	
 func startGame():
 	canMove = true
@@ -104,7 +124,6 @@ func _process(delta):
 		actionAway();
 		canMove = false;
 		currentActionInstance.disable();
-		currentActionInstance = null;
 		
 	if (isMovingX == true or isMovingY == true) and canMove == true and $footstep.playing == false:
 		var i = randi_range(0, 19)

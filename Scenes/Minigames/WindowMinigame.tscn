@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://d142r0xn7n1y6"]
+
+[ext_resource type="Script" path="res://Scripts/Minigames/WindowMinigame.gd" id="1_7xxpb"]
+[ext_resource type="Texture2D" uid="uid://btn0h4t286lgp" path="res://asset/Minigames/Windows/edge2.png" id="1_qtblw"]
+[ext_resource type="Texture2D" uid="uid://b6rncpxhpgk7e" path="res://asset/Minigames/Windows/window.png" id="2_07hee"]
+[ext_resource type="Texture2D" uid="uid://bjdxplvmpgst4" path="res://asset/gui/tile_0508.png" id="4_fyv82"]
+[ext_resource type="Texture2D" uid="uid://bkqd2my8yuk7a" path="res://asset/gui/tile_0509.png" id="5_5y6ss"]
+[ext_resource type="Texture2D" uid="uid://dfi876x02y2uo" path="res://asset/gui/tile_0507.png" id="6_op8u7"]
+
+[sub_resource type="Animation" id="Animation_qusk1"]
+resource_name = "new_animation"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spacebar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.5, 2.5), Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_nm6ej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spacebar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v8ea3"]
+_data = {
+"RESET": SubResource("Animation_nm6ej"),
+"new_animation": SubResource("Animation_qusk1")
+}
+
+[node name="WindowMinigame" type="Node2D"]
+clip_children = 1
+script = ExtResource("1_7xxpb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(30, 30)
+texture = ExtResource("1_qtblw")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -241.0
+offset_right = 240.0
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Window" type="Sprite2D" parent="Control"]
+position = Vector2(240, -59)
+scale = Vector2(30, 30)
+texture = ExtResource("2_07hee")
+
+[node name="Spacebar" type="CanvasGroup" parent="."]
+position = Vector2(0, 289)
+scale = Vector2(2, 2)
+metadata/_edit_group_ = true
+
+[node name="Mid" type="Sprite2D" parent="Spacebar"]
+texture = ExtResource("4_fyv82")
+
+[node name="Right" type="Sprite2D" parent="Spacebar"]
+position = Vector2(16, 0)
+texture = ExtResource("5_5y6ss")
+
+[node name="Left" type="Sprite2D" parent="Spacebar"]
+position = Vector2(-16, 0)
+texture = ExtResource("6_op8u7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v8ea3")
+}
+autoplay = "new_animation"

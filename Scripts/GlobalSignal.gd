@@ -9,6 +9,7 @@ signal GameWin;
 signal GameLoose;
 signal startGame
 signal restartGame
+signal ActionFinished;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

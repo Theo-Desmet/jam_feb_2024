@@ -4,6 +4,8 @@ var texture;
 var keyToPress = 1;
 var value = -10;
 
+var afterTexture = preload("res://asset/Minigames/TrafficOff.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite2D.texture = texture;
@@ -28,4 +30,5 @@ func _process(delta):
 	value -= 0.1;
 	$ProgressBar.value = value;
 	if (value >= 100):
+		$Sprite2D.texture = afterTexture;
 		GlobalSignal.GameWin.emit("traffic");
