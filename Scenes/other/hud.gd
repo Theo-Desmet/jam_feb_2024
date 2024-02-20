@@ -43,6 +43,8 @@ func _ready():
 	GlobalSignal.OpenMiniGameContainer.connect(miniGameContainer);
 	GlobalSignal.restartGame.connect(restartHUD)
 	GlobalSignal.startGame.connect(startGame)
+	GlobalSignal.UpdateScore.connect(updateScore);
+	GlobalSignal.UpdateRiotLevel.connect(updateRiotLevel);
 
 func miniGameContainer(instance):
 	var c = container.instantiate();

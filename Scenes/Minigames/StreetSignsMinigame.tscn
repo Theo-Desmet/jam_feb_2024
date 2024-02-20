@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://din16lv36ap7q"]
+
+[ext_resource type="Texture2D" uid="uid://dbt3u5qx4w0np" path="res://asset/Minigames/StreetSign/Calque 9.png" id="1_sdnbp"]
+
+[node name="StreetSignsMinigame" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("1_sdnbp")

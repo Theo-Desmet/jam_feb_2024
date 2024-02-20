@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cnv1v03d1lh6f"]
+[gd_scene load_steps=23 format=3 uid="uid://cnv1v03d1lh6f"]
 
 [ext_resource type="PackedScene" uid="uid://ccupgpvkf20we" path="res://Scenes/Blocks/Block4.tscn" id="1_pey5x"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_yxs1e"]
@@ -18,8 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://er17be4da5p3" path="res://Scenes/Actions/Window.tscn" id="16_2jmrh"]
 [ext_resource type="PackedScene" uid="uid://cx6mln32hndc6" path="res://Scenes/Actions/DropClothes.tscn" id="16_pjeg8"]
 [ext_resource type="Texture2D" uid="uid://dbwwa68w1qgg3" path="res://asset/sprite/tile_0249.png" id="17_w1syp"]
-[ext_resource type="PackedScene" uid="uid://cx5n27yel6umx" path="res://Scenes/riot/riot_arena.tscn" id="18_2tcbf"]
-[ext_resource type="Texture2D" uid="uid://psr3sxg2i5o5" path="res://asset/sprite/tile_0248.png" id="18_jodw6"]
+[ext_resource type="PackedScene" uid="uid://cbvgnxwledh51" path="res://Scenes/Actions/FruitShelves.tscn" id="19_11qpc"]
+[ext_resource type="Texture2D" uid="uid://3jx811wl5uj7" path="res://asset/Minigames/Fruits/Calque 2.png" id="20_g8e4i"]
+[ext_resource type="PackedScene" uid="uid://co0q1ylg3duau" path="res://Scenes/Actions/Package.tscn" id="20_vs1p2"]
+[ext_resource type="PackedScene" uid="uid://ci5ky61es8833" path="res://Scenes/Actions/StreetSign.tscn" id="21_f36it"]
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_yxs1e")
@@ -45,7 +47,7 @@ position = Vector2(142, 340)
 texture = ExtResource("10_tbv30")
 
 [node name="TrafficLights" parent="ABlock" instance=ExtResource("12_57asa")]
-position = Vector2(140, 370)
+position = Vector2(64, 276)
 
 [node name="TextWall" parent="ABlock" instance=ExtResource("14_5rlaj")]
 position = Vector2(269, 385)
@@ -57,23 +59,21 @@ position = Vector2(83, 334)
 [node name="Window" parent="ABlock" instance=ExtResource("16_2jmrh")]
 position = Vector2(230, 420)
 
-[node name="Window2" parent="ABlock" instance=ExtResource("16_2jmrh")]
-position = Vector2(119, 420)
-
-[node name="DragPosters2" parent="ABlock" instance=ExtResource("11_thu4b")]
-position = Vector2(152, 291)
-texture = ExtResource("12_hiho8")
-
 [node name="ObstacleAction" parent="ABlock" instance=ExtResource("5_rsjbx")]
 position = Vector2(130, 208)
 texture = ExtResource("17_w1syp")
 
-[node name="ObstacleAction2" parent="ABlock" instance=ExtResource("5_rsjbx")]
-position = Vector2(83, 208)
-texture = ExtResource("18_jodw6")
+[node name="FruitShelves" parent="ABlock" instance=ExtResource("19_11qpc")]
+position = Vector2(50, 396)
+fruitUp = "lettuce"
+fruitBottom = "orange"
+texture = ExtResource("20_g8e4i")
+
+[node name="Package" parent="ABlock" instance=ExtResource("20_vs1p2")]
+position = Vector2(120, 419)
+
+[node name="StreetSign" parent="ABlock" instance=ExtResource("21_f36it")]
+position = Vector2(120, 278)
 
 [node name="player" parent="." instance=ExtResource("2_cvcyw")]
 position = Vector2(163, 419)
-
-[node name="riotArena" parent="." instance=ExtResource("18_2tcbf")]
-position = Vector2(12, 268)

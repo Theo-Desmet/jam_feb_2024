@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx4svs1wfvkcc"]
+
+[ext_resource type="Script" path="res://Scripts/Minigames/FruitShelvesMinigame.gd" id="1_vgile"]
+[ext_resource type="Texture2D" uid="uid://do5vuuopoqx6i" path="res://asset/sprite/tile_0303.png" id="2_d10om"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t38ic"]
+size = Vector2(240, 120)
+
+[node name="FruitShelvesMinigame" type="Node2D"]
+script = ExtResource("1_vgile")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+scale = Vector2(30, 40)
+texture = ExtResource("2_d10om")
+
+[node name="UpArea" type="Area2D" parent="."]
+position = Vector2(0, -156)
+collision_layer = 16
+collision_mask = 32
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpArea"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_t38ic")
+
+[node name="BotomArea" type="Area2D" parent="."]
+position = Vector2(0, 44)
+collision_layer = 32
+collision_mask = 16
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BotomArea"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_t38ic")
+
+[connection signal="area_entered" from="UpArea" to="." method="_on_up_area_area_entered"]
+[connection signal="area_exited" from="UpArea" to="." method="_on_up_area_area_exited"]
+[connection signal="area_entered" from="BotomArea" to="." method="_on_botom_area_area_entered"]
+[connection signal="area_exited" from="BotomArea" to="." method="_on_botom_area_area_exited"]

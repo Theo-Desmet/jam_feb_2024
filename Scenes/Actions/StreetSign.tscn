@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci5ky61es8833"]
+
+[ext_resource type="PackedScene" uid="uid://cr3k8gjgyoqxy" path="res://Scenes/Actions/AActions.tscn" id="1_h0trl"]
+[ext_resource type="Script" path="res://Scripts/Actions/StreetSign.gd" id="2_e3vqt"]
+[ext_resource type="Texture2D" uid="uid://bbstehfl43ibv" path="res://asset/sprite/tile_0195.png" id="3_31ikc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tw8dc"]
+size = Vector2(26, 26)
+
+[node name="StreetSign" instance=ExtResource("1_h0trl")]
+script = ExtResource("2_e3vqt")
+texture = null
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(1, 0)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tw8dc")
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource("3_31ikc")

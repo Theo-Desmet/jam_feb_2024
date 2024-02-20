@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbvgnxwledh51"]
+
+[ext_resource type="PackedScene" uid="uid://cr3k8gjgyoqxy" path="res://Scenes/Actions/AActions.tscn" id="1_lxwhf"]
+[ext_resource type="Script" path="res://Scripts/Actions/FruitShelves.gd" id="2_yw00o"]
+[ext_resource type="Texture2D" uid="uid://do5vuuopoqx6i" path="res://asset/sprite/tile_0303.png" id="3_7f71n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggwdh"]
+size = Vector2(16, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vsfq"]
+size = Vector2(26, 25)
+
+[node name="FruitShelves" instance=ExtResource("1_lxwhf")]
+script = ExtResource("2_yw00o")
+fruitUp = ""
+fruitBottom = ""
+texture = null
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ggwdh")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_3vsfq")
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource("3_7f71n")

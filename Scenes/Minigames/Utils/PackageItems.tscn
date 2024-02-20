@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://jcekf25l48hn"]
+
+[ext_resource type="Script" path="res://Scripts/PackageItems.gd" id="1_7xd75"]
+[ext_resource type="Texture2D" uid="uid://1wfhd6yjh6ie" path="res://asset/Minigames/Package/Calque 12.png" id="2_bhu26"]
+[ext_resource type="Shader" path="res://Shaders/AActions.gdshader" id="2_wcxdd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xctt3"]
+shader = ExtResource("2_wcxdd")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.271
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xtg3k"]
+radius = 8.0
+height = 16.0
+
+[node name="PackageItems" type="Node2D"]
+z_index = 1
+script = ExtResource("1_7xd75")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_xctt3")
+texture = ExtResource("2_bhu26")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_xtg3k")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
