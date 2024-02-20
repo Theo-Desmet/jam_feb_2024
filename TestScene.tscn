@@ -52,4 +52,4 @@ position = Vector2(269, 385)
 texture = ExtResource("15_3dfjt")
 
 [node name="DropClothes" parent="." instance=ExtResource("16_pjeg8")]
-position = Vector2(263, 424)
+position = Vector2(83, 334)

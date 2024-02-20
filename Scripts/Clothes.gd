@@ -14,7 +14,7 @@ var thickness = 0.2;
 func _ready():
 	$Sprite2D.texture = texture;
 	$AfterSprite.texture = Aftertexture;
-	$AfterSprite.visible = false;
+	$AfterSprite.visible = true;
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

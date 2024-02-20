@@ -11,7 +11,7 @@ var initPos = Vector2(900, 350)
 const texts = ["bebou c'est fix"]
 
 func _ready():
-	position = initPos
+	#position = initPos
 	GlobalSignal.ActionNearby.connect(actionNearby);
 	GlobalSignal.ActionAway.connect(actionAway);
 	GlobalSignal.SetPlayerMove.connect(setPlayerMove);
