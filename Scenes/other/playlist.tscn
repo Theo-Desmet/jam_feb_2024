@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://db4k148fcu1q2"]
+
+[ext_resource type="Script" path="res://Scripts/playlist.gd" id="1_qhpgu"]
+
+[node name="playlist" type="Node"]
+script = ExtResource("1_qhpgu")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+volume_db = -12.0

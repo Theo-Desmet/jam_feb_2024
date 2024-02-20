@@ -7,11 +7,37 @@ var canMove = false
 var canInteract = false;
 var currentActionInstance = null;
 var initPos = Vector2(900, 350)
+var isMovingX = false
+var isMovingY = false
 
+
+var footSound: Array
 const texts = ["bebou c'est fix"]
 
 func _ready():
 	#position = initPos
+	
+	footSound.append(preload("res://audio/foot/running1.mp3"))
+	footSound.append(preload("res://audio/foot/running2.mp3"))
+	footSound.append(preload("res://audio/foot/running3.mp3"))
+	footSound.append(preload("res://audio/foot/running4.mp3"))
+	footSound.append(preload("res://audio/foot/running5.mp3"))
+	footSound.append(preload("res://audio/foot/running6.mp3"))
+	footSound.append(preload("res://audio/foot/running7.mp3"))
+	footSound.append(preload("res://audio/foot/running8.mp3"))
+	footSound.append(preload("res://audio/foot/running9.mp3"))
+	footSound.append(preload("res://audio/foot/running10.mp3"))
+	footSound.append(preload("res://audio/foot/running11.mp3"))
+	footSound.append(preload("res://audio/foot/running12.mp3"))
+	footSound.append(preload("res://audio/foot/running13.mp3"))
+	footSound.append(preload("res://audio/foot/running14.mp3"))
+	footSound.append(preload("res://audio/foot/running15.mp3"))
+	footSound.append(preload("res://audio/foot/running16.mp3"))
+	footSound.append(preload("res://audio/foot/running17.mp3"))
+	footSound.append(preload("res://audio/foot/running18.mp3"))
+	footSound.append(preload("res://audio/foot/running19.mp3"))
+	footSound.append(preload("res://audio/foot/running20.mp3"))
+	
 	GlobalSignal.ActionNearby.connect(actionNearby);
 	GlobalSignal.ActionAway.connect(actionAway);
 	GlobalSignal.SetPlayerMove.connect(setPlayerMove);
@@ -39,6 +65,7 @@ func actionAway():
 func _process(delta):
 	var direction = Input.get_axis("left", "right");
 	if direction:
+		isMovingX = true
 		velocity.x = direction * speed;
 		if (direction == -1):
 			lastDir = "left";
@@ -46,16 +73,19 @@ func _process(delta):
 			lastDir = "right";
 
 	else:
+		isMovingX = false
 		velocity.x = move_toward(velocity.x, 0, speed);
 		
 	var direction2 = Input.get_axis("up", "down");
 	if direction2:
+		isMovingY = true
 		velocity.y = direction2 * speed;
 		if (direction2 == 1):
 			lastDir = "down";
 		else:
 			lastDir = "up";
 	else:
+		isMovingY = false
 		velocity.y = move_toward(velocity.y, 0, speed);
 	
 	var animation = lastDir;
@@ -75,6 +105,11 @@ func _process(delta):
 		canMove = false;
 		currentActionInstance.disable();
 		currentActionInstance = null;
+		
+	if (isMovingX == true or isMovingY == true) and canMove == true and $footstep.playing == false:
+		var i = randi_range(0, 19)
+		$footstep.set_stream(footSound[i])
+		$footstep.play()
 	
 func _on_hud_player_speech():
 	var t = randi_range(0, len(texts) - 1);

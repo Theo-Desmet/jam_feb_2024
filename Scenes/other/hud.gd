@@ -25,10 +25,13 @@ var timeSec
 var timeMin
 var time
 
+var sound: Array
 var container = preload("res://Scenes/Gui/MiniGameContainer.tscn");
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sound.append(preload("res://audio/usePowerUp.mp3"))
+	sound.append(preload("res://audio/cantUsePowerUp.mp3"))
 	isInRiotArea = 0
 	megaphoneUse = 0
 	incognitoUse = 0
@@ -61,8 +64,6 @@ func restartHUD():
 	incognitoValue = 100
 	timeMin = 5
 	timeSec = 0
-	riotLevel = 1
-	policeLevel = 0
 	restartScore()
 	restartRiotLevel()
 	restartPoliceLevel()
@@ -75,6 +76,7 @@ func restartScore():
 	$scorePanel/score.text = "Score:000000"
 
 func restartRiotLevel():
+	riotLevel = 1
 	$LevelsBar/riot_bar/riotScore.text = "x1.0"
 	$LevelsBar/riot_bar/riot_cell1.value = 0
 	$LevelsBar/riot_bar/riot_cell2.value = 0
@@ -85,6 +87,7 @@ func restartRiotLevel():
 	$LevelsBar/riot_bar/riot_cell7.value = 0
 
 func restartPoliceLevel():
+	policeLevel = 0
 	$LevelsBar/police_bar/police_cell1.hide()
 	$LevelsBar/police_bar/police_cell2.hide()
 	$LevelsBar/police_bar/police_cell3.hide()
@@ -242,8 +245,13 @@ func useMegaphone():
 		megaphoneValue = 100
 		$powersUp/megaphone/useOverBar.value = 100
 		playerSpeech.emit()
+		$usePowerUp.set_stream(sound[0])
+		$usePowerUp.play()
 		megaphoneEffect()
-		
+	else:
+		$usePowerUp.set_stream(sound[1])
+		$usePowerUp.play()
+
 func megaphoneEffect():
 	updateRiotLevel(0.05)
 	
@@ -276,7 +284,12 @@ func useIncognito():
 		incognitoValue = 100
 		$powersUp/incognito/useOverBar.value = 100
 		playerIncognitoStart.emit()
+		$usePowerUp.set_stream(sound[0])
+		$usePowerUp.play()
 		incognitoEffect()
+	else:
+		$usePowerUp.set_stream(sound[1])
+		$usePowerUp.play()
 		
 func incognitoEffect():
 	updatePoliceLevel(-0.5)

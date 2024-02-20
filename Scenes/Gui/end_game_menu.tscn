@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfq1pwgfatpy2"]
+[gd_scene load_steps=6 format=3 uid="uid://dfq1pwgfatpy2"]
 
 [ext_resource type="Texture2D" uid="uid://dueiiqmoonej6" path="res://asset/gui/Menu.png" id="1_5k1tp"]
 [ext_resource type="Script" path="res://Scripts/end_game_menu.gd" id="1_bxd3y"]
 [ext_resource type="FontFile" uid="uid://db24qmau0svhh" path="res://asset/Fonts/prstartk.ttf" id="2_xg7or"]
 [ext_resource type="Texture2D" uid="uid://cove25wr46dqe" path="res://asset/gui/Button.png" id="3_jbtxt"]
+[ext_resource type="AudioStream" uid="uid://crdsbf3rtqono" path="res://audio/clickMenu.mp3" id="5_2dnj2"]
 
 [node name="endGameMenu" type="CanvasLayer"]
 script = ExtResource("1_bxd3y")
@@ -103,6 +104,9 @@ theme_override_fonts/font = ExtResource("2_xg7or")
 theme_override_font_sizes/font_size = 64
 text = "999999"
 horizontal_alignment = 1
+
+[node name="menuClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2dnj2")
 
 [connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
