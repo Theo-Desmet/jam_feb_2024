@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccupgpvkf20we"]
+[gd_scene load_steps=10 format=3 uid="uid://ccupgpvkf20we"]
 
 [ext_resource type="PackedScene" uid="uid://qgyx7javgt3u" path="res://Scenes/Blocks/ABlock.tscn" id="1_w68pl"]
 [ext_resource type="PackedScene" uid="uid://clmkycvvypfyi" path="res://Scenes/Actions/ObstaclesAction.tscn" id="2_6okdy"]
 [ext_resource type="Texture2D" uid="uid://cn542vnckwy8y" path="res://asset/sprite/tile_0319.png" id="3_cc2rg"]
 [ext_resource type="PackedScene" uid="uid://bh2yua8rya2jn" path="res://Scenes/Actions/WallPosters.tscn" id="4_v5t6c"]
+[ext_resource type="Texture2D" uid="uid://by8okclo8lmr1" path="res://asset/sprite/AlternativesWalls/Calque 6.png" id="5_y52rj"]
 [ext_resource type="PackedScene" uid="uid://dqp5jc1nf3la5" path="res://Scenes/Actions/TextWall.tscn" id="5_yklxb"]
 [ext_resource type="PackedScene" uid="uid://sngmx0woadn2" path="res://Scenes/Actions/DragPosters.tscn" id="6_fuj3x"]
+[ext_resource type="Texture2D" uid="uid://d0wvsb6t0usib" path="res://asset/sprite/AlternativesWalls/Calque 3.png" id="7_o8445"]
 [ext_resource type="Texture2D" uid="uid://bsaxpm2w4d221" path="res://asset/sprite/tile_0427.png" id="7_p0gca"]
 
 [node name="ABlock" instance=ExtResource("1_w68pl")]
@@ -23,9 +25,11 @@ texture = ExtResource("3_cc2rg")
 
 [node name="WallPosters" parent="." index="2" instance=ExtResource("4_v5t6c")]
 position = Vector2(376, 216)
+texture = ExtResource("5_y52rj")
 
 [node name="TextWall" parent="." index="3" instance=ExtResource("5_yklxb")]
 position = Vector2(312, 216)
+texture = ExtResource("7_o8445")
 
 [node name="DragPosters" parent="." index="4" instance=ExtResource("6_fuj3x")]
 position = Vector2(168, 22)

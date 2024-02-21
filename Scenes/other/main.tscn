@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://2nbq7eb4c36y"]
+[gd_scene load_steps=9 format=3 uid="uid://2nbq7eb4c36y"]
 
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_ak5b0"]
 [ext_resource type="PackedScene" uid="uid://deqb2kx4xg0r3" path="res://Scenes/riot/pocile_area.tscn" id="3_3pajp"]
 [ext_resource type="PackedScene" uid="uid://cx5n27yel6umx" path="res://Scenes/riot/riot_arena.tscn" id="4_hee5y"]
 [ext_resource type="PackedScene" uid="uid://c8byjbhaacnip" path="res://Scenes/other/player.tscn" id="5_ebnx5"]
@@ -11,7 +10,6 @@
 [ext_resource type="TileSet" uid="uid://wnay008rwf67" path="res://Other/ABlock.tres" id="9_b1a55"]
 
 [node name="main" type="Node"]
-script = ExtResource("1_ak5b0")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("9_b1a55")

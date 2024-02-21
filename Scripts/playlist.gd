@@ -30,23 +30,24 @@ func _process(delta):
 
 
 func _on_hud_next_music():
-	i += 1
-	if i > 7:
-		i = 0
-	$music.set_stream(music[i])
-	$music.play()
+	if userStop == false:
+		i += 1
+		if i > 7:
+			i = 0
+		$music.set_stream(music[i])
+		$music.play()
 
 
 func _on_hud_previous_music():
-	i -= 1
-	if i < 0:
-		i = 7
-	$music.set_stream(music[i])
-	$music.play()
+	if userStop == false:
+		i -= 1
+		if i < 0:
+			i = 7
+		$music.set_stream(music[i])
+		$music.play()
 
 
 func _on_hud_stop_music():
-	print("aled")
 	if $music.playing == true:
 		$music.stream_paused = true
 		userStop = true
