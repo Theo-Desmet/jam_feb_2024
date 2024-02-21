@@ -22,7 +22,6 @@ var block18 = preload("res://Scenes/Blocks/Block8.3.tscn");
 # Called when the node enters the scene tree for the first time.
 
 var blocks = [];
-var lastId = 0;
 var renderedPos = [];
 
 func _ready():
@@ -30,6 +29,17 @@ func _ready():
 	randomize();
 	
 	GlobalSignal.connect("BlockDestroyed", spawnBlockSignal);
+	GlobalSignal.restartGame.connect(regenBlocks);
+	
+	var pos = Vector2i.ZERO;
+	for i in range(5):
+		spawnBlock(pos);
+		pos.x += renderedPos[-1].x * 16;
+
+func regenBlocks():
+	for b in get_tree().get_nodes_in_group("blocks"):
+		b.destroy();
+	renderedPos.clear();
 	var pos = Vector2i.ZERO;
 	for i in range(5):
 		spawnBlock(pos);
@@ -47,6 +57,7 @@ func spawnBlock(pos):
 	var r = randi_range(0, len(blocks) - 1);
 	var block = blocks[r].instantiate();
 	block.global_position = pos
+	block.add_to_group("blocks");
 	add_child(block);
 	renderedPos.append(block.getSize());
 

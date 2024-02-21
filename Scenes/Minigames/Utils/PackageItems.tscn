@@ -22,8 +22,8 @@ material = SubResource("ShaderMaterial_xctt3")
 texture = ExtResource("2_bhu26")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 16
+collision_layer = 32
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_xtg3k")

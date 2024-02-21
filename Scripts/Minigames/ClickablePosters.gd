@@ -11,9 +11,11 @@ var poster = preload("res://Scenes/Minigames/Utils/ClickableElement.tscn");
 # Called when the node enters the scene tree for the first time.
 func spawnBlock():
 	var cli = poster.instantiate();
+	var r = randi_range(0, 180);
 	cli.CLickOnElement.connect(incCounter);
 	cli.position.x = randi_range(-180, 180);
 	cli.position.y = randi_range(-180, 180);
+	cli.rotation_degrees = r;
 	cli.setOpacity(0.5);
 	#while cli.isOverlapping():
 		#cli.position.x = randi_range(-180, 180);

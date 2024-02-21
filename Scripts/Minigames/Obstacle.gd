@@ -12,14 +12,14 @@ var thickness = 0.2;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	totalHp = randi_range(20, 35);
+	totalHp = randi_range(8, 16);
 	$Sprite2D.texture = texture;
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Sprite2D.material.set_shader_parameter("line_thickness", thickness);
 	$AnimatedSprite2D.play("default");
+	$Sprite2D.material.set_shader_parameter("line_thickness", thickness);
 	thickness += THICK_STEP * multiplier;
 	if (thickness >= 0.5):
 		multiplier *= -1;

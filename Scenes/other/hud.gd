@@ -307,6 +307,7 @@ func ft_endGame():
 	$Timer.stop()
 	$endGameMenu.show()
 	endGame.emit(score)
+	GlobalSignal.SetPlayerMove.emit(false);
 
 func _on_riot_arena_player_enter_riot_area():
 	isInRiotArea = 1

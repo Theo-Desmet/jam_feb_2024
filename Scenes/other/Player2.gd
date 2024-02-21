@@ -2,8 +2,7 @@ extends CharacterBody2D
 
 var speed = 100.0
 var lastDir = "";
-var canMove = true;
-#var canMove = false
+var canMove = false
 var canInteract = false;
 var currentActionInstance = null;
 var initPos = Vector2(900, 350)
@@ -12,14 +11,14 @@ var isMovingY = false
 
 var footSound: Array
 var winsHandling = {"obstacle": deleteInstance, "window": changeSprite,
-	"trafficLight": changeSprite};
+	"trafficLight": changeSprite, "textWall": changeSprite};
 const texts = ["bebou c'est fix"]
 
 var looseSound = preload("res://audio/looseGame.mp3")
 var winSound = preload("res://audio/winGame.mp3")
 
 func _ready():
-	position = initPos
+	#position = initPos
 
 	footSound.append(preload("res://audio/foot/running1.mp3"))
 	footSound.append(preload("res://audio/foot/running2.mp3"))
@@ -123,10 +122,13 @@ func _process(delta):
 	if animation != "_stop":
 		$sprite.animation = animation;
 		$sprite.play();
-	#if (canMove):
 	velocity.x -= 0.2 * speed;
-	move_and_collide(velocity * delta);
-	global_position = global_position.clamp(Vector2(8, 8),Vector2(1095, 502));
+	if (canMove):
+		move_and_collide(velocity * delta);
+		global_position = global_position.clamp(Vector2(8, 8),Vector2(1095, 502));
+	else:
+		move_and_collide(Vector2(-0.2 * speed, 0) * delta);
+		global_position = global_position.clamp(Vector2(8, 8),Vector2(1095, 502));
 
 	if (Input.is_action_just_pressed("interact") and canInteract):
 		GlobalSignal.OpenMiniGameContainer.emit(currentActionInstance);

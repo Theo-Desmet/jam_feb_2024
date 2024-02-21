@@ -11,10 +11,4 @@ script = ExtResource("1_o7ykq")
 scale = Vector2(37, 37)
 texture = ExtResource("2_uhqt4")
 
-[node name="TextInputBox" parent="." instance=ExtResource("3_08alc")]
-position = Vector2(0, -135)
-
 [node name="TextInputBox2" parent="." instance=ExtResource("3_08alc")]
-
-[node name="TextInputBox3" parent="." instance=ExtResource("3_08alc")]
-position = Vector2(0, 135)

@@ -7,3 +7,7 @@ func _ready():
 	randomize();
 	$Sprite.texture	= texture;
 	infos = {"type": "textWall", "texture": texture};
+
+
+func changeSprite():
+	$Tag.visible = true;

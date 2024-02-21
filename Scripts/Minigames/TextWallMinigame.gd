@@ -16,5 +16,5 @@ func wordComplete():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if counter == 3:
+	if counter == 1:
 		GlobalSignal.GameWin.emit("textWall");

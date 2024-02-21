@@ -1,22 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7a3lhx0ic1dd"]
 
 [ext_resource type="Script" path="res://Scripts/DraggableElement.gd" id="1_6y8ax"]
-[ext_resource type="Texture2D" uid="uid://xv0ntryulcu4" path="res://asset/sprite/tile_0435.png" id="1_hvrrj"]
+[ext_resource type="Texture2D" uid="uid://b5saeo3c2kqan" path="res://asset/Minigames/freedomFinal.png" id="2_5lc4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv8m0"]
-size = Vector2(12, 12)
+size = Vector2(43.3085, 70.4375)
 
 [node name="DraggableElements" type="Node2D"]
 script = ExtResource("1_6y8ax")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_hvrrj")
+texture = ExtResource("2_5lc4p")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.83381, -1.20483)
+rotation = -0.780333
 shape = SubResource("RectangleShape2D_fv8m0")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -15,9 +15,11 @@ var letter = preload("res://Scenes/Minigames/Utils/DraggableElement.tscn");
 # Called when the node enters the scene tree for the first time.
 func spawnBlock():
 	var le = letter.instantiate();
+	var r = randi_range(0, 180);
 	le.position.x = randi_range(-180, 180);
 	le.position.y = randi_range(160, 180);
-	le.scale = Vector2i(5, 5);
+	le.rotation_degrees = r;
+	le.scale = Vector2(1.4, 1.4);
 	
 	add_child(le);
 

@@ -16,3 +16,6 @@ func _process(delta):
 
 func getSize():
 	return $TileMap.get_used_rect().size;
+	
+func destroy():
+	queue_free();
