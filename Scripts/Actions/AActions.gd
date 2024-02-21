@@ -16,7 +16,7 @@ func disable(hide = false):
 	$Sprite.set_material(null);
 	$Area2D.monitoring = false;
 	$Exclam.visible = false;
-	
+	$Area2D.collision_layer = 0;
 
 func ploufAction():
 	pass;
@@ -25,7 +25,9 @@ func getInfos():
 	return infos;
 	
 func _on_area_2d_body_entered(body):
-	GlobalSignal.ActionNearby.emit(self);
+	pass
+	#GlobalSignal.ActionNearby.emit(self);
 
 func _on_area_2d_body_exited(body):
-	GlobalSignal.ActionAway.emit();
+	pass
+	#GlobalSignal.ActionAway.emit();

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8byjbhaacnip"]
+[gd_scene load_steps=22 format=3 uid="uid://c8byjbhaacnip"]
 
 [ext_resource type="Script" path="res://Scenes/other/Player2.gd" id="1_kehy6"]
 [ext_resource type="Texture2D" uid="uid://dvby8bj87w23x" path="res://asset/sprite/tile_0267.png" id="2_ttdm8"]
@@ -145,8 +145,11 @@ _data = {
 "key": SubResource("Animation_qj6jl")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxoaq"]
+size = Vector2(22, 20)
+
 [node name="player" type="CharacterBody2D"]
-collision_mask = 4
+collision_mask = 20
 script = ExtResource("1_kehy6")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
@@ -187,3 +190,13 @@ volume_db = 3.0
 
 [node name="win_loose" type="AudioStreamPlayer" parent="."]
 volume_db = -3.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nxoaq")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

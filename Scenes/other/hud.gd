@@ -50,6 +50,8 @@ func _ready():
 	GlobalSignal.startGame.connect(startGame)
 	GlobalSignal.UpdateScore.connect(updateScore);
 	GlobalSignal.UpdateRiotLevel.connect(updateRiotLevel);
+	GlobalSignal.UpdatePoliceLevel.connect(updatePoliceLevel);
+	GlobalSignal.ResetRiotLevel.connect(restartRiotLevel);
 
 func miniGameContainer(instance):
 	var c = container.instantiate();

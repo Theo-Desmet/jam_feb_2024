@@ -1,9 +1,9 @@
 [gd_scene load_steps=31 format=3 uid="uid://2w4jil4fl2u6"]
 
-[ext_resource type="Texture2D" uid="uid://bbkk8yqi56fq5" path="res://asset/gui/score_panel.png" id="1_0yva1"]
 [ext_resource type="Script" path="res://Scenes/other/hud.gd" id="1_knp7r"]
 [ext_resource type="Texture2D" uid="uid://buqmr5lb7t0yh" path="res://asset/gui/powerUp_tile.png" id="1_y4gyl"]
 [ext_resource type="Texture2D" uid="uid://dv52ehrfxug3t" path="res://asset/gui/riot_bar.png" id="2_exlrg"]
+[ext_resource type="Texture2D" uid="uid://cprrvie0fnspl" path="res://asset/gui/score2.png" id="2_fle12"]
 [ext_resource type="Texture2D" uid="uid://n5gypklb45g6" path="res://asset/gui/police_bar.png" id="3_8k5ee"]
 [ext_resource type="FontFile" uid="uid://db24qmau0svhh" path="res://asset/Fonts/prstartk.ttf" id="3_jctah"]
 [ext_resource type="Texture2D" uid="uid://b0s2oivmia08o" path="res://asset/gui/police_cell.png" id="5_gvc3j"]
@@ -51,9 +51,9 @@ script = ExtResource("1_knp7r")
 offset_left = 27.0
 offset_top = 23.0
 offset_right = 519.0
-offset_bottom = 123.0
-scale = Vector2(0.849695, 0.850648)
-texture = ExtResource("1_0yva1")
+offset_bottom = 107.0
+scale = Vector2(0.847905, 0.850648)
+texture = ExtResource("2_fle12")
 
 [node name="score" type="Label" parent="scorePanel"]
 layout_mode = 1
@@ -186,6 +186,7 @@ layout_mode = 2
 texture = ExtResource("2_exlrg")
 
 [node name="riot_cell1" type="TextureProgressBar" parent="LevelsBar/riot_bar"]
+show_behind_parent = true
 layout_mode = 0
 offset_left = 127.0
 offset_top = 51.0
@@ -194,6 +195,7 @@ offset_bottom = 71.0
 texture_progress = ExtResource("6_cribw")
 
 [node name="riot_cell2" type="TextureProgressBar" parent="LevelsBar/riot_bar"]
+show_behind_parent = true
 layout_mode = 0
 offset_left = 165.0
 offset_top = 51.0

@@ -8,7 +8,3 @@ func _ready():
 
 func changeSprite():
 	$Sprite.texture = afterTexture;
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass;

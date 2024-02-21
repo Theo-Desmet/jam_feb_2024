@@ -7,7 +7,3 @@ func _ready():
 	randomize();
 	$Sprite.texture	= texture;
 	infos = {"type": "textWall", "texture": texture};
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass;

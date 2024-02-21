@@ -63,6 +63,7 @@ func _on_animated_sprite_2d_animation_finished():
 
 
 func _on_area_2d_area_exited(area):
-	area.get_parent().isOutOfBox = true;
-	counter += 1;
+	if (!area.get_parent().isOutOfBox):
+		area.get_parent().isOutOfBox = true;
+		counter += 1;
 	pass # Replace with function body.

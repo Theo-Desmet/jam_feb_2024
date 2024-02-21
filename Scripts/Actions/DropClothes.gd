@@ -12,6 +12,7 @@ func _ready():
 func disable(hide = false):
 	$Sprite.set_material(null);
 	$Area2D.monitoring = false;
+	$Area2D.collision_layer = 0;
 	$Exclam.visible = false;
 	$LeftSprite.set_material(null);
 	$RightSprite.set_material(null);
@@ -19,7 +20,3 @@ func disable(hide = false):
 	$LeftSprite.texture = left;
 	$RightSprite.texture = right;
 	$MidSprite.texture = mid;
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass;

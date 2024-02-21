@@ -12,7 +12,5 @@ func disable(hide = false):
 	$Sprite.set_material(null);
 	$Area2D.monitoring = false;
 	$Exclam.visible = false;
+	$Area2D.collision_layer = 0;
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass;

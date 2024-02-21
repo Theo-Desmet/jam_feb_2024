@@ -56,25 +56,27 @@ func changeSprite():
 	currentActionInstance.changeSprite();
 
 func actionFinished(winBool):
-	print(currentActionInstance.infos);
 	if !winBool:
-		currentActionInstance = null;
+		GlobalSignal.ResetRiotLevel.emit();
 		$win_loose.set_stream(looseSound)
 		$win_loose.play()
 		return;
-	else:
-		$win_loose.set_stream(winSound)
-		$win_loose.play()
-	if (!winsHandling.has(currentActionInstance.infos["type"])):
-		return;
-	winsHandling[currentActionInstance.infos["type"]].call();
-	currentActionInstance = null;
+
+	$win_loose.set_stream(winSound)
+	$win_loose.play()
+	if (winsHandling.has(currentActionInstance.infos["type"])):
+		winsHandling[currentActionInstance.infos["type"]].call();
+	
+	const policePos = Vector2i(980, 229);
+	var dist = currentActionInstance.global_position.distance_to(policePos);
+	GlobalSignal.UpdatePoliceLevel.emit(clamp((1 / dist) * 100, 0, 1));
+	#currentActionInstance = null;
 	
 func startGame():
 	canMove = true
 	
 func restartPlayer():
-	position = initPos
+	global_position = initPos
 
 func setPlayerMove(status: bool):
 	canMove = status;
@@ -87,6 +89,7 @@ func actionNearby(actionInstance):
 func actionAway():
 	$ActionKey.visible = false;
 	canInteract = false;
+	#currentActionInstance = null;
 
 func _process(delta):
 	var direction = Input.get_axis("left", "right");
@@ -121,15 +124,15 @@ func _process(delta):
 		$sprite.animation = animation;
 		$sprite.play();
 	#if (canMove):
-	velocity.x -= 0.12 * speed;
+	velocity.x -= 0.2 * speed;
 	move_and_collide(velocity * delta);
-	position = position.clamp(Vector2(8, 8),Vector2(1095, 502));
+	global_position = global_position.clamp(Vector2(8, 8),Vector2(1095, 502));
 
-	if (Input.is_action_pressed("interact") and canInteract):
+	if (Input.is_action_just_pressed("interact") and canInteract):
 		GlobalSignal.OpenMiniGameContainer.emit(currentActionInstance);
-		actionAway();
-		canMove = false;
 		currentActionInstance.disable();
+		canMove = false;
+		actionAway();
 		
 	if (isMovingX == true or isMovingY == true) and canMove == true and $footstep.playing == false:
 		var i = randi_range(0, 19)
@@ -147,3 +150,10 @@ func _on_hud_player_incognito_start():
 
 func _on_hud_player_incognito_end():
 	speed = 100
+
+
+func _on_area_2d_area_entered(area):
+	actionNearby(area.get_parent());
+
+func _on_area_2d_area_exited(area):
+	actionAway();

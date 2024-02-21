@@ -7,7 +7,3 @@ func _ready():
 	$Sprite.texture	= texture;
 	infos = {"type": "poster", "variation": "wall", "texture": texture};
 	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

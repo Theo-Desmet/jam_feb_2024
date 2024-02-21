@@ -27,19 +27,20 @@
 script = ExtResource("1_yxs1e")
 
 [node name="hud" parent="." instance=ExtResource("4_dw81q")]
+visible = true
 
 [node name="ABlock" parent="." instance=ExtResource("1_pey5x")]
 
-[node name="DragPosters" parent="ABlock" instance=ExtResource("11_thu4b")]
-position = Vector2(236, 372)
+[node name="DragPosters3" parent="ABlock" instance=ExtResource("11_thu4b")]
+position = Vector2(271, 317)
 texture = ExtResource("12_hiho8")
 
 [node name="Obstacle" parent="ABlock" instance=ExtResource("5_rsjbx")]
-position = Vector2(258, 339)
+position = Vector2(354, 280)
 texture = ExtResource("6_s6hyp")
 
 [node name="WallPosters2" parent="ABlock" instance=ExtResource("7_hafkj")]
-position = Vector2(200, 321)
+position = Vector2(118, 273)
 texture = ExtResource("7_s783t")
 
 [node name="Plouf" parent="ABlock" instance=ExtResource("9_s4iv5")]
@@ -50,14 +51,15 @@ texture = ExtResource("10_tbv30")
 position = Vector2(64, 276)
 
 [node name="TextWall3" parent="ABlock" instance=ExtResource("14_5rlaj")]
-position = Vector2(269, 385)
+z_as_relative = false
+position = Vector2(337, 322)
 texture = ExtResource("15_3dfjt")
 
 [node name="DropClothes" parent="ABlock" instance=ExtResource("16_pjeg8")]
 position = Vector2(83, 334)
 
 [node name="Window" parent="ABlock" instance=ExtResource("16_2jmrh")]
-position = Vector2(230, 420)
+position = Vector2(297, 276)
 
 [node name="ObstacleAction2" parent="ABlock" instance=ExtResource("5_rsjbx")]
 position = Vector2(130, 208)
@@ -70,10 +72,10 @@ fruitBottom = "orange"
 texture = ExtResource("20_g8e4i")
 
 [node name="Package" parent="ABlock" instance=ExtResource("20_vs1p2")]
-position = Vector2(138, 272)
+position = Vector2(131, 417)
 
 [node name="StreetSign" parent="ABlock" instance=ExtResource("21_f36it")]
-position = Vector2(132, 416)
+position = Vector2(234, 274)
 
 [node name="player" parent="." instance=ExtResource("2_cvcyw")]
 position = Vector2(163, 419)

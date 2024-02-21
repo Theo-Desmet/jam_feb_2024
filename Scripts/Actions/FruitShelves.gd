@@ -8,7 +8,3 @@ extends AActions;
 func _ready():
 	$Sprite.texture = texture;
 	infos = {"type": "fruit", "up": fruitUp, "bottom": fruitBottom};
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass;

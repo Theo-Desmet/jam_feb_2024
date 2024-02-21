@@ -12,6 +12,8 @@ signal restartGame
 signal ActionFinished;
 signal UpdateScore;
 signal UpdateRiotLevel;
+signal UpdatePoliceLevel;
+signal ResetRiotLevel;
 
 var selectedItem = null;
 
