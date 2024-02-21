@@ -15,9 +15,12 @@ var winsHandling = {"obstacle": deleteInstance, "window": changeSprite,
 	"trafficLight": changeSprite};
 const texts = ["bebou c'est fix"]
 
+var looseSound = preload("res://audio/looseGame.mp3")
+var winSound = preload("res://audio/winGame.mp3")
+
 func _ready():
-	#position = initPos
-	
+	position = initPos
+
 	footSound.append(preload("res://audio/foot/running1.mp3"))
 	footSound.append(preload("res://audio/foot/running2.mp3"))
 	footSound.append(preload("res://audio/foot/running3.mp3"))
@@ -56,8 +59,12 @@ func actionFinished(winBool):
 	print(currentActionInstance.infos);
 	if !winBool:
 		currentActionInstance = null;
+		$win_loose.set_stream(looseSound)
+		$win_loose.play()
 		return;
-		
+	else:
+		$win_loose.set_stream(winSound)
+		$win_loose.play()
 	if (!winsHandling.has(currentActionInstance.infos["type"])):
 		return;
 	winsHandling[currentActionInstance.infos["type"]].call();

@@ -4,6 +4,9 @@ signal playerSpeech
 signal playerIncognitoStart
 signal playerIncognitoEnd
 signal endGame
+signal nextMusic
+signal previousMusic
+signal stopMusic
 
 var score
 var riotLevel = 1
@@ -26,8 +29,10 @@ var timeMin
 var time
 
 var sound: Array
+var isMusicPlaying = true
 var container = preload("res://Scenes/Gui/MiniGameContainer.tscn");
-
+var musicIcon = preload("res://asset/gui/musicNote.png")
+var noMusicIcon = preload("res://asset/gui/noMusicNote.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sound.append(preload("res://audio/usePowerUp.mp3"))
@@ -313,3 +318,21 @@ func _on_riot_arena_player_exit_riot_area():
 
 func _on_end_game_menu_restart_game():
 	pass # Replace with function body.
+
+func _on_right_arrow_pressed():
+	nextMusic.emit()
+	$rightArrow.release_focus()
+
+func _on_music_note_pressed():
+	stopMusic.emit()
+	if isMusicPlaying == true:
+		$musicNote.set_button_icon(noMusicIcon)
+		isMusicPlaying = false
+	else:
+		$musicNote.set_button_icon(musicIcon)
+		isMusicPlaying = true
+	$musicNote.release_focus()
+
+func _on_left_arrow_pressed():
+	previousMusic.emit()
+	$leftArrow.release_focus()
