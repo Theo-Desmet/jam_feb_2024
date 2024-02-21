@@ -70,10 +70,10 @@ fruitBottom = "orange"
 texture = ExtResource("20_g8e4i")
 
 [node name="Package" parent="ABlock" instance=ExtResource("20_vs1p2")]
-position = Vector2(120, 419)
+position = Vector2(138, 272)
 
 [node name="StreetSign" parent="ABlock" instance=ExtResource("21_f36it")]
-position = Vector2(120, 278)
+position = Vector2(132, 416)
 
 [node name="player" parent="." instance=ExtResource("2_cvcyw")]
 position = Vector2(163, 419)

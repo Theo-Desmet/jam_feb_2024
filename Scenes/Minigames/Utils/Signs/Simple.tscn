@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5vmur6nfhibf"]
+
+[ext_resource type="PackedScene" uid="uid://bfcthohdwhoid" path="res://Scenes/Minigames/Utils/Signs/ASigns.tscn" id="1_plscg"]
+[ext_resource type="Texture2D" uid="uid://d10pxk565ovy0" path="res://asset/Minigames/StreetSign/Calque 4.png" id="2_wc6u7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a66dx"]
+size = Vector2(10, 4)
+
+[node name="Signs" instance=ExtResource("1_plscg")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-3, 0)
+texture = ExtResource("2_wc6u7")
+
+[node name="Area2D" parent="." index="1"]
+position = Vector2(-4, 0)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_a66dx")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
