@@ -14,7 +14,7 @@ func _ready():
 func _process(delta):
 	if isHovered and !isRotated and Input.is_action_just_pressed("click"):
 		var tween = create_tween().set_parallel(true);
-		tween.tween_property(self, "rotation_degrees", rotationAngle, 1);
+		tween.tween_property(self, "rotation_degrees", rotationAngle, 0.5);
 		add_to_group("signs");
 		isRotated = true;
 		

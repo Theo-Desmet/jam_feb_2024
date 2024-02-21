@@ -50,7 +50,6 @@ func deleteInstance():
 	currentActionInstance.queue_free();
 	
 func changeSprite():
-	print("OUAIS");
 	currentActionInstance.changeSprite();
 
 func actionFinished(winBool):
@@ -114,10 +113,10 @@ func _process(delta):
 	if animation != "_stop":
 		$sprite.animation = animation;
 		$sprite.play();
-	#velocity.x -= 0.12 * speed;
-	if (canMove):
-		move_and_collide(velocity * delta);
-		position = position.clamp(Vector2(8, 8),Vector2(1095, 502));
+	#if (canMove):
+	velocity.x -= 0.12 * speed;
+	move_and_collide(velocity * delta);
+	position = position.clamp(Vector2(8, 8),Vector2(1095, 502));
 
 	if (Input.is_action_pressed("interact") and canInteract):
 		GlobalSignal.OpenMiniGameContainer.emit(currentActionInstance);
