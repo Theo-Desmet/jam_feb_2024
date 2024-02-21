@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cx6mln32hndc6"]
+[gd_scene load_steps=9 format=3 uid="uid://08mmx71n3vpt"]
 
 [ext_resource type="PackedScene" uid="uid://cr3k8gjgyoqxy" path="res://Scenes/Actions/AActions.tscn" id="1_m5mp5"]
 [ext_resource type="Script" path="res://Scripts/Actions/DropClothes.gd" id="2_1lumu"]

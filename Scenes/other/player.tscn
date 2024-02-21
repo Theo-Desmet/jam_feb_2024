@@ -183,3 +183,4 @@ position = Vector2(0, -17)
 scale = Vector2(0.482128, 0.411649)
 
 [node name="footstep" type="AudioStreamPlayer" parent="."]
+volume_db = 3.0

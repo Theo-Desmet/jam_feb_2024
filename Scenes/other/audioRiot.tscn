@@ -27,19 +27,3 @@ volume_db = 9.0
 autoplay = true
 max_distance = 600.0
 attenuation = 4.0
-
-[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(187, 376)
-stream = ExtResource("1_1t1l8")
-volume_db = 9.0
-autoplay = true
-max_distance = 600.0
-attenuation = 4.0
-
-[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(187, 376)
-stream = ExtResource("1_1t1l8")
-volume_db = 9.0
-autoplay = true
-max_distance = 600.0
-attenuation = 4.0

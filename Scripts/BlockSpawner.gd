@@ -1,13 +1,19 @@
 extends Node2D
 
-var block1 = preload("res://Scenes/Blocks/Block1.tscn");
-var block2 = preload("res://Scenes/Blocks/Block2.tscn");
-var block3 = preload("res://Scenes/Blocks/Block3.tscn");
-var block4 = preload("res://Scenes/Blocks/Block4.tscn");
-var block5 = preload("res://Scenes/Blocks/Block5.tscn");
-var block6 = preload("res://Scenes/Blocks/Block6.tscn");
-var block7 = preload("res://Scenes/Blocks/Block7.tscn");
-var block8 = preload("res://Scenes/Blocks/Block8.tscn");
+var block1 = preload("res://Scenes/Blocks/Block1.1.tscn");
+var block2 = preload("res://Scenes/Blocks/Block1.2.tscn");
+var block3 = preload("res://Scenes/Blocks/Block1.3.tscn");
+var block4 = preload("res://Scenes/Blocks/Block2.1.tscn");
+var block5 = preload("res://Scenes/Blocks/Block2.2.tscn");
+var block6 = preload("res://Scenes/Blocks/Block2.3.tscn");
+var block7 = preload("res://Scenes/Blocks/Block3.1.tscn");
+var block8 = preload("res://Scenes/Blocks/Block3.2.tscn");
+var block9 = preload("res://Scenes/Blocks/Block4.1.tscn");
+var block10 = preload("res://Scenes/Blocks/Block5.1.tscn");
+var block11 = preload("res://Scenes/Blocks/Block6.1.tscn");
+var block12 = preload("res://Scenes/Blocks/Block7.1.tscn");
+var block13 = preload("res://Scenes/Blocks/Block8.1.tscn");
+var block14 = preload("res://Scenes/Blocks/Block8.2.tscn");
 # Called when the node enters the scene tree for the first time.
 
 var blocks = [];
@@ -15,7 +21,7 @@ var lastId = 0;
 var renderedPos = [];
 
 func _ready():
-	blocks = [block1, block2, block3, block4, block5, block6, block7, block8];
+	blocks = [block1, block2, block3, block4, block5, block6, block7, block8, block9, block10, block11, block12, block13, block14];
 	randomize();
 	
 	GlobalSignal.connect("BlockDestroyed", spawnBlockSignal);
