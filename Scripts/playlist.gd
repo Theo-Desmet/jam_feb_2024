@@ -46,6 +46,7 @@ func _on_hud_previous_music():
 
 
 func _on_hud_stop_music():
+	print("aled")
 	if $music.playing == true:
 		$music.stream_paused = true
 		userStop = true

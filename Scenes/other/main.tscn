@@ -39,6 +39,9 @@ visible = true
 
 [connection signal="playerEnterRiotArea" from="riotArena" to="hud" method="_on_riot_arena_player_enter_riot_area"]
 [connection signal="playerExitRiotArea" from="riotArena" to="hud" method="_on_riot_arena_player_exit_riot_area"]
+[connection signal="nextMusic" from="hud" to="playlist" method="_on_hud_next_music"]
 [connection signal="playerIncognitoEnd" from="hud" to="player" method="_on_hud_player_incognito_end"]
 [connection signal="playerIncognitoStart" from="hud" to="player" method="_on_hud_player_incognito_start"]
 [connection signal="playerSpeech" from="hud" to="player" method="_on_hud_player_speech"]
+[connection signal="previousMusic" from="hud" to="playlist" method="_on_hud_previous_music"]
+[connection signal="stopMusic" from="hud" to="playlist" method="_on_hud_stop_music"]
