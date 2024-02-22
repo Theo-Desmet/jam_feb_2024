@@ -122,7 +122,7 @@ func _process(delta):
 	if animation != "_stop":
 		$sprite.animation = animation;
 		$sprite.play();
-	#velocity.x -= 0.2 * speed;
+	velocity.x -= 0.2 * speed;
 	if (canMove):
 		move_and_collide(velocity * delta);
 		global_position = global_position.clamp(Vector2(8, 8),Vector2(1095, 502));
