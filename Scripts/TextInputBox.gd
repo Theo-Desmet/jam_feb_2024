@@ -2,7 +2,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 
-const words = ["rubbery", "thrifty", "divider", "willing"];
+const words = ["pineapple", "surface", "coffee", "pursuit", "crimes", "legalize",\
+ "hospital", "police", "legality", "equality", "freedom", "barrier", "routine", \
+"justice", "opinion", "speaker", "intention"];
 
 func _ready():
 	randomize();

@@ -12,6 +12,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if isRotated:
+		$AnimationPlayer.stop();
 	if isHovered and !isRotated and Input.is_action_just_pressed("click"):
 		var tween = create_tween().set_parallel(true);
 		tween.tween_property(self, "rotation_degrees", rotationAngle, 0.5);

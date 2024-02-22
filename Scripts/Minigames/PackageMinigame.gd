@@ -20,6 +20,7 @@ var textures = [preload("res://asset/Minigames/Package/Calque 2.png"),
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$OutArrow.scale = Vector2(0.25, 0.25);
 	for i in range(NUM_ITEMS):
 		var r = randi_range(0, len(textures) - 1);
 		var item = itemScene.instantiate();
@@ -44,6 +45,7 @@ func _process(delta):
 		$AnimatedSprite2D.play("open");
 	if state == 1:
 		$AnimatedSprite2D.self_modulate.a = 0.75;
+		$AnimationPlayer.play("arrow");
 		$OutArrow.visible = true;
 		activateItems()
 		state += 1;

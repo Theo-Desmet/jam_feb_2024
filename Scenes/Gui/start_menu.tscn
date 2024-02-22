@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctvyh3bfmru2p"]
+[gd_scene load_steps=18 format=3 uid="uid://ctvyh3bfmru2p"]
 
 [ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_m6by5"]
 [ext_resource type="Texture2D" uid="uid://6haru6tx4rmr" path="res://asset/gui/arrow.png" id="2_awmfs"]
@@ -6,6 +6,29 @@
 [ext_resource type="FontFile" uid="uid://db24qmau0svhh" path="res://asset/Fonts/prstartk.ttf" id="4_72x7d"]
 [ext_resource type="Texture2D" uid="uid://cove25wr46dqe" path="res://asset/gui/Button.png" id="4_qxi78"]
 [ext_resource type="AudioStream" uid="uid://crdsbf3rtqono" path="res://audio/clickMenu.mp3" id="6_m41q1"]
+[ext_resource type="Theme" uid="uid://duytgll4brj2b" path="res://Scenes/other/HudTextTheme.tres" id="7_vpwnp"]
+[ext_resource type="Texture2D" uid="uid://dv52ehrfxug3t" path="res://asset/gui/riot_bar.png" id="8_baoex"]
+[ext_resource type="Texture2D" uid="uid://b0s2oivmia08o" path="res://asset/gui/police_cell.png" id="9_mqagn"]
+[ext_resource type="Texture2D" uid="uid://n5gypklb45g6" path="res://asset/gui/police_bar.png" id="10_fyjvf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gtfmk"]
+
+[sub_resource type="Theme" id="Theme_op6ru"]
+Button/styles/focus = SubResource("StyleBoxEmpty_gtfmk")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0vun"]
+
+[sub_resource type="Theme" id="Theme_33c68"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7gtu"]
+
+[sub_resource type="Theme" id="Theme_dbiby"]
+default_font = ExtResource("4_72x7d")
+default_font_size = 30
+
+[sub_resource type="Theme" id="Theme_nghyi"]
+default_font = ExtResource("4_72x7d")
+default_font_size = 30
 
 [node name="startMenu" type="CanvasLayer"]
 script = ExtResource("1_m6by5")
@@ -13,6 +36,7 @@ script = ExtResource("1_m6by5")
 [node name="page_1" type="TextureRect" parent="."]
 offset_right = 1632.0
 offset_bottom = 918.0
+theme = SubResource("Theme_op6ru")
 texture = ExtResource("2_l2uje")
 metadata/_edit_use_anchors_ = true
 
@@ -22,6 +46,7 @@ offset_top = 657.0
 offset_right = 1067.0
 offset_bottom = 804.0
 scale = Vector2(0.730733, 0.67402)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n0vun")
 icon = ExtResource("2_awmfs")
 flat = true
 metadata/_edit_use_anchors_ = true
@@ -32,6 +57,8 @@ offset_top = 658.0
 offset_right = 859.0
 offset_bottom = 805.0
 scale = Vector2(-0.733765, 0.67402)
+theme = SubResource("Theme_33c68")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q7gtu")
 icon = ExtResource("2_awmfs")
 flat = true
 metadata/_edit_use_anchors_ = true
@@ -67,4 +94,99 @@ metadata/_edit_use_anchors_ = true
 [node name="clickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_m41q1")
 
+[node name="Presentation" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -542.0
+offset_top = -248.0
+offset_right = 603.0
+offset_bottom = 209.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_vpwnp")
+text = "   Welcome to Riot for Freedom!
+
+
+You play a protester whose aim is to commit legal crimes to score the most points. String together a series of small misdeeds to increase your multiplier. But watch out for the police, who don't take kindly to outbursts! "
+autowrap_mode = 2
+
+[node name="Riot" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Riot"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 266.0
+offset_top = 233.0
+offset_right = 1377.0
+offset_bottom = 685.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_dbiby")
+text = "Your multiplier is directly linked to your activities. 
+The more you do, the higher your multiplier, and the higher your score! But beware: if you fail a crime, your multiplier is reduced to 0, lowering your score for future activities. It corresponds to the motivation level of the crowd, which decreases over time. You can use the mega phone to motivate the crowd and boost your multiplier. "
+autowrap_mode = 2
+
+[node name="RiotBar" type="Sprite2D" parent="Riot"]
+position = Vector2(813, 191)
+texture = ExtResource("8_baoex")
+
+[node name="Police" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Police"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 275.0
+offset_top = 222.0
+offset_right = 1405.0
+offset_bottom = 661.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_nghyi")
+text = "The police don't appreciate your little activities at all! In fact, as you commit crimes, the police gauge rises, increasing the crowd's demotivation rate. Keep a close eye on this bar, or you'll see your score multiplier melt away! To lower the police level, you can use the \"incognito mode\" in the middle of the crowd. You blend in with the crowd, but your ability to move is greatly reduced."
+autowrap_mode = 2
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Police"]
+
+[node name="PoliceCell" type="Sprite2D" parent="Police/CanvasGroup"]
+position = Vector2(660.75, 197.5)
+scale = Vector2(1.1129, 1.27778)
+texture = ExtResource("9_mqagn")
+
+[node name="PoliceCell2" type="Sprite2D" parent="Police/CanvasGroup"]
+position = Vector2(712, 198)
+scale = Vector2(1.1129, 1.27778)
+texture = ExtResource("9_mqagn")
+
+[node name="PoliceCell3" type="Sprite2D" parent="Police/CanvasGroup"]
+position = Vector2(762, 199)
+scale = Vector2(1.1129, 1.27778)
+texture = ExtResource("9_mqagn")
+
+[node name="PoliceBar" type="Sprite2D" parent="Police/CanvasGroup"]
+position = Vector2(812, 198)
+texture = ExtResource("10_fyjvf")
+
+[connection signal="pressed" from="rightArrow" to="." method="_on_right_arrow_pressed"]
+[connection signal="pressed" from="leftArrow" to="." method="_on_left_arrow_pressed"]
 [connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]
