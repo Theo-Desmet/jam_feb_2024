@@ -7,3 +7,7 @@ func _ready():
 	$Sprite.texture	= texture;
 	infos = {"type": "poster", "variation": "wall", "texture": texture};
 	pass # Replace with function body.
+
+func changeSprite():
+	$Papers.visible = true;
+	

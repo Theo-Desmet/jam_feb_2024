@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh2yua8rya2jn"]
+[gd_scene load_steps=6 format=3 uid="uid://bh2yua8rya2jn"]
 
 [ext_resource type="PackedScene" uid="uid://cr3k8gjgyoqxy" path="res://Scenes/Actions/AActions.tscn" id="1_ccgvo"]
 [ext_resource type="Script" path="res://Scripts/Actions/WallPosters.gd" id="2_th3xk"]
+[ext_resource type="Texture2D" uid="uid://b72kq2uah5kij" path="res://asset/Minigames/papers.png" id="3_fks7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4sllu"]
 size = Vector2(16, 16)
@@ -18,3 +19,7 @@ shape = SubResource("RectangleShape2D_4sllu")
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource("RectangleShape2D_2xsd2")
+
+[node name="Papers" type="Sprite2D" parent="." index="5"]
+visible = false
+texture = ExtResource("3_fks7d")

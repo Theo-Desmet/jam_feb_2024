@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgje6w8ia5thb"]
+[gd_scene load_steps=6 format=3 uid="uid://dgje6w8ia5thb"]
 
 [ext_resource type="Script" path="res://Scripts/Minigames/Fruit.gd" id="1_apneb"]
 [ext_resource type="Texture2D" uid="uid://brew3diskt7yt" path="res://asset/Minigames/Fruits/Tangerine.png" id="2_6tvmj"]
+[ext_resource type="Shader" path="res://Shaders/AActions.gdshader" id="2_o2jul"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jyyb8"]
+shader = ExtResource("2_o2jul")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xfwjy"]
 height = 20.0
@@ -10,6 +16,7 @@ height = 20.0
 script = ExtResource("1_apneb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jyyb8")
 texture = ExtResource("2_6tvmj")
 
 [node name="Area2D" type="Area2D" parent="."]

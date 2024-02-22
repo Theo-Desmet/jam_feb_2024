@@ -12,10 +12,10 @@ const texts = ["I have no idea why I'm here", "I love Paris", \
 				"I've lost my hat", "I am a good table", "Anyone want to be my friend ?", \
 				"Beer is my life", "Yo what's up ?", "This life is a simulation !", \
 				"The earth is flat", "Legalize pineapple pizzas", \
-				"I cut my pasta", "My life is potato", "Never Gonna give you up"
-				
-				"Who I am", "Ironman is dead LOL!", "I don't pray", "We are not egals", "Pizza is an vegetable"
-				"freedom !", "Game jam theme is bad", "hello from 42Paris","*atchoum*"];
+				"I cut my pasta", "My life is potato", "Never Gonna give you up", \
+				"Who am I ?", "Ironman is dead LOL!", "I don't pray", "We are not equals",\
+				 "Pizza is a vegetable", "Freedom !", "Game jam theme is bad", \
+				"Hello from 42Paris", "*atchoum*"];
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

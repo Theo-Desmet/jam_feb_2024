@@ -191,19 +191,11 @@ func updatePoliceLevel(newLevel):
 		$LevelsBar/police_bar/police_cell7.show()
 		
 func _process(_delta):
-	if Input.is_action_just_released("score++"):
-		updateScore(500)
-	if Input.is_action_just_released("riot++"):
-		updateRiotLevel(0.025)
-	if Input.is_action_just_released("police++"):
-		updatePoliceLevel(1)
-	if Input.is_action_just_released("police--"):
-		updatePoliceLevel(-1)
 	if Input.is_action_just_pressed("megaphone"):
 		useMegaphone()
 	if Input.is_action_just_pressed("incognito"):
 		useIncognito()
-	
+
 func _on_timer_timeout():
 	timeSec -= 1
 	if timeMin == 0 and timeSec == 0:

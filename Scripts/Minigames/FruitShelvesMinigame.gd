@@ -57,7 +57,7 @@ func _on_up_area_area_exited(area):
 
 func _on_botom_area_area_entered(area):
 	if (area.get_parent().is_in_group("down")):
-		area.get_parent().isGoodPlaced = false;
+		area.get_parent().isGoodPlaced = true;
 		bottomGoodCounter += 1;
 
 func _on_botom_area_area_exited(area):

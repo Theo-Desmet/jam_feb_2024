@@ -44,6 +44,7 @@ func _process(delta):
 		$AnimatedSprite2D.play("open");
 	if state == 1:
 		$AnimatedSprite2D.self_modulate.a = 0.75;
+		$OutArrow.visible = true;
 		activateItems()
 		state += 1;
 	if counter == NUM_ITEMS and !GlobalSignal.selectedItem:
