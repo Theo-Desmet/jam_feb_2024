@@ -29,7 +29,6 @@ scale = Vector2(0.995297, 0.964918)
 position = Vector2(144, 323)
 
 [node name="hud" parent="." instance=ExtResource("6_7jo25")]
-visible = true
 
 [node name="audioRiot" parent="." instance=ExtResource("7_n01a2")]
 
