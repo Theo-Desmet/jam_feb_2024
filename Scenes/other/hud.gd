@@ -71,7 +71,7 @@ func restartHUD():
 	incognitoUse = 0
 	megaphoneValue = 100
 	incognitoValue = 100
-	timeMin = 5
+	timeMin = 3
 	timeSec = 0
 	restartScore()
 	restartRiotLevel()

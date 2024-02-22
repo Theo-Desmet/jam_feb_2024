@@ -8,6 +8,7 @@ var currentActionInstance = null;
 var initPos = Vector2(450, 350)
 var isMovingX = false
 var isMovingY = false
+var isRunning = false;
 
 var footSound: Array
 
@@ -22,7 +23,7 @@ var looseSound = preload("res://audio/looseGame.mp3")
 var winSound = preload("res://audio/winGame.mp3")
 
 func _ready():
-	position = initPos
+	global_position = initPos
 
 	footSound.append(preload("res://audio/foot/running1.mp3"))
 	footSound.append(preload("res://audio/foot/running2.mp3"))
@@ -51,6 +52,10 @@ func _ready():
 	GlobalSignal.restartGame.connect(restartPlayer)
 	GlobalSignal.startGame.connect(startGame)
 	GlobalSignal.ActionFinished.connect(actionFinished);
+	GlobalSignal.startGame.connect(gameStart);
+
+func gameStart():
+	isRunning = true;
 
 func deleteInstance():
 	currentActionInstance.queue_free();
@@ -126,13 +131,14 @@ func _process(delta):
 	if animation != "_stop":
 		$sprite.animation = animation;
 		$sprite.play();
-	velocity.x -= 0.2 * speed;
-	if (canMove):
-		move_and_collide(velocity * delta);
-		global_position = global_position.clamp(Vector2(8, 8),Vector2(1095, 502));
+
+	if (isRunning):
+		velocity.x -= 0.2 * speed;
 	else:
-		move_and_collide(Vector2(-0.2 * speed, 0) * delta);
-		global_position = global_position.clamp(Vector2(8, 8),Vector2(1095, 502));
+		velocity = Vector2i(0, 0);
+	
+	move_and_collide(velocity * delta);
+	global_position = global_position.clamp(Vector2(8, 8),Vector2(1095, 502));
 
 	if (Input.is_action_just_pressed("interact") and canInteract):
 		GlobalSignal.OpenMiniGameContainer.emit(currentActionInstance);
