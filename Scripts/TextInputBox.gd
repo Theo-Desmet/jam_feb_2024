@@ -7,6 +7,7 @@ const words = ["pineapple", "surface", "coffee", "pursuit", "crimes", "legalize"
 "justice", "opinion", "speaker", "intention"];
 
 func _ready():
+	$LineEdit.grab_focus()
 	randomize();
 	var r = randi_range(0, len(words) - 1);
 	$Label.text = words[r];
