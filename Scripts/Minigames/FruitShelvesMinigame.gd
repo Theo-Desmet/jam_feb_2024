@@ -11,7 +11,7 @@ var fruitScene = preload("res://Scenes/Minigames/Utils/Fruit.tscn");
 var upFruit = "";
 var bottomFruit = "";
 
-const NUM_FRUITS = 4;
+const NUM_FRUITS = 3;
 
 var upGoodCounter = 0;
 var bottomGoodCounter = 0;

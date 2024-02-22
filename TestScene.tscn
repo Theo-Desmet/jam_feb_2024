@@ -1,7 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://cnv1v03d1lh6f"]
+[gd_scene load_steps=22 format=3 uid="uid://cnv1v03d1lh6f"]
 
 [ext_resource type="PackedScene" uid="uid://ccupgpvkf20we" path="res://Scenes/Blocks/Block4.1.tscn" id="1_pey5x"]
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_yxs1e"]
 [ext_resource type="PackedScene" uid="uid://c8byjbhaacnip" path="res://Scenes/other/player.tscn" id="2_cvcyw"]
 [ext_resource type="PackedScene" uid="uid://2w4jil4fl2u6" path="res://Scenes/other/hud.tscn" id="4_dw81q"]
 [ext_resource type="PackedScene" uid="uid://clmkycvvypfyi" path="res://Scenes/Actions/ObstaclesAction.tscn" id="5_rsjbx"]
@@ -24,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://ci5ky61es8833" path="res://Scenes/Actions/StreetSign.tscn" id="21_f36it"]
 
 [node name="TestScene" type="Node2D"]
-script = ExtResource("1_yxs1e")
 
 [node name="hud" parent="." instance=ExtResource("4_dw81q")]
 visible = true

@@ -11,14 +11,15 @@ func _ready():
 	$Sprite2D.texture = texture;
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if keyToPress == -1:
 		$Action1.self_modulate.a = 0.5;
+		$AnimationPlayer.play("q");
 		$Action2.self_modulate.a = 1;
 	else:
 		$Action2.self_modulate.a = 0.5;
+		$AnimationPlayer.play("e");
 		$Action1.self_modulate.a = 1;
 	
 	var direction = Input.get_axis("action1", "action2");

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bavnvwq6oae0e"]
+[gd_scene load_steps=10 format=3 uid="uid://bavnvwq6oae0e"]
 
 [ext_resource type="Script" path="res://Scripts/Minigames/TrafficLightMinigame.gd" id="1_hb131"]
 [ext_resource type="Texture2D" uid="uid://d1lsgty5vwt37" path="res://asset/sprite/tile_0409.png" id="2_glvir"]
@@ -7,30 +7,6 @@
 
 [sub_resource type="Animation" id="Animation_nchjs"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Action2:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(6, 6)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Action1:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(6, 6)]
-}
 
 [sub_resource type="Animation" id="Animation_0hdtc"]
 resource_name = "e"
@@ -67,9 +43,13 @@ tracks/0/keys = {
 "values": [Vector2(6, 6), Vector2(6.5, 6.5), Vector2(6, 6)]
 }
 
+[sub_resource type="Animation" id="Animation_hw7fm"]
+resource_name = "action1"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gbu8n"]
 _data = {
 "RESET": SubResource("Animation_nchjs"),
+"action1": SubResource("Animation_hw7fm"),
 "e": SubResource("Animation_0hdtc"),
 "q": SubResource("Animation_jacr3")
 }
@@ -91,7 +71,7 @@ show_percentage = false
 
 [node name="Action1" type="Sprite2D" parent="."]
 position = Vector2(90, 240)
-scale = Vector2(6, 6)
+scale = Vector2(6.11168, 6.11168)
 texture = ExtResource("3_emf4h")
 
 [node name="Action2" type="Sprite2D" parent="."]

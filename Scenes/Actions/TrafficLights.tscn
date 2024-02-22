@@ -1,11 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd1ei2lbl07"]
+[gd_scene load_steps=5 format=3 uid="uid://bd1ei2lbl07"]
 
 [ext_resource type="PackedScene" uid="uid://cr3k8gjgyoqxy" path="res://Scenes/Actions/AActions.tscn" id="1_s6amy"]
 [ext_resource type="Texture2D" uid="uid://d1lsgty5vwt37" path="res://asset/sprite/tile_0409.png" id="2_5116d"]
 [ext_resource type="Script" path="res://Scripts/Actions/TrafficLights.gd" id="2_gt8qp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_idgqx"]
-size = Vector2(14, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pbhn"]
 size = Vector2(28, 26)
@@ -15,7 +12,6 @@ script = ExtResource("2_gt8qp")
 
 [node name="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_idgqx")
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource("RectangleShape2D_6pbhn")

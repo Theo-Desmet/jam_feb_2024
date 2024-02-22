@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqp5jc1nf3la5"]
+[gd_scene load_steps=7 format=3 uid="uid://dqp5jc1nf3la5"]
 
 [ext_resource type="PackedScene" uid="uid://cr3k8gjgyoqxy" path="res://Scenes/Actions/AActions.tscn" id="1_4fqhc"]
 [ext_resource type="Script" path="res://Scripts/Actions/TextWall.gd" id="2_gue4m"]
 [ext_resource type="Texture2D" uid="uid://4aq0ctfwxg3y" path="res://asset/sprite/tile_0070.png" id="2_p4ilx"]
+[ext_resource type="Texture2D" uid="uid://bijq8fjll5b7v" path="res://asset/Minigames/tag.png" id="4_0lgwi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xi6kg"]
 size = Vector2(16, 16)
@@ -22,3 +23,7 @@ shape = SubResource("RectangleShape2D_xyrnd")
 
 [node name="Sprite" parent="." index="2"]
 texture = ExtResource("2_p4ilx")
+
+[node name="Tag" type="Sprite2D" parent="." index="5"]
+visible = false
+texture = ExtResource("4_0lgwi")

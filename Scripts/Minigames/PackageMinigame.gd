@@ -2,7 +2,7 @@ extends Node2D
 
 var isHovered = false;
 var state = 0;
-const NUM_ITEMS = 5;
+const NUM_ITEMS = 3;
 var counter = 0;
 
 var itemScene = preload("res://Scenes/Minigames/Utils/PackageItems.tscn");
@@ -40,6 +40,7 @@ func activateItems():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if isHovered and !state and Input.is_action_just_pressed("click"):
+		$AnimationPlayer.stop();
 		$AnimatedSprite2D.play("open");
 	if state == 1:
 		$AnimatedSprite2D.self_modulate.a = 0.75;
