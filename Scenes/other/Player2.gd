@@ -12,7 +12,7 @@ var isMovingY = false
 var footSound: Array
 var winsHandling = {"obstacle": deleteInstance, "window": changeSprite,
 	"trafficLight": changeSprite, "textWall": changeSprite};
-const texts = ["bebou c'est fix"]
+const texts = ["FFFRRREEEEEEDDDOOOMMM !", "LEGALIZE PINEAPPLE PIZZA !", "PASTA KETCHUP IS GOOD !", "WE HAVE OPIGNIONS !", "WE ARE FREE !", "AUTHORITY SUCKS !", "WATER HAVE TASTE !", "MY OPIGNIONS IS SUPERIORS !"]
 
 var looseSound = preload("res://audio/looseGame.mp3")
 var winSound = preload("res://audio/winGame.mp3")

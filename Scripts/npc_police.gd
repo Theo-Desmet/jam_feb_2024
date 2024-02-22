@@ -5,7 +5,10 @@ var maxPos = Vector2(700, 340) #$Area/CollisionShape2D.position.x * 2
 var npcType
 var animTime = 0
 
-const texts = ["Picole nationale, vos bouteille svp", "FBI OPEN DOORS", "c'est pas ma guerre mon colonel", "atchoum", "keep calm", "stay back", "go back", "don't push", "niger"]
+const texts = ["keep calm", "stay back", "Go back", "Don't push"
+
+	, "This riot is not autorize", "You are a shame", "Don't go futher", "We have weapons"
+	, "We are the autority", "KILL KILL KILL", "Oups I lost my weapon", "*atchoum*", "Son's ?"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
