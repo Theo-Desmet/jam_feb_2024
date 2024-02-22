@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5w6ukhp1btbx"]
+[gd_scene load_steps=8 format=3 uid="uid://b5w6ukhp1btbx"]
 
 [ext_resource type="PackedScene" uid="uid://qgyx7javgt3u" path="res://Scenes/Blocks/ABlock.tscn" id="1_pugth"]
 [ext_resource type="PackedScene" uid="uid://08mmx71n3vpt" path="res://Scenes/Actions/DropClothes.tscn" id="2_i7nqr"]
 [ext_resource type="PackedScene" uid="uid://sngmx0woadn2" path="res://Scenes/Actions/DragPosters.tscn" id="3_8mre8"]
 [ext_resource type="Texture2D" uid="uid://d170etmdgqv7h" path="res://asset/sprite/tile_0305.png" id="4_1it8t"]
-[ext_resource type="PackedScene" uid="uid://dswf30rsh7oac" path="res://Scenes/Actions/PloufAction.tscn" id="5_kpf0c"]
-[ext_resource type="Texture2D" uid="uid://ep301hfau0p2" path="res://asset/sprite/tile_0026.png" id="6_y5r3j"]
 [ext_resource type="PackedScene" uid="uid://bh2yua8rya2jn" path="res://Scenes/Actions/WallPosters.tscn" id="7_67gv2"]
 [ext_resource type="Texture2D" uid="uid://kda443k202rm" path="res://asset/sprite/tile_0102.png" id="8_57q1n"]
 [ext_resource type="Texture2D" uid="uid://bpur8t8ud7cw2" path="res://asset/sprite/tile_0259.png" id="9_vy64k"]
@@ -26,14 +24,10 @@ position = Vector2(296, 42)
 position = Vector2(184, 200)
 texture = ExtResource("4_1it8t")
 
-[node name="Plouf" parent="." index="3" instance=ExtResource("5_kpf0c")]
-position = Vector2(182, 72)
-texture = ExtResource("6_y5r3j")
-
-[node name="WallPosters" parent="." index="4" instance=ExtResource("7_67gv2")]
+[node name="WallPosters" parent="." index="3" instance=ExtResource("7_67gv2")]
 position = Vector2(376, 88)
 texture = ExtResource("8_57q1n")
 
-[node name="WallPosters2" parent="." index="5" instance=ExtResource("7_67gv2")]
+[node name="WallPosters2" parent="." index="4" instance=ExtResource("7_67gv2")]
 position = Vector2(120, 24)
 texture = ExtResource("9_vy64k")

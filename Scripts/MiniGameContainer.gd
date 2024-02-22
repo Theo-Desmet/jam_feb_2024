@@ -15,17 +15,17 @@ var scenes = {"poster": preload("res://Scenes/Minigames/ClickablePosters.tscn"),
 			"package": preload("res://Scenes/Minigames/PackageMinigame.tscn"),
 			"streetSign": preload("res://Scenes/Minigames/StreetSignsMinigame.tscn")};
 
-var scores = {"posters": 100, "dragPoster": 100, "falling": 100, "fruit": 100,
-			"obstacle": 100, "package": 100, "plouf": 100, "textWall": 100,
-			"traffic": 100, "window": 100, "streetSign": 100};
+var scores = {"posters": 12000, "dragPoster": 11000, "falling": 13000, "fruit": 25000,
+			"obstacle": 9000, "package": 21000, "plouf": 100, "textWall": 15000,
+			"traffic": 8000, "window": 12000, "streetSign": 9000};
 			
-var riotLevel = {"posters": 0.05, "dragPoster": 0.05, "falling": 0.05, "fruit": 0.05,
-			"obstacle": 0.05, "package": 0.05, "plouf": 0.05, "textWall": 0.05,
-			"traffic": 0.05, "window": 0.05, "streetSign": 0.05};
+var riotLevel = {"posters": 0.05, "dragPoster": 0.05, "falling": 0.05, "fruit": 0.09,
+			"obstacle": 0.04, "package": 0.08, "plouf": 0.05, "textWall": 0.06,
+			"traffic": 0.04, "window": 0.05, "streetSign": 0.04};
 			
-var timer = {"dragPoster": 5, "dropClothes": 5, "fruit": 5, "obstacle": 5, 
-			"package": 5, "streetSign": 5, "textWall": 5, "plouf": 5,
-			"trafficLight": 5, "poster": 5, "window": 5};
+var timer = {"dragPoster": 4, "dropClothes": 4, "fruit": 8, "obstacle": 3, 
+			"package": 7, "streetSign": 3, "textWall": 5, "plouf": 5,
+			"trafficLight": 3, "poster": 4, "window": 4};
 
 
 

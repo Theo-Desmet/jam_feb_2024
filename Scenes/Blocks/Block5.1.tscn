@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://04ow3kqbw2xm"]
+[gd_scene load_steps=7 format=3 uid="uid://04ow3kqbw2xm"]
 
 [ext_resource type="PackedScene" uid="uid://qgyx7javgt3u" path="res://Scenes/Blocks/ABlock.tscn" id="1_6kg4p"]
 [ext_resource type="PackedScene" uid="uid://clmkycvvypfyi" path="res://Scenes/Actions/ObstaclesAction.tscn" id="2_2wklj"]
 [ext_resource type="Texture2D" uid="uid://psr3sxg2i5o5" path="res://asset/sprite/tile_0248.png" id="3_ndo7m"]
-[ext_resource type="PackedScene" uid="uid://dswf30rsh7oac" path="res://Scenes/Actions/PloufAction.tscn" id="4_h1f2f"]
-[ext_resource type="Texture2D" uid="uid://b713bk265jnyk" path="res://asset/sprite/tile_0347.png" id="5_yje2s"]
 [ext_resource type="PackedScene" uid="uid://bh2yua8rya2jn" path="res://Scenes/Actions/WallPosters.tscn" id="6_op73g"]
 [ext_resource type="Texture2D" uid="uid://b8xmle6emg5nn" path="res://asset/sprite/tile_0340.png" id="7_ipjag"]
 [ext_resource type="PackedScene" uid="uid://ci5ky61es8833" path="res://Scenes/Actions/StreetSign.tscn" id="8_p7k5s"]
@@ -20,25 +18,21 @@ layer_4/tile_data = PackedInt32Array(131094, 458752, 7, 131100, 458752, 7, 65558
 position = Vector2(24, 248)
 texture = ExtResource("3_ndo7m")
 
-[node name="Plouf" parent="." index="2" instance=ExtResource("4_h1f2f")]
-position = Vector2(519, 125)
-texture = ExtResource("5_yje2s")
-
-[node name="WallPosters" parent="." index="3" instance=ExtResource("6_op73g")]
+[node name="WallPosters" parent="." index="2" instance=ExtResource("6_op73g")]
 position = Vector2(712, 168)
 texture = ExtResource("7_ipjag")
 
-[node name="WallPosters2" parent="." index="4" instance=ExtResource("6_op73g")]
+[node name="WallPosters2" parent="." index="3" instance=ExtResource("6_op73g")]
 position = Vector2(104, 168)
 texture = ExtResource("7_ipjag")
 
-[node name="WallPosters3" parent="." index="5" instance=ExtResource("6_op73g")]
+[node name="WallPosters3" parent="." index="4" instance=ExtResource("6_op73g")]
 position = Vector2(216, 88)
 texture = ExtResource("7_ipjag")
 
-[node name="WallPosters4" parent="." index="6" instance=ExtResource("6_op73g")]
-position = Vector2(632, 88)
+[node name="WallPosters4" parent="." index="5" instance=ExtResource("6_op73g")]
+position = Vector2(568, 88)
 texture = ExtResource("7_ipjag")
 
-[node name="StreetSign" parent="." index="7" instance=ExtResource("8_p7k5s")]
+[node name="StreetSign" parent="." index="6" instance=ExtResource("8_p7k5s")]
 position = Vector2(408, 214)

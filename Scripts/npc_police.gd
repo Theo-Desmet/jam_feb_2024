@@ -2,7 +2,7 @@ extends Node2D
 
 var velocity = Vector2.ZERO
 var maxPos = Vector2(700, 340) #$Area/CollisionShape2D.position.x * 2
-var npcType = 0
+var npcType
 var animTime = 0
 
 const texts = ["Picole nationale, vos bouteille svp", "FBI OPEN DOORS", "c'est pas ma guerre mon colonel", "atchoum", "keep calm", "stay back", "go back", "don't push", "niger"]
@@ -11,7 +11,8 @@ const texts = ["Picole nationale, vos bouteille svp", "FBI OPEN DOORS", "c'est p
 func _ready():
 	#velocity = Vector2.ZERO
 	#npcType = randi() % 5
-	$body/sprite.animation = "left" #+ str(npcType)
+	npcType = randi_range(1, 3)
+	$body/sprite.animation = "left" + str(npcType)
 	$body/sprite.play()
 
 func _integrate_forces(state):

@@ -18,7 +18,7 @@ const texts = ["I have no idea why I'm here", "I love Paris", \
 func _ready():
 	animTime = randi_range(1, 10)
 	velocity = Vector2.ZERO
-	npcType = randi() % 5
+	npcType = randi() % 10
 	$Sprite.animation = "right" + str(npcType)
 	$Sprite.play()
 

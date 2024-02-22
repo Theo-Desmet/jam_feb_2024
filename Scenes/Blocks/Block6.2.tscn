@@ -26,5 +26,5 @@ position = Vector2(215, 42)
 position = Vector2(40, 103)
 
 [node name="WallPosters" parent="." index="4" instance=ExtResource("5_fvl7c")]
-position = Vector2(360, 215)
+position = Vector2(360, 216)
 texture = ExtResource("6_wepxm")

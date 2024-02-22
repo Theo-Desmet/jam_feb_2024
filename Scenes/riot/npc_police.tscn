@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b32rsslsbouh7"]
+[gd_scene load_steps=23 format=3 uid="uid://b32rsslsbouh7"]
 
 [ext_resource type="Script" path="res://Scripts/npc_police.gd" id="1_bbteq"]
 [ext_resource type="Texture2D" uid="uid://dvby8bj87w23x" path="res://asset/sprite/tile_0267.png" id="2_0ovqa"]
@@ -7,11 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://bfvtloutonedd" path="res://asset/sprite/Police/0.png" id="5_d7p6l"]
 [ext_resource type="Texture2D" uid="uid://da75b6eigdips" path="res://asset/sprite/Police/2.png" id="6_hiflm"]
 [ext_resource type="Texture2D" uid="uid://j2jnabj74kma" path="res://asset/sprite/Police/1.png" id="7_csrgs"]
+[ext_resource type="Texture2D" uid="uid://bg1wbdku1sl2c" path="res://asset/sprite/Police/3.png" id="8_ro6n8"]
 [ext_resource type="Texture2D" uid="uid://dakf0jqwb2htg" path="res://asset/sprite/tile_0269.png" id="8_tlmc0"]
 [ext_resource type="Texture2D" uid="uid://dwj1lmldudd0" path="res://asset/sprite/tile_0296.png" id="9_grhv3"]
+[ext_resource type="Texture2D" uid="uid://cy6lkkasu0wmf" path="res://asset/sprite/Police/4.png" id="9_hr0fh"]
 [ext_resource type="Texture2D" uid="uid://bs18u5xfyire2" path="res://asset/sprite/tile_0323.png" id="10_gupgj"]
+[ext_resource type="Texture2D" uid="uid://bj2a6vshsuq0c" path="res://asset/sprite/Police/5.png" id="10_yv6cc"]
+[ext_resource type="Texture2D" uid="uid://7au3i6bs7d2w" path="res://asset/sprite/Police/tile058.png" id="11_8gmy7"]
 [ext_resource type="Texture2D" uid="uid://dxaxa78ldokej" path="res://asset/sprite/tile_0268.png" id="11_ggfga"]
 [ext_resource type="Texture2D" uid="uid://bv71xbjmdga18" path="res://asset/sprite/tile_0295.png" id="12_3shdi"]
+[ext_resource type="Texture2D" uid="uid://cp84hdk0xcdiy" path="res://asset/sprite/Police/tile076.png" id="12_s14mx"]
+[ext_resource type="Texture2D" uid="uid://bdbmvxvc17v4k" path="res://asset/sprite/Police/tile094.png" id="13_1ag8e"]
 [ext_resource type="Texture2D" uid="uid://b4mnmvx8c6b5x" path="res://asset/sprite/tile_0322.png" id="13_8oirm"]
 [ext_resource type="PackedScene" uid="uid://dantc7rm50kr4" path="res://Scenes/Gui/Speech.tscn" id="14_knj22"]
 
@@ -45,7 +51,35 @@ animations = [{
 "texture": ExtResource("7_csrgs")
 }],
 "loop": true,
-"name": &"left",
+"name": &"left1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ro6n8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hr0fh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yv6cc")
+}],
+"loop": true,
+"name": &"left2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_8gmy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_s14mx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1ag8e")
+}],
+"loop": true,
+"name": &"left3",
 "speed": 5.0
 }, {
 "frames": [{
@@ -92,8 +126,7 @@ shape = SubResource("RectangleShape2D_578w0")
 [node name="sprite" type="AnimatedSprite2D" parent="body"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_e68t5")
-animation = &"left"
-frame_progress = 0.211021
+animation = &"left3"
 
 [node name="Speech" parent="." instance=ExtResource("14_knj22")]
 visible = false

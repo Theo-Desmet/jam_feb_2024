@@ -43,7 +43,7 @@ func _ready():
 	megaphoneValue = 100
 	incognitoValue = 100
 	score = 0
-	timeMin = 5
+	timeMin = 3
 	timeSec = 0
 	GlobalSignal.OpenMiniGameContainer.connect(miniGameContainer);
 	GlobalSignal.restartGame.connect(restartHUD)
@@ -222,7 +222,7 @@ func _on_timer_timeout():
 		time += str(timeSec)
 	$timerLabel.text = time
 	if riotLevel > 1:
-		updateRiotLevel(-0.01 )
+		updateRiotLevel(-0.01 * policeLevel)
 	UpdateMegaphone()
 	UpdateIncognito()
 		
@@ -262,7 +262,7 @@ func useMegaphone():
 		$usePowerUp.play()
 
 func megaphoneEffect():
-	updateRiotLevel(0.05)
+	updateRiotLevel(0.09)
 	
 func UpdateIncognito():
 	if incognitoValue > 0 and incognitoUse == 0:
@@ -296,12 +296,17 @@ func useIncognito():
 		$usePowerUp.set_stream(sound[0])
 		$usePowerUp.play()
 		incognitoEffect()
+	elif megaphoneUse == 0 and incognitoUse == 1 and isInRiotArea == 1:
+		incognitoUse = 0
+		incognitoValue = 100
+		$powersUp/incognito/useOverBar.value = 0
+		playerIncognitoEnd.emit()
 	else:
 		$usePowerUp.set_stream(sound[1])
 		$usePowerUp.play()
 		
 func incognitoEffect():
-	updatePoliceLevel(-0.5)
+	updatePoliceLevel(-1)
 
 func ft_endGame():
 	$Timer.stop()

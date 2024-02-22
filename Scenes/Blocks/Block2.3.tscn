@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cm4y4d1n3nf7p"]
+[gd_scene load_steps=9 format=3 uid="uid://cm4y4d1n3nf7p"]
 
 [ext_resource type="PackedScene" uid="uid://qgyx7javgt3u" path="res://Scenes/Blocks/ABlock.tscn" id="1_kef8b"]
 [ext_resource type="PackedScene" uid="uid://sngmx0woadn2" path="res://Scenes/Actions/DragPosters.tscn" id="2_qj73g"]
 [ext_resource type="Texture2D" uid="uid://d170etmdgqv7h" path="res://asset/sprite/tile_0305.png" id="3_37ihg"]
 [ext_resource type="PackedScene" uid="uid://dqp5jc1nf3la5" path="res://Scenes/Actions/TextWall.tscn" id="4_sxfrl"]
 [ext_resource type="Texture2D" uid="uid://bmc4xij0vqu7b" path="res://asset/sprite/tile_0097.png" id="5_tfsy8"]
-[ext_resource type="PackedScene" uid="uid://dswf30rsh7oac" path="res://Scenes/Actions/PloufAction.tscn" id="6_tw6fc"]
 [ext_resource type="PackedScene" uid="uid://bh2yua8rya2jn" path="res://Scenes/Actions/WallPosters.tscn" id="7_75e34"]
-[ext_resource type="Texture2D" uid="uid://tycuywykawvs" path="res://asset/sprite/tile_0185.png" id="7_jgwpa"]
+[ext_resource type="PackedScene" uid="uid://ci5ky61es8833" path="res://Scenes/Actions/StreetSign.tscn" id="8_185f4"]
 [ext_resource type="Texture2D" uid="uid://ca12wgl1qrwe5" path="res://asset/sprite/tile_0103.png" id="9_tmjbe"]
 
 [node name="ABlock" instance=ExtResource("1_kef8b")]
@@ -27,10 +26,9 @@ texture = ExtResource("3_37ihg")
 position = Vector2(184, 72)
 texture = ExtResource("5_tfsy8")
 
-[node name="Plouf" parent="." index="3" instance=ExtResource("6_tw6fc")]
-position = Vector2(148, 52)
-texture = ExtResource("7_jgwpa")
-
-[node name="WallPosters" parent="." index="4" instance=ExtResource("7_75e34")]
+[node name="WallPosters" parent="." index="3" instance=ExtResource("7_75e34")]
 position = Vector2(312, 216)
 texture = ExtResource("9_tmjbe")
+
+[node name="StreetSign" parent="." index="4" instance=ExtResource("8_185f4")]
+position = Vector2(40, 248)

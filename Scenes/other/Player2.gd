@@ -5,7 +5,7 @@ var lastDir = "";
 var canMove = false
 var canInteract = false;
 var currentActionInstance = null;
-var initPos = Vector2(900, 350)
+var initPos = Vector2(450, 350)
 var isMovingX = false
 var isMovingY = false
 
@@ -18,7 +18,7 @@ var looseSound = preload("res://audio/looseGame.mp3")
 var winSound = preload("res://audio/winGame.mp3")
 
 func _ready():
-	#position = initPos
+	position = initPos
 
 	footSound.append(preload("res://audio/foot/running1.mp3"))
 	footSound.append(preload("res://audio/foot/running2.mp3"))
@@ -68,7 +68,7 @@ func actionFinished(winBool):
 	
 	const policePos = Vector2i(980, 229);
 	var dist = currentActionInstance.global_position.distance_to(policePos);
-	GlobalSignal.UpdatePoliceLevel.emit(clamp((1 / dist) * 100, 0, 1));
+	GlobalSignal.UpdatePoliceLevel.emit(0.5);
 	#currentActionInstance = null;
 	
 func startGame():
