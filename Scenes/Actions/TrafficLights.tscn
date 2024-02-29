@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/Actions/TrafficLights.gd" id="2_gt8qp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pbhn"]
-size = Vector2(28, 26)
+size = Vector2(28, 35)
 
 [node name="TrafficLights" instance=ExtResource("1_s6amy")]
 script = ExtResource("2_gt8qp")
@@ -14,6 +14,7 @@ script = ExtResource("2_gt8qp")
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_6pbhn")
 
 [node name="Sprite" parent="." index="2"]

@@ -56,9 +56,7 @@ func _ready():
 func miniGameContainer(instance):
 	var c = container.instantiate();
 	c.miniGameInfos = instance.getInfos();
-	c.global_position.x = get_viewport().size.x / 2;
-	c.global_position.y = get_viewport().size.y / 2;
-	add_child(c);
+	$CenterContainer.add_child(c);
 
 func startGame():
 	$Timer.start()

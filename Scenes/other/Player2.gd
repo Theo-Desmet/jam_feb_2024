@@ -64,6 +64,7 @@ func changeSprite():
 	currentActionInstance.changeSprite();
 
 func actionFinished(winBool):
+	$Area2D.monitoring = true;
 	if !winBool:
 		GlobalSignal.ResetRiotLevel.emit();
 		$win_loose.set_stream(looseSound)
@@ -79,7 +80,6 @@ func actionFinished(winBool):
 	var dist = currentActionInstance.global_position.distance_to(policePos);
 	GlobalSignal.UpdatePoliceLevel.emit(0.5);
 	#currentActionInstance = null;
-	
 func startGame():
 	canMove = true
 	
@@ -141,6 +141,7 @@ func _process(delta):
 	global_position = global_position.clamp(Vector2(8, 8),Vector2(1095, 502));
 
 	if (Input.is_action_just_pressed("interact") and canInteract):
+		$Area2D.monitoring = false;
 		GlobalSignal.OpenMiniGameContainer.emit(currentActionInstance);
 		currentActionInstance.disable();
 		canMove = false;
