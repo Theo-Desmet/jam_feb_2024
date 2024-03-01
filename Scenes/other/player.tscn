@@ -25,6 +25,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_itg8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ttdm8")
 }],
 "loop": true,
 "name": &"down",
@@ -44,6 +47,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_panmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yf5co")
 }],
 "loop": true,
 "name": &"left",
@@ -63,6 +69,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("10_cmgh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_c8toq")
 }],
 "loop": true,
 "name": &"right",
@@ -82,6 +91,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("13_8sjcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6gsd0")
 }],
 "loop": true,
 "name": &"up",
@@ -143,7 +155,7 @@ script = ExtResource("1_kehy6")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_yi1ul")
-animation = &"down_stop"
+animation = &"down"
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]
 light_mask = 7
